@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &285443831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7381553557077772013, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
+  m_PrefabInstance: {fileID: 7381553557443434093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &285443834 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7381553557077772014, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
+  m_PrefabInstance: {fileID: 7381553557443434093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &285443837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285443831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae49b541dc85e60439043cec386d0a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  rotationSpeed: 15
+  isGrounded: 1
+  startMomentum: 3
+  momentum: 0
+  momentumIncrease: 0.1
+  graceTimer: 0.5
+  rb: {fileID: 285443834}
 --- !u!1 &450706798
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +355,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7381553557077772012, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1971639311, guid: 3301500da64dee541afcdfab26ac336b, type: 3}
+    - target: {fileID: 7381553557077772012, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381553557077772013, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
       propertyPath: m_Name
       value: Duck
@@ -373,5 +419,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7381553557077772008, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2934b2fe6ec6e6645852bf8179de232e, type: 3}
