@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 16bb17348ca5d3442970ab1cc84d4df7
+guid: 3301500da64dee541afcdfab26ac336b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,19 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -127,385 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 96
-        width: 22
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce935d17ba97c1e449d8b33f852ad8f4
-      internalID: 1210990251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 96
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7efcf0a4521247448e291a196c3650c
-      internalID: 560305306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 64
-        width: 21
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38ef574e022ea28459c6083417e68921
-      internalID: 899526535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 64
-        width: 22
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad55b8246d16fac4f8c8ffd8f115f344
-      internalID: -361615712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 64
-        width: 22
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1404bc0c38a55843b063b68d8584c99
-      internalID: -1923533049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 64
-        width: 23
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25b065c49c19f0b409f85491f3885ffa
-      internalID: -163693036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 64
-        width: 22
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 144e90fe9774fc344919f8c2a85fa619
-      internalID: 673929850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 64
-        width: 22
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25f78f091dff07845b9c5cc86c14efd1
-      internalID: 1824084164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 32
-        width: 22
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2021344898ef3364699efd7770bf9006
-      internalID: 637785706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 32
-        width: 24
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4ca536a7f2db13438fcb04bf98e024b
-      internalID: 2139497216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 32
-        width: 22
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca0a623e62908ad45af0baeea924fbcd
-      internalID: 218687505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 32
-        width: 20
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 796ce060e0b556441a015f88d9cea7e3
-      internalID: -2039540387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 25
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7db318a756a1884d934e766c3529d47
-      internalID: -985299664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 0
-        width: 22
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49504d4d82d3e1d4ca53d152fcfdbcaf
-      internalID: 1956059935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_14
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 0
-        width: 22
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de0119b29a5fbca4bbc2e710e63c7392
-      internalID: -1960460367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_15
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 0
-        width: 25
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c61e55dee6fa58641bfd542dbd1af818
-      internalID: 1239494596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 0
-        width: 22
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cd07d31c35e4044195950bfd9443014
-      internalID: 988787371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ducky_3_spritesheet_17
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 0
-        width: 22
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1cc5d3a6a96f854c89248f2870ca998
-      internalID: 1510704621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -516,25 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ducky_3_spritesheet_0: 1210990251
-      ducky_3_spritesheet_1: 560305306
-      ducky_3_spritesheet_10: 218687505
-      ducky_3_spritesheet_11: -2039540387
-      ducky_3_spritesheet_12: -985299664
-      ducky_3_spritesheet_13: 1956059935
-      ducky_3_spritesheet_14: -1960460367
-      ducky_3_spritesheet_15: 1239494596
-      ducky_3_spritesheet_16: 988787371
-      ducky_3_spritesheet_17: 1510704621
-      ducky_3_spritesheet_2: 899526535
-      ducky_3_spritesheet_3: -361615712
-      ducky_3_spritesheet_4: -1923533049
-      ducky_3_spritesheet_5: -163693036
-      ducky_3_spritesheet_6: 673929850
-      ducky_3_spritesheet_7: 1824084164
-      ducky_3_spritesheet_8: 637785706
-      ducky_3_spritesheet_9: 2139497216
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
