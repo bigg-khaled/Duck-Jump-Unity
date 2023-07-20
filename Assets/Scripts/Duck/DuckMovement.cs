@@ -1,31 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DuckMovement : MonoBehaviour
 {
-    public float speed = 1f;
     public float jumpForce = 5f;
+    public float rotationSpeed = 5f;
     public bool isGrounded = true;
-    public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
-    public Transform groundCheck;
-    
-    public float momentum = 0f;
-    public float momentumMax = 10f;
-    public float gracePeriod = 0.1f;
-    public float graceTimer = 0f;
+    public float startMomentum = 3f;
+    public float momentum;
+    public float momentumIncrease = 0.1f;
+    public float graceTimer = 0.5f;
     public Rigidbody2D rb;
 
-    //when screen is tapped duck jumps then falls
-    //if pressed when duck touches ground within grace period
-    //duck jumps again with forward momentum 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        
+    private void Start()
+    { 
+        momentum = startMomentum;
     }
 
     // Update is called once per frame
@@ -43,17 +34,45 @@ public class DuckMovement : MonoBehaviour
         //if the duck is on the ground, it jumps
         if (isGrounded)
         {
-            rb.velocity = Vector3.up * jumpForce;
+            //duck jumps with forward momentum speed and rotation speed
+            rb.velocity = new Vector2(momentum, jumpForce);
+            rb.rotation = rotationSpeed;
+            
+            //duck is no longer grounded
             isGrounded = false;
+        }
+
+        //if player tries to jump when the duck is not grounded
+        if (!isGrounded)
+        {
+            //reset momentum
+            momentum = startMomentum;
         }
     }
     
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if(isGrounded){return;}
+        
         //if the duck collides with the ground, it is grounded
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+
+            //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
+            StartCoroutine(GraceTimer());
         }
     }
+    
+    IEnumerator GraceTimer()
+    {
+        yield return new WaitForSeconds(graceTimer);
+        if (!isGrounded)
+        {
+            momentum = startMomentum;
+        }
+        //increase momentum
+        momentum += momentumIncrease;
+    }
+    
 }
