@@ -15,9 +15,21 @@ public class Generator : MonoBehaviour
     private float currentPos = 0;
     public int chunknum;
     private bool usedChunk;
+    private Color[] colors;
+    private int currentIndex = 0;
 
     void Start()
     {
+        colors = new Color[]
+        {
+            new Color(1f, 1f, 0f),       // Yellow
+            new Color(0f, 1f, 1f),       // Cyan
+            new Color(0f, 1f, 0f),       // Green
+            new Color(1f, 0f, 1f),       // Magenta
+            new Color(1f, 0f, 0f),       // Red
+            new Color(0f, 0f, 0.5f),     // Dark Blue
+            new Color(1f, 1f, 1f)        // White
+        };
         currentPos = transform.position.x;
         Generation();
         usedChunk = false;
@@ -28,7 +40,7 @@ public class Generator : MonoBehaviour
     {
         
         int repeatvalue = 0;
-        for(int x = (int)transform.position.x; x < width+ (int)transform.position.x; x++)
+        for(float x = transform.position.x; x < width*0.99f + transform.position.x; x+=0.99f)
         {
             if (repeatvalue == 0)
             {
@@ -44,25 +56,28 @@ public class Generator : MonoBehaviour
         }
     }
 
-    void GenFlat(int x)
+    void GenFlat(float x)
     {
         int amountSpawned = 0;
+        Color color = ColorPick();
         for (float y = transform.position.y; amountSpawned < height; y+=floor.transform.localScale.y)
         {
             spawnObj(floor, x, y);
             amountSpawned++;
         }
     }
-    void spawnObj(GameObject obj, int width, float height)
+    void spawnObj(GameObject obj, float width, float height)
     {
         obj = Instantiate(obj, new Vector2(width, height), Quaternion.identity);
         obj.transform.parent = this.transform;
+        obj.GetComponent<Renderer>().material.color = Color.black;
+       
     }
 
     private void Update()
     {
         
-        if(duck.transform.position.x >= currentPos + width/2)
+        if(duck.transform.position.x >= currentPos + (width*0.99f)/2)
         {
             if (usedChunk)
             {
@@ -71,7 +86,7 @@ public class Generator : MonoBehaviour
             else
             {
                 GameObject newChunk = new GameObject();
-                newChunk.transform.position = new Vector2(transform.position.x + width, transform.position.y);
+                newChunk.transform.position = new Vector2(transform.position.x + (width*0.99f), transform.position.y);
                 Generator newGenerator = newChunk.AddComponent<Generator>();
                 newGenerator.width = width;
                 newGenerator.height = height;
@@ -84,9 +99,13 @@ public class Generator : MonoBehaviour
                 currentPos += width;
                 usedChunk = true;
             }
-
-            //GameObject newChunk = Instantiate(gameObject, new Vector2( transform.position.x + width, transform.position.y), Quaternion.identity);
-            //currentPos += width;
         }
+    }
+
+    Color ColorPick()
+    {
+        Color nextColor = colors[currentIndex];
+        currentIndex = (currentIndex + 1) % colors.Length;
+        return nextColor;
     }
 }
