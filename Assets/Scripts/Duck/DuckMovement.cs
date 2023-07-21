@@ -15,7 +15,7 @@ public class DuckMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     private void Start()
-    { 
+    {
         momentum = startMomentum;
     }
 
