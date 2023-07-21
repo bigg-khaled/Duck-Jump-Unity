@@ -33,6 +33,7 @@ public class Challenge : MonoBehaviour
     public int score;
     public int scoreMultiplier;
     public GameObject player;
+    public string challengeText;
 
 
     private void Start()
@@ -86,7 +87,7 @@ public class Challenge : MonoBehaviour
                 break;
         } 
         
-        Debug.Log("Challenge Started " + challengeType + " " + challengeStatus + " ");   
+        Debug.Log("Challenge Started: \n" + challengeText);   
     }
 
     //create random challenge
@@ -111,24 +112,30 @@ public class Challenge : MonoBehaviour
                 timeLimit = 5;
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Perform " + amount + " Backflips" + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_HEIGHT:
                 amount = UnityEngine.Random.Range(4, 20);
                 timeLimit = 5;
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Reach " + amount + " meters high " + " in " + timeLimit + " seconds";
+
                 break;
             case ChallengeType.HIT_TARGET:
                 amount = 0;
                 timeLimit = UnityEngine.Random.Range(15,30);
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Hit " + target.name + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_SPEED:
                 amount = UnityEngine.Random.Range(1, 4);
                 timeLimit = 5;
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Reach speed of " + amount + " m/s" + " in " + timeLimit + " seconds";
+
                 break;
         }
     }

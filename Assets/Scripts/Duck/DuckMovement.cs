@@ -83,6 +83,7 @@ public class DuckMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Target"))
         {
             isTargetHit = true;
+            print("Target hit");
         }
     }
     
