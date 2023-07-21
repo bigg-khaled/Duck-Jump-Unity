@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ChallengeHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // This is a list of all the challenges that will be available in the game.
+    // get a random challenge from this list and assign it to the currentChallenge variable.
+[SerializeField] private List<Challenge> challenges;
+private Challenge currentChallenge;
+private float timeLeft;
+private bool isChallengeActive;
+private bool isChallengeCompleted;
+private int score;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
