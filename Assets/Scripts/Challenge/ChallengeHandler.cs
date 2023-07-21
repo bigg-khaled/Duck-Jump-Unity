@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChallengeHandler : MonoBehaviour
 {
     
-    private Challenge currentChallenge;
+    public Challenge currentChallenge;
     private float timeLeft;
     private bool isChallengeActive;
     private bool isChallengeCompleted;
@@ -15,25 +15,51 @@ public class ChallengeHandler : MonoBehaviour
     private void Start()
     { 
         // create a new challenge.
-        currentChallenge = ScriptableObject.CreateInstance<Challenge>();
         currentChallenge.CreateChallenge();
         timeLeft = currentChallenge.timeLimit;
         isChallengeActive = true;
         isChallengeCompleted = false;
+        
+        // Debug.Log(currentChallenge.GetChallengeType() + " " + isChallengeActive + " " + isChallengeActive);
     }
     
     private void FixedUpdate()
     {
        //get challenge type to display on screen and start challenge
        if (isChallengeActive)
-       {
+       { 
            currentChallenge.StartChallenge();
-           Debug.Log("Challenge Type: " + currentChallenge.GetChallengeType());
+           
+           //start timer
+           StartCoroutine(ChallengeTimer());
+           
+           if(currentChallenge.GetChallengeStatus() == Challenge.ChallengeStatus.COMPLETED)
+           {
+               isChallengeCompleted = true;
+               isChallengeActive = false;
+               Debug.Log("Challenge Completed");
+           }
+       }
+       
+       if(!isChallengeActive && isChallengeCompleted)
+       {
+           //Create new challenge
+           currentChallenge.StartChallenge();
        }
        
        
 
 
+    }
+
+    IEnumerator ChallengeTimer()
+    {
+        yield return new WaitForSeconds(timeLeft);
+        if (!isChallengeCompleted)
+        {
+            //Game Over
+            currentChallenge.FailChallenge();
+        }
     }
     
 }
