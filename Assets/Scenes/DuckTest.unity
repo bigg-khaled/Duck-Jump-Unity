@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChallenge: {fileID: 355893259}
+  challengeText: {fileID: 2112109047}
 --- !u!1 &591009997
 GameObject:
   m_ObjectHideFlags: 0
