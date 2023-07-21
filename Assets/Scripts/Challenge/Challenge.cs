@@ -85,9 +85,7 @@ public class Challenge : MonoBehaviour
                 //check if player has reached a certain speed
                 StartReachSpeedChallenge();
                 break;
-        } 
-        
-        Debug.Log("Challenge Started: \n" + challengeText);   
+        }
     }
 
     //create random challenge

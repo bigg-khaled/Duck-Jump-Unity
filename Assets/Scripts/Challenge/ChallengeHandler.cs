@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChallengeHandler : MonoBehaviour
@@ -10,7 +11,7 @@ public class ChallengeHandler : MonoBehaviour
     private float timeLeft;
     private bool isChallengeActive;
     private bool isChallengeCompleted;
-    
+    public TextMeshProUGUI challengeText;
 
     private void Start()
     { 
@@ -29,7 +30,8 @@ public class ChallengeHandler : MonoBehaviour
        if (isChallengeActive)
        { 
            currentChallenge.StartChallenge();
-           
+           Debug.Log("Challenge Started: \n" + currentChallenge.challengeText);
+           challengeText.text = currentChallenge.challengeText;
            //start timer
            StartCoroutine(ChallengeTimer());
            
@@ -39,12 +41,15 @@ public class ChallengeHandler : MonoBehaviour
                isChallengeActive = false;
                Debug.Log("Challenge Completed");
            }
+
+           
        }
-       
-       if(!isChallengeActive && isChallengeCompleted)
+
+       if(!isChallengeActive && isChallengeCompleted && currentChallenge.GetChallengeStatus() == Challenge.ChallengeStatus.COMPLETED)
        {
            //Create new challenge
-           currentChallenge.StartChallenge();
+           isChallengeActive = true;
+           currentChallenge.CreateChallenge();
        }
        
        
@@ -59,6 +64,9 @@ public class ChallengeHandler : MonoBehaviour
         {
             //Game Over
             currentChallenge.FailChallenge();
+            isChallengeActive = false;
+            isChallengeCompleted = false;
+            challengeText.text = "Failed";
         }
     }
     
