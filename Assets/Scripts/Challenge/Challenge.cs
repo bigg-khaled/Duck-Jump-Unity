@@ -12,6 +12,7 @@ public class Challenge : MonoBehaviour
         REACH_HEIGHT,
         HIT_TARGET,
         REACH_SPEED,
+        GO_BACKWARD,
     };
 
     public enum ChallengeStatus
@@ -34,6 +35,12 @@ public class Challenge : MonoBehaviour
     public int scoreMultiplier;
     public GameObject player;
     public string challengeText;
+
+    //variables for GO_BACKWARD challenge
+    bool startCounting = false;
+    int amountReached = 0;
+    float startPoint;
+
 
 
     private void Start()
@@ -85,6 +92,10 @@ public class Challenge : MonoBehaviour
                 //check if player has reached a certain speed
                 StartReachSpeedChallenge();
                 break;
+            case ChallengeType.GO_BACKWARD:
+                //check if player has moved backwards a certain amount of pixels
+                StartGoBackwardChallenge();
+                break;
         }
     }
 
@@ -135,6 +146,13 @@ public class Challenge : MonoBehaviour
                 challengeText = "Reach speed of " + amount + " m/s" + " in " + timeLimit + " seconds";
 
                 break;
+            case ChallengeType.GO_BACKWARD:
+                amount = UnityEngine.Random.Range(5, 10);
+                timeLimit = 10;
+                score = 100;
+                scoreMultiplier = 1;
+                challengeText = "Go backward " + amount + " pixels" + " in " + timeLimit + " seconds";
+                break;
         }
     }
     
@@ -175,5 +193,33 @@ public class Challenge : MonoBehaviour
             CompleteChallenge();
         }
     }
-    
+
+    private void StartGoBackwardChallenge()
+    {
+        //if player is moving forward, don't start counting and reset the amountReached to zero
+        if((player.GetComponent<Rigidbody2D>().velocity.x > 0.1f))
+        {
+            startCounting = false;
+            amountReached = 0;
+        }
+        //if the player starts moving backwards, their startpoint is recorded and this function starts counting
+        else if((player.GetComponent<Rigidbody2D>().velocity.x < 0) && (startCounting == false))
+        {
+            startPoint = player.AddComponent<Rigidbody2D>().transform.position.x;
+            startCounting = true;
+        }
+        //calculates the differece between the startpoint recorded and how many pixels backwards the player has moved
+        //Todo: convert x -> pixels somehow or calculate a doable multiplyer 
+        if (startCounting)
+        {
+            amountReached = Mathf.Abs((int)startPoint - (int)player.AddComponent<Rigidbody2D>().transform.position.x);
+            if(amountReached >= amount)
+            {
+                startCounting = false;
+                CompleteChallenge();
+                amountReached = 0;
+            }
+        }
+    }
+
 }
