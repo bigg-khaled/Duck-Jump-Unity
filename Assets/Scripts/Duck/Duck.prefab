@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1210990251, guid: 16bb17348ca5d3442970ab1cc84d4df7, type: 3}
+  m_Sprite: {fileID: 1971639311, guid: 3301500da64dee541afcdfab26ac336b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.96, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -126,7 +126,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6875, y: 0.78125}
-    newSize: {x: 1, y: 2}
+    newSize: {x: 0.96, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -150,14 +150,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7381553557077772013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857d5db1d4d2822428b869e26a92b13f, type: 3}
+  m_Script: {fileID: 11500000, guid: ae49b541dc85e60439043cec386d0a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 4
-  rotationSpeed: 15
+  jumpForce: 5
+  rotationSpeed: 5
   isGrounded: 1
   startMomentum: 3
   momentum: 0
-  momentumIncrease: 1.1
-  graceTimer: 1
-  rb: {fileID: 7381553557077772014}
+  momentumIncrease: 0.1
+  graceTimer: 0.5
+  rb: {fileID: 0}

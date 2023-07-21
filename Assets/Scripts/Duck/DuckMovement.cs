@@ -37,7 +37,8 @@ public class DuckMovement : MonoBehaviour
             //duck jumps with forward momentum speed and rotation speed
             rb.velocity = new Vector2(momentum, jumpForce);
             rb.rotation = rotationSpeed;
-            
+            CameraShake.Instance.ShakeCamera(5f, 0.15f);
+
             //duck is no longer grounded
             isGrounded = false;
         }
@@ -58,7 +59,6 @@ public class DuckMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-
             //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
             StartCoroutine(GraceTimer());
         }
