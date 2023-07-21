@@ -64,6 +64,13 @@ public class DuckMovement : MonoBehaviour
             //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
             StartCoroutine(GraceTimer());
         }
+        
+        //if the duck collides with the target, the challenge is completed
+        if (collision.gameObject.CompareTag("Target"))
+        {
+            isTargetHit = true;
+            // print("Target hit");
+        }
     }
     
     IEnumerator GraceTimer()
@@ -77,15 +84,7 @@ public class DuckMovement : MonoBehaviour
         momentum += momentumIncrease;
     }
     
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //if the duck collides with the target, the challenge is completed
-        if (other.gameObject.CompareTag("Target"))
-        {
-            isTargetHit = true;
-        }
-    }
-    
+
     //check if backflip is preformed
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -101,5 +100,4 @@ public class DuckMovement : MonoBehaviour
             }
         }
     }
-
 }

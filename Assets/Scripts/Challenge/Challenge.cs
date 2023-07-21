@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class Challenge : ScriptableObject
+public class Challenge : MonoBehaviour  
 {
 
     public enum ChallengeType
@@ -15,7 +14,7 @@ public class Challenge : ScriptableObject
         REACH_SPEED,
     };
 
-    public enum ChallnegeStatus
+    public enum ChallengeStatus
     {
         ON_GOING,
         COMPLETED,
@@ -27,34 +26,45 @@ public class Challenge : ScriptableObject
 
     //pick random challenge type from enum
     private ChallengeType challengeType;
-    private ChallnegeStatus challengeStatus;
+    private ChallengeStatus challengeStatus;
     public int amount;
     public float timeLimit;
     public GameObject target;
     public int score;
     public int scoreMultiplier;
-    private GameObject player;
+    public GameObject player;
+    public string challengeText;
+
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
 
     //get challenge type
     public ChallengeType GetChallengeType()
     {
         return challengeType;
     }
+
+    public ChallengeStatus GetChallengeStatus()
+    {
+        return challengeStatus;
+    }
     
     public void CompleteChallenge()
     {
-        challengeStatus = ChallnegeStatus.COMPLETED;
+        challengeStatus = ChallengeStatus.COMPLETED;
     }
     
     public void FailChallenge()
     {
-        challengeStatus = ChallnegeStatus.FAILED;
+        challengeStatus = ChallengeStatus.FAILED;
     }
     
     public void StartChallenge()
     {
-        challengeStatus = ChallnegeStatus.ON_GOING;
-        player = GameObject.FindWithTag("Player");
+        challengeStatus = ChallengeStatus.ON_GOING;
 
         //preform challenge
         switch (challengeType)
@@ -75,8 +85,9 @@ public class Challenge : ScriptableObject
                 //check if player has reached a certain speed
                 StartReachSpeedChallenge();
                 break;
-        }
+        } 
         
+        Debug.Log("Challenge Started: \n" + challengeText);   
     }
 
     //create random challenge
@@ -86,7 +97,6 @@ public class Challenge : ScriptableObject
         // set the timeLeft variable to the timeLimit of the currentChallenge.
         // set the isChallengeActive variable to true.
         // set the isChallengeCompleted variable to false.
-        
         
         //reset backflip count
         player.GetComponent<DuckMovement>().backflipCount = 0;
@@ -98,28 +108,34 @@ public class Challenge : ScriptableObject
         switch (challengeType)
         {
             case ChallengeType.BACKFLIP:
-                amount = UnityEngine.Random.Range(1, 4);
-                timeLimit = 5;
+                amount = UnityEngine.Random.Range(1, 2);
+                timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Perform " + amount + " Backflips" + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_HEIGHT:
                 amount = UnityEngine.Random.Range(4, 20);
-                timeLimit = 5;
+                timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Reach " + amount + " meters high " + " in " + timeLimit + " seconds";
+
                 break;
             case ChallengeType.HIT_TARGET:
-                amount = 0;
-                timeLimit = UnityEngine.Random.Range(15,30);
+                amount = UnityEngine.Random.Range(1, 4);
+                timeLimit = UnityEngine.Random.Range(10,15);
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Hit " + target.name + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_SPEED:
                 amount = UnityEngine.Random.Range(1, 4);
-                timeLimit = 5;
+                timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
+                challengeText = "Reach speed of " + amount + " m/s" + " in " + timeLimit + " seconds";
+
                 break;
         }
     }
@@ -142,6 +158,12 @@ public class Challenge : ScriptableObject
     
     private void StartHitTargetChallenge()
     {
+        //check if there is a target in front of the player
+        
+
+        //if there is not create one
+        
+        
         if (player.GetComponent<DuckMovement>().isTargetHit)
         {
             CompleteChallenge();
