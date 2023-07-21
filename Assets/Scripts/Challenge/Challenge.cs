@@ -8,7 +8,7 @@ public class Challenge : MonoBehaviour
 
     public enum ChallengeType
     {
-        BACKFLIP,
+        FRONTFLIP,
         REACH_HEIGHT,
         HIT_TARGET,
         REACH_SPEED,
@@ -69,9 +69,9 @@ public class Challenge : MonoBehaviour
         //preform challenge
         switch (challengeType)
         {
-            case ChallengeType.BACKFLIP:
+            case ChallengeType.FRONTFLIP:
                 //check if player has done a backflip
-                StartBackflipChallenge();
+                StartFrontflipChallenge();
                 break;
             case ChallengeType.REACH_HEIGHT:
                 //check if player has reached a certain height
@@ -97,7 +97,7 @@ public class Challenge : MonoBehaviour
         // set the isChallengeCompleted variable to false.
         
         //reset backflip count
-        player.GetComponent<DuckMovement>().backflipCount = 0;
+        player.GetComponent<DuckMovement>().frontflipCount = 0;
         
         //reset target hit
         player.GetComponent<DuckMovement>().isTargetHit = false;
@@ -105,19 +105,19 @@ public class Challenge : MonoBehaviour
         challengeType = (ChallengeType)UnityEngine.Random.Range(0, 4);
         switch (challengeType)
         {
-            case ChallengeType.BACKFLIP:
+            case ChallengeType.FRONTFLIP:
                 amount = UnityEngine.Random.Range(1, 2);
                 timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
-                challengeText = "Perform " + amount + " Backflips" + " in " + timeLimit + " seconds";
+                challengeText = "Perform " + amount + " front flips" + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_HEIGHT:
-                amount = UnityEngine.Random.Range(4, 20);
+                amount = UnityEngine.Random.Range(4, 10);
                 timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
-                challengeText = "Reach " + amount + " meters high " + " in " + timeLimit + " seconds";
+                challengeText = "Reach " + amount + " meters high" + " in " + timeLimit + " seconds";
 
                 break;
             case ChallengeType.HIT_TARGET:
@@ -138,9 +138,9 @@ public class Challenge : MonoBehaviour
         }
     }
     
-    private void StartBackflipChallenge()
+    private void StartFrontflipChallenge()
     {
-        if (player.GetComponent<DuckMovement>().backflipCount >= amount)
+        if (player.GetComponent<DuckMovement>().frontflipCount >= amount)
         {
             CompleteChallenge();
         }
@@ -156,12 +156,12 @@ public class Challenge : MonoBehaviour
     
     private void StartHitTargetChallenge()
     {
-        //check if there is a target in front of the player
-        
+        //if there is no target near player, create one in front of player
+        if (target == null)
+        {
+            var newTraget = Instantiate(target, new Vector3(player.transform.position.x + 5, player.transform.position.y + 10, player.transform.position.z), Quaternion.identity);
+        }
 
-        //if there is not create one
-        
-        
         if (player.GetComponent<DuckMovement>().isTargetHit)
         {
             CompleteChallenge();
