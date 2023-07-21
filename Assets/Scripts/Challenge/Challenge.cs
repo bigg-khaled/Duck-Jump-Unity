@@ -6,7 +6,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Challenge : ScriptableObject
 {
-    enum ChallengeType
+
+    
+    public enum ChallengeType
     {
         BACKFLIP,
         REACH_HEIGHT,
@@ -14,20 +16,27 @@ public class Challenge : ScriptableObject
         REACH_SPEED,
     };
 
-    enum ChallnegeStatus
+    public enum ChallnegeStatus
     {
         ON_GOING,
         COMPLETED,
         FAILED,
-    }; 
-    
+    };
+
     //pick random challenge type from enum
     private ChallengeType challengeType;
     private ChallnegeStatus challengeStatus;
     public int amount;
     public float timeLimit;
+    public GameObject target;
     public int score;
     public int scoreMultiplier;
+    
+    //get challenge type
+    public ChallengeType GetChallengeType()
+    {
+        return challengeType;
+    }
     
     public void CompleteChallenge()
     {
@@ -42,6 +51,24 @@ public class Challenge : ScriptableObject
     public void StartChallenge()
     {
         challengeStatus = ChallnegeStatus.ON_GOING;
+        
+        //preform challenge
+        switch (challengeType)
+        {
+            case ChallengeType.BACKFLIP:
+                //check if player has done a backflip
+                break;
+            case ChallengeType.REACH_HEIGHT:
+                //check if player has reached a certain height
+                break;
+            case ChallengeType.HIT_TARGET:
+                //check if player has hit a target
+                break;
+            case ChallengeType.REACH_SPEED:
+                //check if player has reached a certain speed
+                break;
+        }
+        
     }
     
     //create random challenge

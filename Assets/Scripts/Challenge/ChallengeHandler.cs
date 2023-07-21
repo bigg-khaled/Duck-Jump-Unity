@@ -21,9 +21,16 @@ public class ChallengeHandler : MonoBehaviour
         isChallengeCompleted = false;
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
-        
+       //get challenge type to display on screen and start challenge
+       if (isChallengeActive)
+       {
+           currentChallenge.StartChallenge();
+           Debug.Log("Challenge Type: " + currentChallenge.GetChallengeType());
+       }
+
+
     }
     
 }
