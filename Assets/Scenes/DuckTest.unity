@@ -672,6 +672,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1105507961}
+    - target: {fileID: 7381553557077772008, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7381553557077772013, guid: 1b845f039210417439559cbbad528842, type: 3}
       propertyPath: m_Name
       value: Duck

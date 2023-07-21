@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7381553557077772015}
   - component: {fileID: 7381553557077772012}
   - component: {fileID: 7381553557077772014}
-  - component: {fileID: 7381553557077772009}
   - component: {fileID: 7381553557077772008}
+  - component: {fileID: 3195808253255875044}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Untagged
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 177663b50f5a43b4a9bfb9117668dc24, type: 3}
+  m_Sprite: {fileID: -1771655624, guid: b2a727ff3bb40004d9f274bc0f7d8ec3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 16, y: 11.31}
@@ -108,39 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &7381553557077772009
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7381553557077772013}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 3}
-    newSize: {x: 16, y: 11.31}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.1875, y: 0.390625}
-      - {x: -0.34375, y: 0.171875}
-      - {x: -0.34375, y: -0.296875}
-      - {x: -0.25, y: -0.390625}
-      - {x: 0.1875, y: -0.390625}
-      - {x: 0.34375, y: -0.234375}
-      - {x: 0.34375, y: 0.265625}
-      - {x: 0.21875, y: 0.390625}
 --- !u!114 &7381553557077772008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,4 +127,37 @@ MonoBehaviour:
   momentum: 0
   momentumIncrease: 0.1
   graceTimer: 0.5
-  rb: {fileID: 0}
+  rb: {fileID: 7381553557077772014}
+--- !u!60 &3195808253255875044
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7381553557077772013}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.45833334, y: 0.5208333}
+    newSize: {x: 16, y: 11.31}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.125, y: 0.2604167}
+      - {x: -0.22916667, y: 0.114583336}
+      - {x: -0.22916667, y: -0.19791667}
+      - {x: -0.16666667, y: -0.2604167}
+      - {x: 0.125, y: -0.2604167}
+      - {x: 0.22916667, y: -0.15625}
+      - {x: 0.22916667, y: 0.17708334}
+      - {x: 0.14583334, y: 0.2604167}
