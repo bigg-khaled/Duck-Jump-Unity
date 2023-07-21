@@ -13,9 +13,11 @@ public class DuckMovement : MonoBehaviour
     public float momentumIncrease = 0.1f;
     public float graceTimer = 0.5f;
     public Rigidbody2D rb;
-
+    public int backflipCount = 0;
+    public bool isTargetHit = false;
+    
     private void Start()
-    { 
+    {
         momentum = startMomentum;
     }
 
@@ -75,4 +77,29 @@ public class DuckMovement : MonoBehaviour
         momentum += momentumIncrease;
     }
     
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //if the duck collides with the target, the challenge is completed
+        if (other.gameObject.CompareTag("Target"))
+        {
+            isTargetHit = true;
+        }
+    }
+    
+    //check if backflip is preformed
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            //if duck is grounded and rotation is 360, backflip is preformed
+            if (isGrounded && rb.rotation == 360)
+            {
+                //add to backflip count
+                backflipCount++;
+                //reset rotation
+                rb.rotation = 0;
+            }
+        }
+    }
+
 }
