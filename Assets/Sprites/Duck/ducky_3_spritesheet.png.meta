@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,10 +132,10 @@ TextureImporter:
       name: ducky_3_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 96
-        width: 32
-        height: 32
+        width: 22
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72183e503db759343bc9a248778d3905
-      internalID: -1764909816
+      spriteID: 50beaf579ad7268429aad249a2a0fb16
+      internalID: -1771655624
       vertices: []
       indices: 
       edges: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: ducky_3_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 96
-        width: 32
-        height: 32
+        width: 22
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab2c8d933c2ee5548829b907c519db40
-      internalID: -838081875
+      spriteID: a70f77d8563696746ac235d0184bc884
+      internalID: 335049704
       vertices: []
       indices: 
       edges: []
@@ -174,10 +174,10 @@ TextureImporter:
       name: ducky_3_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 64
-        width: 32
-        height: 32
+        width: 21
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 736801946b804d74b9298ab6b097cb9e
-      internalID: 1211987153
+      spriteID: 0a2bf060851f1e74b8a6300e3f81745a
+      internalID: 2146974212
       vertices: []
       indices: 
       edges: []
@@ -195,10 +195,10 @@ TextureImporter:
       name: ducky_3_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 64
-        width: 32
-        height: 32
+        width: 22
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ebda86059f85164b848a1e512343f8c
-      internalID: -18937233
+      spriteID: d853c03934a1d0643a010953d91c2826
+      internalID: -1349775792
       vertices: []
       indices: 
       edges: []
@@ -216,10 +216,10 @@ TextureImporter:
       name: ducky_3_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 70
         y: 64
-        width: 32
-        height: 32
+        width: 22
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b1b50167dd4b30489fad6652617c77c
-      internalID: -753222008
+      spriteID: 47d76d0041080f6439c9192f513d7048
+      internalID: 831310802
       vertices: []
       indices: 
       edges: []
@@ -237,10 +237,10 @@ TextureImporter:
       name: ducky_3_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 96
+        x: 102
         y: 64
-        width: 32
-        height: 32
+        width: 23
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d21958acc633180498d5fd7dadea0e80
-      internalID: 1551597714
+      spriteID: a9d814bc9b81a5546aeac4477bcd6d63
+      internalID: -544103550
       vertices: []
       indices: 
       edges: []
@@ -258,10 +258,10 @@ TextureImporter:
       name: ducky_3_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 128
+        x: 134
         y: 64
-        width: 32
-        height: 32
+        width: 22
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8a02890e24f31641b3bc350a9c38fd8
-      internalID: -595254462
+      spriteID: 76068b71f5daadb4c91f5f662d9b04a7
+      internalID: -92403782
       vertices: []
       indices: 
       edges: []
@@ -279,10 +279,10 @@ TextureImporter:
       name: ducky_3_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 160
+        x: 166
         y: 64
-        width: 32
-        height: 32
+        width: 22
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a1da8e1632052143a909f1ec165a265
-      internalID: -705736955
+      spriteID: 007edf09b810374419f7577351ffe120
+      internalID: -878734445
       vertices: []
       indices: 
       edges: []
@@ -300,10 +300,10 @@ TextureImporter:
       name: ducky_3_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 32
-        width: 32
-        height: 32
+        width: 22
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,8 +311,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6ec8640ee1f58345a8b81e8f5d9ea59
-      internalID: -1040616359
+      spriteID: 436c360069687d2409c5f1192aede4b0
+      internalID: -1911606288
       vertices: []
       indices: 
       edges: []
@@ -321,10 +321,10 @@ TextureImporter:
       name: ducky_3_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 32
+        x: 37
         y: 32
-        width: 32
-        height: 32
+        width: 24
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,8 +332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3247b8a6d79e8ef44a8653c9aecba544
-      internalID: 1801142708
+      spriteID: 89ad41fdca7a0cb408fefc6689883c2d
+      internalID: 847452716
       vertices: []
       indices: 
       edges: []
@@ -342,10 +342,10 @@ TextureImporter:
       name: ducky_3_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 64
+        x: 70
         y: 32
-        width: 32
-        height: 32
+        width: 22
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,8 +353,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f6abde34375fbf40a225e794d5db728
-      internalID: 1222452048
+      spriteID: c9971aa611128244d9bbb53ecc84a0f9
+      internalID: -420495560
       vertices: []
       indices: 
       edges: []
@@ -363,10 +363,10 @@ TextureImporter:
       name: ducky_3_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 96
+        x: 103
         y: 32
-        width: 32
-        height: 32
+        width: 20
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,8 +374,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 493e24e2d672d77498251064480cff23
-      internalID: -881035352
+      spriteID: 95f4ae021d0b05c47894e4ec820da7f5
+      internalID: -1196310577
       vertices: []
       indices: 
       edges: []
@@ -384,10 +384,10 @@ TextureImporter:
       name: ducky_3_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,8 +395,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d58a71a30c080e469ec128fa89741ea
-      internalID: 686651807
+      spriteID: 483f4a1b09726f54ca1775582521b76d
+      internalID: 1981849162
       vertices: []
       indices: 
       edges: []
@@ -405,10 +405,10 @@ TextureImporter:
       name: ducky_3_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 32
+        x: 38
         y: 0
-        width: 32
-        height: 32
+        width: 22
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,8 +416,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445c6fdfeda74584182b49bd33e83b14
-      internalID: -213788300
+      spriteID: e73d31339418f2146bb292f4c5ac4e5e
+      internalID: -15633011
       vertices: []
       indices: 
       edges: []
@@ -426,10 +426,10 @@ TextureImporter:
       name: ducky_3_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 64
+        x: 70
         y: 0
-        width: 32
-        height: 32
+        width: 22
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,8 +437,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a828ed5a305c7c04e9d3214a885e8b8e
-      internalID: 1560413695
+      spriteID: d69b9c9bfc1ebb24594373e2517163f6
+      internalID: -320471734
       vertices: []
       indices: 
       edges: []
@@ -447,10 +447,10 @@ TextureImporter:
       name: ducky_3_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 96
+        x: 101
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,8 +458,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dfe65ad19b309e4ea33a86ada403b92
-      internalID: 2111384850
+      spriteID: 6238cd250671a944181aca04a5630ebe
+      internalID: 467397777
       vertices: []
       indices: 
       edges: []
@@ -468,10 +468,10 @@ TextureImporter:
       name: ducky_3_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 128
+        x: 134
         y: 0
-        width: 32
-        height: 32
+        width: 22
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,8 +479,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c692df3f01a6c174799406c3eff3bf70
-      internalID: -225871983
+      spriteID: 32641cfc9dc39494088be35505d8fe32
+      internalID: 1559858590
       vertices: []
       indices: 
       edges: []
@@ -489,10 +489,10 @@ TextureImporter:
       name: ducky_3_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 160
+        x: 166
         y: 0
-        width: 32
-        height: 32
+        width: 22
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,8 +500,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d20cdcd215b53a4439fd50051d802be6
-      internalID: -2051551106
+      spriteID: d167923eae1a99d49ac85e0493fcf6eb
+      internalID: 1500788607
       vertices: []
       indices: 
       edges: []
@@ -517,24 +517,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ducky_3_spritesheet_0: -1764909816
-      ducky_3_spritesheet_1: -838081875
-      ducky_3_spritesheet_10: 1222452048
-      ducky_3_spritesheet_11: -881035352
-      ducky_3_spritesheet_12: 686651807
-      ducky_3_spritesheet_13: -213788300
-      ducky_3_spritesheet_14: 1560413695
-      ducky_3_spritesheet_15: 2111384850
-      ducky_3_spritesheet_16: -225871983
-      ducky_3_spritesheet_17: -2051551106
-      ducky_3_spritesheet_2: 1211987153
-      ducky_3_spritesheet_3: -18937233
-      ducky_3_spritesheet_4: -753222008
-      ducky_3_spritesheet_5: 1551597714
-      ducky_3_spritesheet_6: -595254462
-      ducky_3_spritesheet_7: -705736955
-      ducky_3_spritesheet_8: -1040616359
-      ducky_3_spritesheet_9: 1801142708
+      ducky_3_spritesheet_0: -1771655624
+      ducky_3_spritesheet_1: 335049704
+      ducky_3_spritesheet_10: -420495560
+      ducky_3_spritesheet_11: -1196310577
+      ducky_3_spritesheet_12: 1981849162
+      ducky_3_spritesheet_13: -15633011
+      ducky_3_spritesheet_14: -320471734
+      ducky_3_spritesheet_15: 467397777
+      ducky_3_spritesheet_16: 1559858590
+      ducky_3_spritesheet_17: 1500788607
+      ducky_3_spritesheet_2: 2146974212
+      ducky_3_spritesheet_3: -1349775792
+      ducky_3_spritesheet_4: 831310802
+      ducky_3_spritesheet_5: -544103550
+      ducky_3_spritesheet_6: -92403782
+      ducky_3_spritesheet_7: -878734445
+      ducky_3_spritesheet_8: -1911606288
+      ducky_3_spritesheet_9: 847452716
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
