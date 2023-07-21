@@ -108,30 +108,30 @@ public class Challenge : MonoBehaviour
         switch (challengeType)
         {
             case ChallengeType.BACKFLIP:
-                amount = UnityEngine.Random.Range(1, 4);
-                timeLimit = 5;
+                amount = UnityEngine.Random.Range(1, 2);
+                timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Perform " + amount + " Backflips" + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_HEIGHT:
                 amount = UnityEngine.Random.Range(4, 20);
-                timeLimit = 5;
+                timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Reach " + amount + " meters high " + " in " + timeLimit + " seconds";
 
                 break;
             case ChallengeType.HIT_TARGET:
-                amount = 0;
-                timeLimit = UnityEngine.Random.Range(15,30);
+                amount = UnityEngine.Random.Range(1, 4);
+                timeLimit = UnityEngine.Random.Range(10,15);
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Hit " + target.name + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_SPEED:
                 amount = UnityEngine.Random.Range(1, 4);
-                timeLimit = 5;
+                timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Reach speed of " + amount + " m/s" + " in " + timeLimit + " seconds";
@@ -158,6 +158,12 @@ public class Challenge : MonoBehaviour
     
     private void StartHitTargetChallenge()
     {
+        //check if there is a target in front of the player
+        
+
+        //if there is not create one
+        
+        
         if (player.GetComponent<DuckMovement>().isTargetHit)
         {
             CompleteChallenge();
