@@ -10,6 +10,7 @@ public class ChallengeHandler : MonoBehaviour
     private float timeLeft;
     private bool isChallengeActive;
     private bool isChallengeCompleted;
+    
 
     private void Start()
     { 
@@ -29,6 +30,8 @@ public class ChallengeHandler : MonoBehaviour
            currentChallenge.StartChallenge();
            Debug.Log("Challenge Type: " + currentChallenge.GetChallengeType());
        }
+       
+       
 
 
     }
