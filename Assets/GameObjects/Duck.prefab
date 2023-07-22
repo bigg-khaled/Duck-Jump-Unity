@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3195808253255875044}
   m_Layer: 0
   m_Name: Duck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,14 +120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89209ac5f81ba764e85a53f3e4062a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startJumpForce: 5
   jumpForce: 5
-  rotationSpeed: 5
+  maxJumpForce: 7
+  rotationSpeed: 15
   isGrounded: 1
   startMomentum: 3
   momentum: 0
   momentumIncrease: 0.1
   graceTimer: 0.5
   rb: {fileID: 7381553557077772014}
+  frontflipCount: 0
+  isTargetHit: 0
 --- !u!60 &3195808253255875044
 PolygonCollider2D:
   m_ObjectHideFlags: 0

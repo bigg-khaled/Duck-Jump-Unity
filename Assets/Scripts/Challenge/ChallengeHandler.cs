@@ -9,6 +9,7 @@ public class ChallengeHandler : MonoBehaviour
     
     public Challenge currentChallenge;
     private float timeLeft;
+    public float pauseBeforeNextChallenge = 2f; 
     private bool isChallengeActive;
     private bool isChallengeCompleted;
     public TextMeshProUGUI challengeText;
@@ -21,7 +22,6 @@ public class ChallengeHandler : MonoBehaviour
         isChallengeActive = true;
         isChallengeCompleted = false;
         
-        // Debug.Log(currentChallenge.GetChallengeType() + " " + isChallengeActive + " " + isChallengeActive);
     }
     
     private void FixedUpdate()
@@ -30,31 +30,24 @@ public class ChallengeHandler : MonoBehaviour
        if (isChallengeActive)
        { 
            currentChallenge.StartChallenge();
-           Debug.Log("Challenge Started: \n" + currentChallenge.challengeText);
+           // Debug.Log("Challenge Started: \n" + currentChallenge.challengeText);
            challengeText.text = currentChallenge.challengeText;
            //start timer
            StartCoroutine(ChallengeTimer());
-           
+
            if(currentChallenge.GetChallengeStatus() == Challenge.ChallengeStatus.COMPLETED)
            {
                isChallengeCompleted = true;
                isChallengeActive = false;
                Debug.Log("Challenge Completed");
+               
+               //run a 2 second delay
+               challengeText.text = "GO DUCKY!";
+                StartCoroutine(NextChallengeDelay());
            }
 
            
        }
-
-       if(!isChallengeActive && isChallengeCompleted && currentChallenge.GetChallengeStatus() == Challenge.ChallengeStatus.COMPLETED)
-       {
-           //Create new challenge
-           isChallengeActive = true;
-           currentChallenge.CreateChallenge();
-       }
-       
-       
-
-
     }
 
     IEnumerator ChallengeTimer()
@@ -66,8 +59,21 @@ public class ChallengeHandler : MonoBehaviour
             currentChallenge.FailChallenge();
             isChallengeActive = false;
             isChallengeCompleted = false;
-            challengeText.text = "Failed";
+            challengeText.text = "WHAT THE DUCK?!";
+            
+            //TODO make duck fall off screen
+            
+            //TODO show Game over menu 
         }
+    }
+    
+    IEnumerator NextChallengeDelay()
+    {
+        yield return new WaitForSeconds(pauseBeforeNextChallenge);
+        isChallengeCompleted = false;
+        isChallengeActive = true;
+        currentChallenge.CreateChallenge();
+        timeLeft = currentChallenge.timeLimit;
     }
     
 }
