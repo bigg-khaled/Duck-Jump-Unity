@@ -10,26 +10,18 @@ public class Generator : MonoBehaviour
     public int minHeight, maxHeight;
     public GameObject floor;
     public GameObject duck;
+    public GameObject Egg;
+    public GameObject challengeDetect;
     private Rigidbody2D rb;
     public int repeatnum;
     private float currentPos = 0;
-    public int chunknum;
+    public int chunknum = 0;
     private bool usedChunk;
     private Color[] colors;
     private int currentIndex = 0;
 
     void Start()
     {
-        colors = new Color[]
-        {
-            new Color(1f, 1f, 0f),       // Yellow
-            new Color(0f, 1f, 1f),       // Cyan
-            new Color(0f, 1f, 0f),       // Green
-            new Color(1f, 0f, 1f),       // Magenta
-            new Color(1f, 0f, 0f),       // Red
-            new Color(0f, 0f, 0.5f),     // Dark Blue
-            new Color(1f, 1f, 1f)        // White
-        };
         currentPos = transform.position.x;
         Generation();
         usedChunk = false;
@@ -38,10 +30,11 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void Generation()
     {
-        
+        float eggGen = transform.position.x + Random.Range(2, width) * 0.99f;
         int repeatvalue = 0;
         for(float x = transform.position.x; x < width*0.99f + transform.position.x; x+=0.99f)
         {
+            
             if (repeatvalue == 0)
             {
                 height = Random.Range(minHeight, maxHeight);
@@ -53,13 +46,14 @@ public class Generator : MonoBehaviour
                 GenFlat(x);
                 repeatvalue--;
             }
+            if(((int)x == (int)eggGen) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_TARGET) && (chunknum != 0)) spawnObj(Egg, x, height* floor.transform.localScale.y + transform.position.y);
+            
         }
     }
 
     void GenFlat(float x)
     {
         int amountSpawned = 0;
-        Color color = ColorPick();
         for (float y = transform.position.y; amountSpawned < height; y+=floor.transform.localScale.y)
         {
             spawnObj(floor, x, y);
@@ -70,7 +64,6 @@ public class Generator : MonoBehaviour
     {
         obj = Instantiate(obj, new Vector2(width, height), Quaternion.identity);
         obj.transform.parent = this.transform;
-        obj.GetComponent<Renderer>().material.color = Color.black;
        
     }
 
@@ -96,16 +89,12 @@ public class Generator : MonoBehaviour
                 newGenerator.duck = duck;
                 newGenerator.repeatnum = repeatnum;
                 newGenerator.chunknum = chunknum + 1;
+                newGenerator.Egg = Egg;
+                newGenerator.challengeDetect = challengeDetect;
                 currentPos += width;
                 usedChunk = true;
             }
         }
     }
 
-    Color ColorPick()
-    {
-        Color nextColor = colors[currentIndex];
-        currentIndex = (currentIndex + 1) % colors.Length;
-        return nextColor;
-    }
 }

@@ -455,8 +455,10 @@ MonoBehaviour:
   height: 0
   minHeight: 46
   maxHeight: 53
-  floor: {fileID: 6886051015767669006, guid: 2f1f9f7d4f432e047845d968855fb49a, type: 3}
+  floor: {fileID: 701290681605519471, guid: 2f1f9f7d4f432e047845d968855fb49a, type: 3}
   duck: {fileID: 1891909872}
+  Egg: {fileID: 6549113289472636429, guid: 6f66dd18888b3f741a42cbcb1285aa2c, type: 3}
+  challengeDetect: {fileID: 1522025145}
   repeatnum: 0
   chunknum: 0
 --- !u!4 &978189375
@@ -671,7 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChallenge: {fileID: 1522025146}
-  pauseBeforeNextChallenge: 2
+  pauseBeforeNextChallenge: 1
   challengeText: {fileID: 1681820190}
 --- !u!4 &1187420895
 Transform:
@@ -830,12 +832,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc76df55cb76504a86b300584cd9285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeType: 0
   amount: 0
   timeLimit: 0
   target: {fileID: 3321212087274060097, guid: 3c7ebe65e7ec39948a4331a5f5ba4941, type: 3}
   score: 0
   scoreMultiplier: 0
-  player: {fileID: 0}
+  player: {fileID: 1891909872}
   challengeText: 
 --- !u!4 &1522025147
 Transform:

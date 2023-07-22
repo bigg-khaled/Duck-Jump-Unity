@@ -35,6 +35,7 @@ public class DuckMovement : MonoBehaviour
         
         //check if the duck did a whole 360 spin
         CheckFrontFlip();
+
     }
     
     void Jump()
@@ -99,7 +100,7 @@ public class DuckMovement : MonoBehaviour
         {
             rb.rotation = 0f;
             frontflipCount++;
-            // print("Frontflip count: " + frontflipCount);
+            print("Frontflip count: " + frontflipCount);
         }
     }
     

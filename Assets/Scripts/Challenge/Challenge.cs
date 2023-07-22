@@ -26,26 +26,25 @@ public class Challenge : MonoBehaviour
     //player momentum increases, score multiplier increases
 
     //pick random challenge type from enum
-    private ChallengeType challengeType;
+    public ChallengeType challengeType;
     private ChallengeStatus challengeStatus;
     public int amount;
     public float timeLimit;
-    public GameObject target;
     public int score;
     public int scoreMultiplier;
     public GameObject player;
     public string challengeText;
 
     //variables for GO_BACKWARD challenge
-    bool startCounting = false;
-    int amountReached = 0;
-    float startPoint;
+    private bool startCounting = false;
+    private int amountReached = 0;
+    private float startPoint;
 
 
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        //player = GameObject.FindWithTag("Player");
     }
 
     //get challenge type
@@ -108,6 +107,7 @@ public class Challenge : MonoBehaviour
         // set the isChallengeCompleted variable to false.
         
         challengeType = (ChallengeType)UnityEngine.Random.Range(0, 4);
+        print("Current challenge: " + challengeType);
         switch (challengeType)
         {
             case ChallengeType.FRONTFLIP:
@@ -134,7 +134,7 @@ public class Challenge : MonoBehaviour
                 timeLimit = UnityEngine.Random.Range(10,15);
                 score = 100;
                 scoreMultiplier = 1;
-                challengeText = "Hit " + target.name + " in " + timeLimit + " seconds";
+                challengeText = "Hit the egg in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_SPEED:
                 amount = UnityEngine.Random.Range(1, 4);
@@ -158,14 +158,17 @@ public class Challenge : MonoBehaviour
     {
         if (player.GetComponent<DuckMovement>().frontflipCount >= amount)
         {
+            print(player.GetComponent<DuckMovement>().frontflipCount);
             CompleteChallenge();
+            player.GetComponent<DuckMovement>().frontflipCount = 0;
         }
     }
     
     private void StartReachHeightChallenge()
     {
-        if (player.transform.position.y >= amount)
+        if (player.transform.position.y >= amount/5)
         {
+            print("Height left: " + (amount / 5 - player.transform.position.y));
             CompleteChallenge();
         }
     }
@@ -173,10 +176,10 @@ public class Challenge : MonoBehaviour
     private void StartHitTargetChallenge()
     {
         //if there is no target near player, create one in front of player
-        if (target == null)
-        {
-            var newTraget = Instantiate(target, new Vector3(player.transform.position.x + 5, player.transform.position.y + 10, player.transform.position.z), Quaternion.identity);
-        }
+        //if (target == null)
+        //{
+        //    var newTraget = Instantiate(target, new Vector3(player.transform.position.x + 5, player.transform.position.y + 10, player.transform.position.z), Quaternion.identity);
+        //}
 
         if (player.GetComponent<DuckMovement>().isTargetHit)
         {
@@ -186,6 +189,7 @@ public class Challenge : MonoBehaviour
     
     private void StartReachSpeedChallenge()
     {
+        print("speed: " + player.GetComponent<Rigidbody2D>().velocity.x);
         if (player.GetComponent<Rigidbody2D>().velocity.x >= amount)
         {
             CompleteChallenge();
@@ -194,6 +198,7 @@ public class Challenge : MonoBehaviour
 
     private void StartGoBackwardChallenge()
     {
+        amount = amount / 10;
         //if player is moving forward, don't start counting and reset the amountReached to zero
         if((player.GetComponent<Rigidbody2D>().velocity.x > 0.1f))
         {
