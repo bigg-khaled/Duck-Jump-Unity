@@ -107,17 +107,13 @@ public class Challenge : MonoBehaviour
         // set the isChallengeActive variable to true.
         // set the isChallengeCompleted variable to false.
         
-        //reset backflip count
-        player.GetComponent<DuckMovement>().frontflipCount = 0;
-        
-        //reset target hit
-        player.GetComponent<DuckMovement>().isTargetHit = false;
-        
         challengeType = (ChallengeType)UnityEngine.Random.Range(0, 4);
         switch (challengeType)
         {
             case ChallengeType.FRONTFLIP:
                 amount = UnityEngine.Random.Range(1, 2);
+                //reset backflip count
+                player.GetComponent<DuckMovement>().frontflipCount = 0;
                 timeLimit = 10;
                 score = 100;
                 scoreMultiplier = 1;
@@ -132,6 +128,8 @@ public class Challenge : MonoBehaviour
 
                 break;
             case ChallengeType.HIT_TARGET:
+                //reset target hit
+                player.GetComponent<DuckMovement>().isTargetHit = false;
                 amount = UnityEngine.Random.Range(1, 4);
                 timeLimit = UnityEngine.Random.Range(10,15);
                 score = 100;

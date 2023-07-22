@@ -44,6 +44,15 @@ public class DuckMovement : MonoBehaviour
             rb.rotation += rotationSpeed;
             CameraShake.Instance.ShakeCamera(5f, 0.15f);
 
+            //check if the duck did a whole 360 spin
+            if (rb.rotation <= 360f)
+            {
+                rb.rotation = 0f;
+                frontflipCount++;
+                // print("Frontflip count: " + frontflipCount);
+            }
+
+
             //duck is no longer grounded
             isGrounded = false;
         }
@@ -89,21 +98,5 @@ public class DuckMovement : MonoBehaviour
         }
         
     }
-    
-
-    //check if a front flip has been performed and touched back ground
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            //if duck has front flipped, increase front flip count
-            if (rb.rotation > 0)
-            {
-                frontflipCount++;
-                // print("Frontflip count: " + frontflipCount);
-            }
-        }
-    }
-
 
 }
