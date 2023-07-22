@@ -72,6 +72,14 @@ public class DuckMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Target"))
         {
             isTargetHit = true;
+
+            //this command deletes insures no other eggs are there once the challenge is finished
+            collision.gameObject.tag = "Broken";
+            GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+            foreach (GameObject target in targets)
+            {
+                Destroy(target);
+            }
             // print("Target hit");
         }
     }
@@ -100,8 +108,10 @@ public class DuckMovement : MonoBehaviour
         {
             rb.rotation = 0f;
             frontflipCount++;
-            print("Frontflip count: " + frontflipCount);
+            //print("Frontflip count: " + frontflipCount);
         }
     }
-    
+
 }
+    
+

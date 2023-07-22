@@ -12,13 +12,12 @@ public class Generator : MonoBehaviour
     public GameObject duck;
     public GameObject Egg;
     public GameObject challengeDetect;
+    public GameObject SeaGull;
     private Rigidbody2D rb;
     public int repeatnum;
     private float currentPos = 0;
     public int chunknum = 0;
     private bool usedChunk;
-    private Color[] colors;
-    private int currentIndex = 0;
 
     void Start()
     {
@@ -30,11 +29,19 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void Generation()
     {
-        float eggGen = transform.position.x + Random.Range(2, width) * 0.99f;
+        float ColumnChooser = transform.position.x + Random.Range(1, (width/2 - 1)) * 0.99f;
         int repeatvalue = 0;
         for(float x = transform.position.x; x < width*0.99f + transform.position.x; x+=0.99f)
         {
-            
+            if (((int)x == (int)ColumnChooser) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.MIND_THE_GAP))
+            {
+                challengeDetect.GetComponent<Challenge>().startGap = x + floor.transform.localScale.x * 0.99f;
+                continue;
+            }
+            else if (((int)x == (int)ColumnChooser) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_SEAGULL))
+            {
+                spawnObj(SeaGull, x, height * floor.transform.localScale.y + transform.position.y + 2);
+            }
             if (repeatvalue == 0)
             {
                 height = Random.Range(minHeight, maxHeight);
@@ -46,7 +53,7 @@ public class Generator : MonoBehaviour
                 GenFlat(x);
                 repeatvalue--;
             }
-            if(((int)x == (int)eggGen) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_TARGET) && (chunknum != 0)) spawnObj(Egg, x, height* floor.transform.localScale.y + transform.position.y);
+            if(((int)x == (int)ColumnChooser) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_TARGET) && (chunknum != 0)) spawnObj(Egg, x, height* floor.transform.localScale.y + transform.position.y);
             
         }
     }
@@ -91,6 +98,7 @@ public class Generator : MonoBehaviour
                 newGenerator.chunknum = chunknum + 1;
                 newGenerator.Egg = Egg;
                 newGenerator.challengeDetect = challengeDetect;
+                newGenerator.SeaGull = SeaGull;
                 currentPos += width;
                 usedChunk = true;
             }

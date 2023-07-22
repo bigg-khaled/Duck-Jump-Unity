@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Target
+  - Broken
   layers:
   - Default
   - TransparentFX
