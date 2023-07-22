@@ -32,6 +32,9 @@ public class DuckMovement : MonoBehaviour
         {
             Jump();
         }
+        
+        //check if the duck did a whole 360 spin
+        CheckFrontFlip();
     }
     
     void Jump()
@@ -43,16 +46,7 @@ public class DuckMovement : MonoBehaviour
             rb.velocity = new Vector2(momentum, jumpForce);
             rb.rotation += rotationSpeed;
             CameraShake.Instance.ShakeCamera(5f, 0.15f);
-
-            //check if the duck did a whole 360 spin
-            if (rb.rotation <= 360f)
-            {
-                rb.rotation = 0f;
-                frontflipCount++;
-                // print("Frontflip count: " + frontflipCount);
-            }
-
-
+            
             //duck is no longer grounded
             isGrounded = false;
         }
@@ -99,4 +93,14 @@ public class DuckMovement : MonoBehaviour
         
     }
 
+    private void CheckFrontFlip()
+    {
+        if (rb.rotation <= -360f)
+        {
+            rb.rotation = 0f;
+            frontflipCount++;
+            // print("Frontflip count: " + frontflipCount);
+        }
+    }
+    
 }
