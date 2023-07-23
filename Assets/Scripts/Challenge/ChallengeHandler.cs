@@ -20,6 +20,9 @@ public class ChallengeHandler : MonoBehaviour
 
     private void Start()
     {
+        //wait till the player lands on the ground
+        StartCoroutine(WaitForPlayerToLand());
+        
         // create a new challenge.
         currentChallenge.CreateChallenge();
         timeLeft = currentChallenge.timeLimit;
@@ -48,14 +51,13 @@ public class ChallengeHandler : MonoBehaviour
                 StopAllCoroutines();
                 //run a 2 second delay
                 challengeText.text = "GO DUCKY!";
-                StartCoroutine(NextChallengeDelay());
+                StartCoroutine(CreateChallenge());
             }
         }
     }
 
     IEnumerator ChallengeTimer()
     {
-        //TODO make challenge text show time left by slowly descending to player y position
         //move challenge text to player y position with ratio to time left
         challengeText.transform.position = new Vector3(challengeText.transform.position.x,
             challengeText.transform.position.y - (timeLeft / currentChallenge.timeLimit),
@@ -70,6 +72,9 @@ public class ChallengeHandler : MonoBehaviour
             isChallengeActive = false;
             isChallengeCompleted = false;
             challengeText.text = "WHAT THE DUCK?!";
+            //reset challenge text position
+            challengeText.transform.position = new Vector3(challengeText.transform.position.x,
+                intialChallengeTextYPos, challengeText.transform.position.z);
 
             //throw duck up for dramatic effect
             duck.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10);
@@ -88,7 +93,12 @@ public class ChallengeHandler : MonoBehaviour
         }
     }
 
-    IEnumerator NextChallengeDelay()
+    IEnumerator WaitForPlayerToLand()
+    {
+        yield return new WaitUntil(() => duck.GetComponent<DuckMovement>().isGrounded); 
+    }
+
+    IEnumerator CreateChallenge()
     {
         yield return new WaitForSeconds(pauseBeforeNextChallenge);
         
