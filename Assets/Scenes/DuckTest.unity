@@ -458,7 +458,7 @@ MonoBehaviour:
   floor: {fileID: 701290681605519471, guid: 2f1f9f7d4f432e047845d968855fb49a, type: 3}
   duck: {fileID: 1891909872}
   Egg: {fileID: 6549113289472636429, guid: 6f66dd18888b3f741a42cbcb1285aa2c, type: 3}
-  challengeDetect: {fileID: 1522025145}
+  challengeDetect: {fileID: 0}
   SeaGull: {fileID: 7460067889649539437, guid: 8e02066909147554c85695ca9626d966, type: 3}
   repeatnum: 0
   chunknum: 0
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc76df55cb76504a86b300584cd9285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  challengeType: 4
+  challengeType: 0
   amount: 0
   timeLimit: 0
   score: 0
