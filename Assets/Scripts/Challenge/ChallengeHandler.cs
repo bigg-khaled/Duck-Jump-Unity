@@ -83,13 +83,9 @@ public class ChallengeHandler : MonoBehaviour
             //stop camera from moving
             camera.GetComponent<CinemachineVirtualCamera>().Follow = null;
 
-            //TODO show Game over menu 
             gameOverScreen.gameObject.SetActive(true);
-            //have UI button for try again
-            //show score
-            //show high score
-            //go to settings
-            //go to main menu
+            challengeText.gameObject.SetActive(false);
+
         }
     }
 

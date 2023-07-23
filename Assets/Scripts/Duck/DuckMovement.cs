@@ -8,9 +8,11 @@ public class DuckMovement : MonoBehaviour
     public float startJumpForce = 5f;
     public float jumpForce;
     public float maxJumpForce = 7;
+    public float jumpForceIncrease = 0.1f;
     public float rotationSpeed = 5f;
     public bool isGrounded = true;
     public float startMomentum = 3f;
+    public float maxMomentum = 7f;
     public float momentum;
     public float momentumIncrease = 0.1f;
     public float graceTimer = 0.5f;
@@ -28,7 +30,7 @@ public class DuckMovement : MonoBehaviour
     void FixedUpdate()
     {
         //when space is pressed or screen touched, the duck jumps
-        if (Input.anyKey || Input.touchCount > 0)
+        if (Input.anyKeyDown || Input.touchCount > 0)
         {
             Jump();
         }
@@ -60,11 +62,24 @@ public class DuckMovement : MonoBehaviour
         //if the duck collides with the ground, it is grounded
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Target") || collision.gameObject.CompareTag("Broken"))
         {
+            StopAllCoroutines();
             isGrounded = true;
             
             //keep rotation
             rb.rotation = 0f;
             //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
+            //increase momentum
+            
+            if (momentum <= maxMomentum)
+            {
+                momentum *= 1f + momentumIncrease;
+            }
+           
+
+            if (jumpForce <= maxJumpForce)
+            {
+                jumpForce *= 1f + jumpForceIncrease;
+            }
             StartCoroutine(GraceTimer());
         }
         
@@ -87,19 +102,11 @@ public class DuckMovement : MonoBehaviour
     IEnumerator GraceTimer()
     {
         yield return new WaitForSeconds(graceTimer);
-        if (!isGrounded)
+        if (isGrounded)
         {
             momentum = startMomentum;
             jumpForce = startJumpForce;
         }
-        //increase momentum
-        momentum *= 1f + momentumIncrease;
-
-        if (jumpForce <= maxJumpForce)
-        {
-            jumpForce *= 1f + momentumIncrease;
-        }
-        
     }
 
     private void CheckFrontFlip()
