@@ -56,6 +56,8 @@ public class ChallengeHandler : MonoBehaviour
     IEnumerator ChallengeTimer()
     {
         yield return new WaitForSeconds(timeLeft);
+        //TODO make UI show time left by slowly descending to player y position
+
         if (!isChallengeCompleted)
         {
             //Game Over

@@ -128,6 +128,11 @@ public class Challenge : MonoBehaviour
         challengeType = (ChallengeType)UnityEngine.Random.Range(0, 8);
         //challengeType = ChallengeType.HIT_SEAGULL;
         //TODO: make sure the first challenge isn't a height challenge cause the duck falls from above and it counts that
+        //TODO make challenge counter that represents the number of challenges completed
+        //if challenge completed == 0, don't make it a height challenge
+        //after completing challenge, add 1 to challenge completed
+        
+        
         print("Current challenge: " + challengeType);
         switch (challengeType)
         {
@@ -205,7 +210,7 @@ public class Challenge : MonoBehaviour
     
     private void StartReachHeightChallenge()
     {
-        if (player.transform.position.y >= amount/5)
+        if (player.transform.position.y >= (float) amount/5)
         {
             //print("Height left: " + (amount / 3 - player.transform.position.y));
             CompleteChallenge();
