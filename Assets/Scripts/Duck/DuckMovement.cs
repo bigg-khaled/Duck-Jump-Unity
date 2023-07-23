@@ -52,13 +52,13 @@ public class DuckMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isGrounded){return;}
-        
+        if (isGrounded) { return; }
+
         //if the duck collides with the ground, it is grounded
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Target") || collision.gameObject.CompareTag("Broken"))
         {
             isGrounded = true;
             

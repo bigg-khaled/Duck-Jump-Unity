@@ -1,93 +1,119 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
+using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Generator : MonoBehaviour
 {
+    [Header("Chunk Generation settings")]
     public int width, height;
     public int minHeight, maxHeight;
+    public int chunknum = 0;
+
+    [Header("GameOnjects")]
     public GameObject floor;
     public GameObject duck;
     public GameObject Egg;
     public GameObject challengeDetect;
     public GameObject SeaGull;
-    private Rigidbody2D rb;
-    public int repeatnum;
+    public GameObject ceiling;
+
+    [NonSerialized] public int repeatnum;
     private float currentPos = 0;
-    public int chunknum = 0;
     private bool usedChunk;
 
-    void Start()
+    private void Awake()
+    {
+        
+    }
+    private void Start()
     {
         currentPos = transform.position.x;
-        Generation();
         usedChunk = false;
+        Generation();
     }
 
-    // Update is called once per frame
-    void Generation()
+    private void Generation()
     {
-        float ColumnChooser = transform.position.x + Random.Range(1, (width/2 - 1)) * 0.99f;
+        // Randomly choose a column for the challenge
+        int ColumnChooser = UnityEngine.Random.Range(2, (width / 2 - 1));
+        int columnNum = 1;
         int repeatvalue = 0;
-        for(float x = transform.position.x; x < width*0.99f + transform.position.x; x+=0.99f)
+
+        for (float x = transform.position.x; x < width * 0.99f + transform.position.x; x += 0.99f)
         {
-            if (((int)x == (int)ColumnChooser) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.MIND_THE_GAP))
+            if ((ColumnChooser == columnNum) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.MIND_THE_GAP))
             {
-                challengeDetect.GetComponent<Challenge>().startGap = x + floor.transform.localScale.x * 0.99f;
+                // For MIND_THE_GAP challenge, set the startGap position and skip this column
+                challengeDetect.GetComponent<Challenge>().startGap = x + floor.GetComponent<SpriteRenderer>().bounds.size.x * 0.99f;
+                columnNum++;
                 continue;
             }
-            else if (((int)x == (int)ColumnChooser) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_SEAGULL))
+            else if ((ColumnChooser == columnNum) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_SEAGULL))
             {
-                spawnObj(SeaGull, x, height * floor.transform.localScale.y + transform.position.y + 2);
+                // Spawn a SeaGull at this column
+                spawnObj(SeaGull, x, height * floor.GetComponent<SpriteRenderer>().bounds.size.y + transform.position.y + 2);
             }
+
             if (repeatvalue == 0)
             {
-                height = Random.Range(minHeight, maxHeight);
+                // Generate a flat column with random height
+                height = UnityEngine.Random.Range(minHeight, maxHeight);
                 GenFlat(x);
                 repeatvalue = repeatnum;
             }
             else
             {
+                // Continue generating the same height column
                 GenFlat(x);
                 repeatvalue--;
             }
-            if(((int)x == (int)ColumnChooser) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_TARGET) && (chunknum != 0)) spawnObj(Egg, x, height* floor.transform.localScale.y + transform.position.y);
-            
+
+            spawnObj(ceiling, x, height * floor.GetComponent<SpriteRenderer>().bounds.size.y + transform.position.y);
+
+            if ((ColumnChooser == columnNum) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_TARGET) && (chunknum != 0))
+            {
+                // Spawn an Egg at this column
+                spawnObj(Egg, x, height * (floor.GetComponent<SpriteRenderer>().bounds.size.y + 1) + transform.position.y);
+            }
+
+            columnNum++;
         }
     }
 
-    void GenFlat(float x)
+    private void GenFlat(float x)
     {
         int amountSpawned = 0;
-        for (float y = transform.position.y; amountSpawned < height; y+=floor.transform.localScale.y)
+        for (float y = transform.position.y; amountSpawned < height; y += floor.GetComponent<SpriteRenderer>().bounds.size.y)
         {
+            // Spawn a floor object
             spawnObj(floor, x, y);
             amountSpawned++;
         }
     }
-    void spawnObj(GameObject obj, float width, float height)
+
+    private void spawnObj(GameObject obj, float width, float height)
     {
-        obj = Instantiate(obj, new Vector2(width, height), Quaternion.identity);
-        obj.transform.parent = this.transform;
-       
+        // Instantiate and parent the object
+        GameObject newObj = Instantiate(obj, new Vector2(width, height), Quaternion.identity);
+        newObj.transform.parent = transform;
     }
 
     private void Update()
     {
-        
-        if(duck.transform.position.x >= currentPos + (width*0.99f)/2)
+        if (duck.transform.position.x >= currentPos + (width * 0.99f) / 2)
         {
             if (usedChunk)
             {
+                // If usedChunk is true, destroy this chunk when the duck passes halfway through it
                 Destroy(gameObject);
             }
             else
             {
+                // Create a new chunk when the duck passes halfway through this chunk
                 GameObject newChunk = new GameObject();
-                newChunk.transform.position = new Vector2(transform.position.x + (width*0.99f), transform.position.y);
+                newChunk.transform.position = new Vector2(transform.position.x + (width * 0.99f), transform.position.y);
                 Generator newGenerator = newChunk.AddComponent<Generator>();
+
+                // Transfer necessary variables to the new chunk
                 newGenerator.width = width;
                 newGenerator.height = height;
                 newGenerator.minHeight = minHeight;
@@ -99,10 +125,11 @@ public class Generator : MonoBehaviour
                 newGenerator.Egg = Egg;
                 newGenerator.challengeDetect = challengeDetect;
                 newGenerator.SeaGull = SeaGull;
+                newGenerator.ceiling = ceiling;
+
                 currentPos += width;
                 usedChunk = true;
             }
         }
     }
-
 }

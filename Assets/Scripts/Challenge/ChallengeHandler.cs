@@ -38,7 +38,7 @@ public class ChallengeHandler : MonoBehaviour
             challengeText.text = currentChallenge.challengeText;
             //start timer
             StartCoroutine(ChallengeTimer());
-
+            
             if (currentChallenge.GetChallengeStatus() == Challenge.ChallengeStatus.COMPLETED)
             {
                 isChallengeCompleted = true;
@@ -60,7 +60,7 @@ public class ChallengeHandler : MonoBehaviour
         challengeText.transform.position = new Vector3(challengeText.transform.position.x,
             challengeText.transform.position.y - (timeLeft / currentChallenge.timeLimit),
             challengeText.transform.position.z);
-
+        
         yield return new WaitForSeconds(timeLeft);
 
         if (!isChallengeCompleted)

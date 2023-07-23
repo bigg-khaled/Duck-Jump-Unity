@@ -16,6 +16,7 @@ public class Challenge : MonoBehaviour
         MIND_THE_GAP,
         STAND_UP,
         HIT_SEAGULL,
+        TRAVEL,
     };
 
     public enum ChallengeStatus
@@ -37,10 +38,11 @@ public class Challenge : MonoBehaviour
     public int scoreMultiplier;
     public GameObject player;
     public string challengeText;
+    private ChallengeType prevchallenge;
 
     //variables for GO_BACKWARD challenge
     private bool startCounting = false;
-    private int amountReached = 0;
+    private float amountReached = 0;
     [NonSerialized]public float startPoint;
 
     //variables for standing up
@@ -50,11 +52,15 @@ public class Challenge : MonoBehaviour
     //variables for mind the gap
     [NonSerialized] public float startGap = 0f;
 
+    //variables for front flip
+    private int totalAmount;
+
 
 
     private void Start()
     {
         //player = GameObject.FindWithTag("Player");
+        prevchallenge = ChallengeType.REACH_HEIGHT;
     }
 
     //get challenge type
@@ -114,6 +120,9 @@ public class Challenge : MonoBehaviour
             case ChallengeType.HIT_SEAGULL:
                 StartSeagullChallenge();
                 break;
+            case ChallengeType.TRAVEL:
+                StartTravelChallenge();
+                break;
         }
     }
 
@@ -124,21 +133,26 @@ public class Challenge : MonoBehaviour
         // set the timeLeft variable to the timeLimit of the currentChallenge.
         // set the isChallengeActive variable to true.
         // set the isChallengeCompleted variable to false.
-        
-        challengeType = (ChallengeType)UnityEngine.Random.Range(0, 8);
-        //challengeType = ChallengeType.HIT_SEAGULL;
+        do
+        {
+            challengeType = (ChallengeType)UnityEngine.Random.Range(0, 9);
+        } while (challengeType == prevchallenge);
+
+        prevchallenge = challengeType;
+        //challengeType = ChallengeType.TRAVEL;
         //TODO: make sure the first challenge isn't a height challenge cause the duck falls from above and it counts that
         //TODO make challenge counter that represents the number of challenges completed
         //if challenge completed == 0, don't make it a height challenge
         //after completing challenge, add 1 to challenge completed
-        
+
         //TODO remove seconds from text
-        
+
         print("Current challenge: " + challengeType);
         switch (challengeType)
         {
             case ChallengeType.FRONTFLIP:
-                amount = UnityEngine.Random.Range(1, 2);
+                amount = UnityEngine.Random.Range(5, 10);
+                totalAmount = amount;
                 //reset backflip count
                 player.GetComponent<DuckMovement>().frontflipCount = 0;
                 timeLimit = 15;
@@ -159,7 +173,7 @@ public class Challenge : MonoBehaviour
                 timeLimit = 30;
                 score = 100;
                 scoreMultiplier = 1;
-                challengeText = "Hit the egg in " + timeLimit + " seconds";
+                challengeText = "Hit an egg in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_SPEED:
                 amount = UnityEngine.Random.Range(3, 6);
@@ -171,10 +185,11 @@ public class Challenge : MonoBehaviour
                 break;
             case ChallengeType.GO_BACKWARD:
                 amount = UnityEngine.Random.Range(5, 10);
-                timeLimit = 15;
+                timeLimit = 20;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Go backward " + amount + " pixels" + " in " + timeLimit + " seconds";
+                amount /= 2;
                 break;
             case ChallengeType.MIND_THE_GAP:
                 timeLimit = 15;
@@ -195,17 +210,30 @@ public class Challenge : MonoBehaviour
                 scoreMultiplier = 1;
                 challengeText = "Hit the seagull in " + timeLimit + " seconds";
                 break;
+            case ChallengeType.TRAVEL:
+                amount = UnityEngine.Random.Range(500, 1000);
+                timeLimit = 20;
+                score = 100;
+                scoreMultiplier = 1;
+                challengeText = "Travel " + amount + " pixels" + " in " + timeLimit + " seconds";
+                break;
 
         }
     }
-    
+
+
     private void StartFrontflipChallenge()
     {
-        if (player.GetComponent<DuckMovement>().frontflipCount >= amount)
+        if (amount == 0)
         {
             //print(player.GetComponent<DuckMovement>().frontflipCount);
             CompleteChallenge();
             player.GetComponent<DuckMovement>().frontflipCount = 0;
+        }
+        else
+        {
+            amount = totalAmount - player.GetComponent<DuckMovement>().frontflipCount;
+            challengeText = "Perform " + amount + " front flips" + " in " + timeLimit + " seconds";
         }
     }
     
@@ -234,16 +262,15 @@ public class Challenge : MonoBehaviour
     
     private void StartReachSpeedChallenge()
     {
-        //print("speed: " + player.GetComponent<Rigidbody2D>().velocity.x);
-        if (player.GetComponent<Rigidbody2D>().velocity.x >= amount)
+        print("speed: " + player.GetComponent<Rigidbody2D>().velocity.x);
+        if (player.GetComponent<Rigidbody2D>().velocity.x >= amount/2)
         {
             CompleteChallenge();
         }
     }
 
     private void StartGoBackwardChallenge()
-    {
-        amount = amount / 2;
+    { 
         //if player is moving forward, don't start counting and reset the amountReached to zero
         if((player.GetComponent<Rigidbody2D>().velocity.x > 0.1f))
         {
@@ -257,17 +284,20 @@ public class Challenge : MonoBehaviour
             startCounting = true;
         }
         //calculates the differece between the startpoint recorded and how many pixels backwards the player has moved
-        //Todo: convert x -> pixels somehow or calculate a doable multiplyer 
         if (startCounting)
-        {
-            amountReached = Mathf.Abs((int)startPoint - (int)player.transform.position.x);
+        { 
+            amountReached = Mathf.Abs(startPoint - player.transform.position.x) * 20;
             if(amountReached >= amount)
             {
+                
                 startCounting = false;
                 CompleteChallenge();
                 amountReached = 0;
             }
+
+            
         }
+        challengeText = "Go backward " + (amount - (int)amountReached) + " pixels" + " in " + timeLimit + " seconds";
     }
 
     private void StartMindTheGapChallenge()
@@ -295,7 +325,7 @@ public class Challenge : MonoBehaviour
             }
 
             // Check if the player's z position has been 0 for 2 seconds
-            if (Time.time - timeAtZZero >= 2f)
+            if (Time.time - timeAtZZero >= 1f)
             {
                 CompleteChallenge();
                 timeAtZZero = 0f;
@@ -315,5 +345,31 @@ public class Challenge : MonoBehaviour
         {
             CompleteChallenge();
         }
+    }
+
+    private void StartTravelChallenge()
+    {
+
+        //if the player starts moving backwards, their startpoint is recorded and this function starts counting
+        if ((startCounting == false))
+        {
+            startPoint = player.transform.position.x;
+            startCounting = true;
+        }
+        //calculates the differece between the startpoint recorded and how many pixels backwards the player has moved
+        if (startCounting)
+        {
+            amountReached = Mathf.Abs(startPoint - player.transform.position.x) * 20;
+            if (amountReached >= amount)
+            {
+
+                startCounting = false;
+                CompleteChallenge();
+                amountReached = 0;
+            }
+
+
+        }
+        challengeText = "Travel " + (amount - (int)amountReached) + " pixels" + " in " + timeLimit + " seconds";
     }
 }
