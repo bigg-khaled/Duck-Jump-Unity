@@ -45,7 +45,7 @@ public class ChallengeHandler : MonoBehaviour
                 isChallengeActive = false;
                 Debug.Log("Challenge Completed");
                 //stop challenge timer coroutine
-                StopCoroutine(ChallengeTimer());
+                StopAllCoroutines();
                 //run a 2 second delay
                 challengeText.text = "GO DUCKY!";
                 StartCoroutine(NextChallengeDelay());

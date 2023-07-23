@@ -132,6 +132,7 @@ public class Challenge : MonoBehaviour
         //if challenge completed == 0, don't make it a height challenge
         //after completing challenge, add 1 to challenge completed
         
+        //TODO remove seconds from text
         
         print("Current challenge: " + challengeType);
         switch (challengeType)
