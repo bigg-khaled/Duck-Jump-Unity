@@ -7,6 +7,6 @@ public class TryAgain : MonoBehaviour
     //onclick, reload the scene
     public void TryAgainLevel()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
     }
 }

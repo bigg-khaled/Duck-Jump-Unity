@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: a5400b898cec9bd4ba9a8df486965534
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: fc55f6adb87a5c54f90b434c73cd2f2d
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 634f8bfc9bfb2764dbb83cfad959ed21, type: 2}
