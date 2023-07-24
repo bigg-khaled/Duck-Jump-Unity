@@ -77,7 +77,7 @@ public class DuckMovement : MonoBehaviour
             isGrounded = true;
             
             //keep rotation
-            rb.rotation = 0f;
+            //rb.rotation = 0f;
             //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
             //increase momentum
             

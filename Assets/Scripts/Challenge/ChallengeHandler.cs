@@ -13,6 +13,10 @@ public class ChallengeHandler : MonoBehaviour
     private bool isChallengeActive;
     private bool isChallengeCompleted;
     public TextMeshProUGUI challengeText;
+    public TextMeshProUGUI challengesCompleted;
+    public TextMeshProUGUI FinalScoreValue;
+    public TextMeshProUGUI HiScore;
+    private int challengeScore = 0;
     private float intialChallengeTextYPos;
     public GameObject duck;
     public GameObject camera;
@@ -53,6 +57,8 @@ public class ChallengeHandler : MonoBehaviour
                 StopAllCoroutines();
                 //run a 2 second delay
                 challengeText.text = "GO DUCKY!";
+                ++challengeScore;
+                challengesCompleted.text = $"{challengeScore}";
                 StartCoroutine(CreateChallenge());
             }
         }
@@ -85,6 +91,7 @@ public class ChallengeHandler : MonoBehaviour
             //stop camera from moving
             camera.GetComponent<CinemachineVirtualCamera>().Follow = null;
 
+            FinalScoreValue.text = $"{challengeScore}";
             gameOverScreen.gameObject.SetActive(true);
             challengeText.gameObject.SetActive(false);
 

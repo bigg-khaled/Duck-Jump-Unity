@@ -316,7 +316,7 @@ public class Challenge : MonoBehaviour
         // Check if the player's z position is 0
         if ((int)player.GetComponent<DuckMovement>().rb.rotation == 0 && player.GetComponent<DuckMovement>().isGrounded)
         {
-            //print("Z: "+ player.transform.rotation.z);
+            print("Z: "+ player.transform.rotation.z);
             // If it's the first time the player's z position is 0, record the time
             if (!challengeCompleted)
             {
@@ -325,7 +325,7 @@ public class Challenge : MonoBehaviour
             }
 
             // Check if the player's z position has been 0 for 2 seconds
-            if (Time.time - timeAtZZero >= 1f)
+            if (Time.time - timeAtZZero >= 0.5f)
             {
                 CompleteChallenge();
                 timeAtZZero = 0f;
