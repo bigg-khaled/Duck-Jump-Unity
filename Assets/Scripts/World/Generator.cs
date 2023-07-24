@@ -26,6 +26,7 @@ public class Generator : MonoBehaviour
     }
     private void Start()
     {
+        duck = GameObject.FindGameObjectWithTag("Player");
         currentPos = transform.position.x;
         usedChunk = false;
         Generation();

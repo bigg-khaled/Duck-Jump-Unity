@@ -20,6 +20,8 @@ public class ChallengeHandler : MonoBehaviour
 
     private void Start()
     {
+        duck = GameObject.FindWithTag("Player");
+        
         //wait till the player lands on the ground
         StartCoroutine(WaitForPlayerToLand());
         

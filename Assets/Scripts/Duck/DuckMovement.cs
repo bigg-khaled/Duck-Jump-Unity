@@ -19,6 +19,7 @@ public class DuckMovement : MonoBehaviour
     public Rigidbody2D rb;
     public int frontflipCount = 0;
     public bool isTargetHit = false;
+    public bool scriptEnabled = false;
     
     private void Start()
     {
@@ -29,6 +30,16 @@ public class DuckMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        //place duck back if it falls off the screen
+        if (transform.position.y < -10f)
+        {
+            transform.position = new Vector3(gameObject.transform.position.x + 10f, 10f, 0f);
+            rb.velocity = new Vector2(0f, 0f);
+            rb.rotation = 0f;
+            frontflipCount = 0; 
+        }
+        
         //when space is pressed or screen touched, the duck jumps
         if (Input.anyKeyDown || Input.touchCount > 0)
         {
@@ -43,7 +54,7 @@ public class DuckMovement : MonoBehaviour
     void Jump()
     {
         //if the duck is on the ground, it jumps
-        if (isGrounded)
+        if (isGrounded && scriptEnabled)
         {
             //duck jumps with forward momentum speed and rotation speed
             rb.velocity = new Vector2(momentum, jumpForce);

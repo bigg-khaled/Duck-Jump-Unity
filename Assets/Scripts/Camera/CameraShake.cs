@@ -9,12 +9,15 @@ public class CameraShake : MonoBehaviour
     public static CameraShake Instance { get; private set; }
     private CinemachineVirtualCamera cinemachineVirtualCamera;
     private float shakeTimer;
+    private GameObject duck;
 
 
     private void Awake()
     {
         Instance = this;
+        duck = GameObject.FindWithTag("Player");
         cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+        cinemachineVirtualCamera.Follow = duck.transform;
     }
     
     public void ShakeCamera(float intensity, float time)
