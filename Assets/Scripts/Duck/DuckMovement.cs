@@ -36,10 +36,7 @@ public class DuckMovement : MonoBehaviour
         //place duck back if it falls off the screen
         if (transform.position.y < -10f)
         {
-            transform.position = new Vector3(gameObject.transform.position.x + 10f, 10f, 0f);
-            rb.velocity = new Vector2(0f, 0f);
-            rb.rotation = 0f;
-            frontflipCount = 0;
+            challengeHandler.currentChallenge.FailChallenge();
         }
 
         //when space is pressed or screen touched, the duck jumps
