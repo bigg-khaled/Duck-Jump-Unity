@@ -19,7 +19,7 @@ public class DuckMovement : MonoBehaviour
     public Rigidbody2D rb;
     public int frontflipCount = 0;
     public bool isTargetHit = false;
-    public bool scriptEnabled = false;
+    //public bool scriptEnabled = true;
     
     private void Start()
     {
@@ -30,7 +30,6 @@ public class DuckMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         //place duck back if it falls off the screen
         if (transform.position.y < -10f)
         {
@@ -54,7 +53,7 @@ public class DuckMovement : MonoBehaviour
     void Jump()
     {
         //if the duck is on the ground, it jumps
-        if (isGrounded && scriptEnabled)
+        if (isGrounded)
         {
             //duck jumps with forward momentum speed and rotation speed
             rb.velocity = new Vector2(momentum, jumpForce);
@@ -109,7 +108,26 @@ public class DuckMovement : MonoBehaviour
             // print("Target hit");
         }
     }
-    
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        //insures egg is broken
+        if (collision.gameObject.CompareTag("Target"))
+        {
+            isTargetHit = true;
+
+            //this command deletes insures no other eggs are there once the challenge is finished
+            collision.gameObject.tag = "Broken";
+            GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+            foreach (GameObject target in targets)
+            {
+                Destroy(target);
+            }
+            // print("Target hit");
+        }
+    }
+
+
     IEnumerator GraceTimer()
     {
         yield return new WaitForSeconds(graceTimer);

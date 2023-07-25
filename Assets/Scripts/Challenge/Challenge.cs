@@ -161,7 +161,7 @@ public class Challenge : MonoBehaviour
                 challengeText = "Perform " + amount + " front flips" + " in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_HEIGHT:
-                amount = UnityEngine.Random.Range(6, 10);
+                amount = UnityEngine.Random.Range(6, 9);
                 timeLimit = 15;
                 score = 100;
                 scoreMultiplier = 1;
@@ -176,8 +176,8 @@ public class Challenge : MonoBehaviour
                 challengeText = "Hit an egg in " + timeLimit + " seconds";
                 break;
             case ChallengeType.REACH_SPEED:
-                amount = UnityEngine.Random.Range(3, 6);
-                timeLimit = 15;
+                amount = UnityEngine.Random.Range(4, 10);
+                timeLimit = 20;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Reach speed of " + amount + " m/s" + " in " + timeLimit + " seconds";
@@ -239,7 +239,7 @@ public class Challenge : MonoBehaviour
     
     private void StartReachHeightChallenge()
     {
-        if (player.transform.position.y >= (float) amount/5)
+        if (player.transform.position.y >= (float) amount*(2/3))
         {
             //print("Height left: " + (amount / 3 - player.transform.position.y));
             CompleteChallenge();
@@ -262,8 +262,8 @@ public class Challenge : MonoBehaviour
     
     private void StartReachSpeedChallenge()
     {
-        print("speed: " + player.GetComponent<Rigidbody2D>().velocity.x);
-        if (player.GetComponent<Rigidbody2D>().velocity.x >= amount/2)
+        print("speed: " + (player.GetComponent<Rigidbody2D>().velocity.x));
+        if (player.GetComponent<Rigidbody2D>().velocity.x >= 4 + (amount * 0.2f))
         {
             CompleteChallenge();
         }

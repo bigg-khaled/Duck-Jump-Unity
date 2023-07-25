@@ -35,6 +35,7 @@ public class ChallengeHandler : MonoBehaviour
         isChallengeActive = true;
         isChallengeCompleted = false;
         intialChallengeTextYPos = challengeText.transform.position.y;
+        HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     private void FixedUpdate()
@@ -92,6 +93,13 @@ public class ChallengeHandler : MonoBehaviour
             camera.GetComponent<CinemachineVirtualCamera>().Follow = null;
 
             FinalScoreValue.text = $"{challengeScore}";
+
+            if(challengeScore > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", challengeScore);    
+            }
+            HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
             gameOverScreen.gameObject.SetActive(true);
             challengeText.gameObject.SetActive(false);
 

@@ -39,12 +39,13 @@ public class Generator : MonoBehaviour
         int columnNum = 1;
         int repeatvalue = 0;
 
-        for (float x = transform.position.x; x < width * 0.99f + transform.position.x; x += 0.99f)
+        for (float x = transform.position.x; x < (width) * floor.GetComponent<SpriteRenderer>().bounds.size.x + transform.position.x; x += floor.GetComponent<SpriteRenderer>().bounds.size.x)
         {
-            if ((ColumnChooser == columnNum) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.MIND_THE_GAP))
+            if ((ColumnChooser == columnNum) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.MIND_THE_GAP) && (chunknum != 0))
             {
+                print("RAND: " + ColumnChooser + " COL: " + columnNum + " CHALLENGE: " + (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.MIND_THE_GAP));
                 // For MIND_THE_GAP challenge, set the startGap position and skip this column
-                challengeDetect.GetComponent<Challenge>().startGap = x + floor.GetComponent<SpriteRenderer>().bounds.size.x * 0.99f;
+                challengeDetect.GetComponent<Challenge>().startGap = x + floor.GetComponent<SpriteRenderer>().bounds.size.x;
                 columnNum++;
                 continue;
             }
@@ -100,7 +101,7 @@ public class Generator : MonoBehaviour
 
     private void Update()
     {
-        if (duck.transform.position.x >= currentPos + (width * 0.99f) / 2)
+        if (duck.transform.position.x >= currentPos + (width * floor.GetComponent<SpriteRenderer>().bounds.size.x) / 2)
         {
             if (usedChunk)
             {
@@ -111,7 +112,7 @@ public class Generator : MonoBehaviour
             {
                 // Create a new chunk when the duck passes halfway through this chunk
                 GameObject newChunk = new GameObject();
-                newChunk.transform.position = new Vector2(transform.position.x + (width * 0.99f), transform.position.y);
+                newChunk.transform.position = new Vector2((width+1) * floor.GetComponent<SpriteRenderer>().bounds.size.x + transform.position.x, transform.position.y);
                 Generator newGenerator = newChunk.AddComponent<Generator>();
 
                 // Transfer necessary variables to the new chunk
