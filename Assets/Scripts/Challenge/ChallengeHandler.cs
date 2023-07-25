@@ -21,11 +21,11 @@ public class ChallengeHandler : MonoBehaviour
     public GameObject duck;
     public GameObject camera;
     public Canvas gameOverScreen;
-
+    private String[] challengeCompletedText;
+    
     private void Start()
     {
         // duck = GameObject.FindWithTag("Player");
-        
         //wait till the player lands on the ground
         StartCoroutine(WaitForPlayerToLand());
         
@@ -35,6 +35,10 @@ public class ChallengeHandler : MonoBehaviour
         isChallengeActive = true;
         isChallengeCompleted = false;
         intialChallengeTextYPos = challengeText.transform.position.y;
+        
+        //read challenge completed text from file
+        challengeCompletedText = System.IO.File.ReadAllLines(@"Assets\Scripts\Challenge\ChallengeCompletedText.txt");
+        
     }
 
     private void FixedUpdate()
@@ -56,7 +60,9 @@ public class ChallengeHandler : MonoBehaviour
                 //stop challenge timer coroutine
                 StopAllCoroutines();
                 //run a 2 second delay
-                challengeText.text = "GO DUCKY!";
+                //get random challenge completed text
+                int randomText = UnityEngine.Random.Range(0, challengeCompletedText.Length);
+                challengeText.text = challengeCompletedText[randomText];
                 ++challengeScore;
                 challengesCompleted.text = $"{challengeScore}";
                 StartCoroutine(CreateChallenge());

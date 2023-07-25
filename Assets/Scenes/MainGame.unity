@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChallenge: {fileID: 1674920010}
-  pauseBeforeNextChallenge: 1
+  pauseBeforeNextChallenge: 1.5
   challengeText: {fileID: 1557540935}
   challengesCompleted: {fileID: 1717490885}
   FinalScoreValue: {fileID: 711534340}
@@ -1882,9 +1882,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3195808253255875044, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195808253255875044, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.067
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195808253255875044, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195808253255875044, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7381553557077772008, guid: 1b845f039210417439559cbbad528842, type: 3}
       propertyPath: graceTimer
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9980592d1bb65cd489c536a856596ff9, type: 3}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Color.g
+      value: 0.95686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Color.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7381553557077772013, guid: 1b845f039210417439559cbbad528842, type: 3}
       propertyPath: m_Name
@@ -7146,10 +7190,10 @@ RectTransform:
   m_Father: {fileID: 1759123937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0054321, y: 750.00024}
-  m_SizeDelta: {x: 1247.1, y: 165}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -315}
+  m_SizeDelta: {x: 1080, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557540935
 MonoBehaviour:
@@ -7198,12 +7242,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 67
   m_fontSizeBase: 79
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 60
-  m_fontSizeMax: 72
+  m_fontSizeMax: 67
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -7469,10 +7513,10 @@ RectTransform:
   m_Father: {fileID: 1759123937}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0054321, y: 877}
-  m_SizeDelta: {x: 1247.1, y: 165}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 1080, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717490885
 MonoBehaviour:
@@ -8426,6 +8470,7 @@ GameObject:
   - component: {fileID: 1952233850}
   - component: {fileID: 1952233849}
   - component: {fileID: 1952233848}
+  - component: {fileID: 1952233851}
   m_Layer: 5
   m_Name: ShareButton
   m_TagString: Untagged
@@ -8499,9 +8544,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TryAgain, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1952233851}
+        m_TargetAssemblyTypeName: ShareButton, Assembly-CSharp
+        m_MethodName: ShareScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8549,6 +8594,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952233846}
   m_CullTransparentMesh: 1
+--- !u!114 &1952233851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952233846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9670af36e88f77044b4a35c042f7f5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel_share: {fileID: 1852144908}
+  txtPanelScore: {fileID: 711534340}
+  txtHomeScore: {fileID: 0}
+  txtDate: {fileID: 0}
 --- !u!1 &1961885267
 GameObject:
   m_ObjectHideFlags: 0
