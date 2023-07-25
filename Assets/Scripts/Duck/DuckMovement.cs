@@ -22,7 +22,6 @@ public class DuckMovement : MonoBehaviour
     //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
     public AudioClip[] jumpSFX;
-    public AudioClip[] landSFX;
 
     //public bool scriptEnabled = true;
     
@@ -123,10 +122,6 @@ public class DuckMovement : MonoBehaviour
             }
             // print("Target hit");
         }
-
-        //play land sound
-        int randomLandSound = UnityEngine.Random.Range(0, landSFX.Length);
-        AudioSource.PlayClipAtPoint(landSFX[randomLandSound], transform.position);
     }
 
     void OnCollisionStay2D(Collision2D collision)
