@@ -40,8 +40,9 @@ public class DuckMovement : MonoBehaviour
             challengeHandler.currentChallenge.FailChallenge();
         }
 
-        //when space is pressed or screen touched, the duck jumps
-        if (Input.anyKeyDown || Input.touchCount > 0)
+        //when any key is pressed, or screen touched, the duck jumps
+        //make sure screen touch is below the pause button on the screen
+        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Screen.height - Input.GetTouch(0).position.y > 200f)
         {
             Jump();
         }
@@ -50,7 +51,7 @@ public class DuckMovement : MonoBehaviour
         CheckFrontFlip();
     }
 
-    void Jump()
+    public void Jump()
     {
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;

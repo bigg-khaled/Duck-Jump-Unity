@@ -11,6 +11,6 @@ public class MainMenuButton : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         
         //dont destroy the music
-        DontDestroyOnLoad(GameObject.Find("Music"));
+        DontDestroyOnLoad(GameObject.FindWithTag("Music"));
     }
 }

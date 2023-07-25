@@ -1,124 +1,133 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject pauseButton;
-    public  Image musicOn;
-    public Image musicOff;
+    public GameObject musicOn;
+    public GameObject musicOff;
+    public GameObject sfxOn;
+    public GameObject sfxOff;
     private bool musicEnabled;
-    public Image sfxOn;
-    public Image sfxOff;
     private bool sfxEnabled;
+
+    public TextMeshProUGUI challengeText;
+    public GameObject duck;
+    public ChallengeHandler challengeHandler;
+
+    // private void Awake()
+    // {
+    //     musicOn = GameObject.Find("MusicOnIcon").GetComponent<Image>();
+    //     musicOff = GameObject.Find("MusicOffIcon").GetComponent<Image>();
+    //     sfxOn = GameObject.Find("SFXOnIcon").GetComponent<Image>();
+    //     sfxOff = GameObject.Find("SFXOffIcon").GetComponent<Image>();
+    // }
 
     private void Start()
     {
-        musicOn = GameObject.Find("MusicOnIcon").GetComponent<Image>();
-        musicOff = GameObject.Find("MusicOffIcon").GetComponent<Image>();
-        sfxOn = GameObject.Find("SFXOnIcon").GetComponent<Image>();
-        sfxOff = GameObject.Find("SFXOffIcon").GetComponent<Image>();
+        Time.timeScale = 1;
+        musicEnabled = true;
+        sfxEnabled = true;
     }
 
-    public void PauseGame()
-    {
-        // hide the pause button
-        gameObject.SetActive(false);
-        
-        // show the pause menu
-        pauseMenu.SetActive(true);
-        
-        //stop the game
-        Time.timeScale = 0;
-        
-        Debug.Log("Pause Game");
-    }
-    
     public void ResumeGame()
     {
         // hide the pause menu
         pauseMenu.SetActive(false);
-        
+
         // show the pause button
         pauseButton.SetActive(true);
-        
+
+        //show challenge text
+        challengeText.gameObject.SetActive(true);
+
         //start the game
         Time.timeScale = 1;
     }
-    
+
     //go to the main menu
     public void MainMenu()
     {
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-        
+
         //dont destroy the music
-        DontDestroyOnLoad(GameObject.Find("Music"));
+        DontDestroyOnLoad(GameObject.FindWithTag("Music"));
+
+        //start the game
+        Time.timeScale = 1;
     }
-    
+
     //restart the game
     public void RestartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
-        
+
         //dont destroy the music
-        DontDestroyOnLoad(GameObject.Find("Music"));
+        DontDestroyOnLoad(GameObject.FindWithTag("Music"));
+
+        //start the game
+        Time.timeScale = 1;
     }
-    
-    //disable the music
-    public void DisableMusic()
-    {
-        //disable the music
-        GameObject.Find("Music").GetComponent<AudioSource>().mute = true;
-        
-        //change the music icon
-        musicOn.SetEnabled(false);
-        musicOff.SetEnabled(true);
-        
-        musicEnabled = false;
-        
-    }
-    
+
+
     //enable the music
     public void EnableMusic()
     {
-        //enable the music
-        GameObject.Find("Music").GetComponent<AudioSource>().mute = false;
-        
-        //change the music icon
-        musicOn.SetEnabled(true);
-        musicOff.SetEnabled(false);
-        
-        musicEnabled = true;
+        if (!musicEnabled)
+        {
+            //enable the music
+            GameObject.FindWithTag("Music").GetComponent<AudioSource>().mute = false;
+
+            //change the music icon
+            musicOn.GetComponent<Image>().enabled = true;
+            musicOff.GetComponent<Image>().enabled = false;
+
+            musicEnabled = true;
+        }
+        else
+        {
+            //disable the music
+            GameObject.FindWithTag("Music").GetComponent<AudioSource>().mute = true;
+
+            //change the music icon
+            musicOn.GetComponent<Image>().enabled = false;
+            musicOff.GetComponent<Image>().enabled = true;
+
+            musicEnabled = false;
+        }
     }
-    
+
     public void EnableSFX()
     {
-        
-        //TODO find a way to enable the sfx
-        //enable the music
-        GameObject.Find("SFX").GetComponent<AudioSource>().mute = false;
-        
-        //change the music icon
-        sfxOn.SetEnabled(true);
-        sfxOff.SetEnabled(false);
-        
-        sfxEnabled = true;
-    }
-    
-    public void DisableSFX()
-    {
-        //TODO find a way to disable the sfx
-        //disable the music
-        GameObject.Find("SFX").GetComponent<AudioSource>().mute = true;
-        
-        //change the music icon
-        sfxOn.SetEnabled(false);
-        sfxOff.SetEnabled(true);
-        
-        sfxEnabled = false;
+        if (!sfxEnabled)
+        {
+            //enable the music
+            duck.GetComponent<AudioSource>().mute = false;
+            challengeHandler.GetComponent<AudioSource>().mute = false;
+
+
+            //change the music icon
+            sfxOn.GetComponent<Image>().enabled = true;
+            sfxOff.GetComponent<Image>().enabled = false;
+
+            sfxEnabled = true;
+        }
+        else
+        {
+            //disable the music
+            duck.GetComponent<AudioSource>().mute = true;
+            challengeHandler.GetComponent<AudioSource>().mute = true;
+
+            //change the music icon
+            sfxOn.GetComponent<Image>().enabled = false;
+            sfxOff.GetComponent<Image>().enabled = true;
+
+            sfxEnabled = false;
+        }
     }
 }
