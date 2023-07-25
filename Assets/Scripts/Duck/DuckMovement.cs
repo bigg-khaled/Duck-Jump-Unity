@@ -63,17 +63,21 @@ public class DuckMovement : MonoBehaviour
             challengeHandler.enabled = true;
             challengeHandler.gameObject.SetActive(true);
         }
-        //duck jumps with forward momentum speed and rotation speed
-        rb.velocity = new Vector2(momentum, jumpForce);
-        rb.rotation += rotationSpeed;
-        CameraShake.Instance.ShakeCamera(5f, 0.15f);
 
-        //play jump sound
-        int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
-        AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
+        if (isGrounded)
+        {
+            //duck jumps with forward momentum speed and rotation speed
+            rb.velocity = new Vector2(momentum, jumpForce);
+            rb.rotation += rotationSpeed;
+            CameraShake.Instance.ShakeCamera(5f, 0.15f);
 
-        //duck is no longer grounded
-        isGrounded = false;
+            //play jump sound
+            int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
+            AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
+
+            //duck is no longer grounded
+            isGrounded = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
