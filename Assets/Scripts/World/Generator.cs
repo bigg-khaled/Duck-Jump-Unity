@@ -112,7 +112,7 @@ public class Generator : MonoBehaviour
             {
                 // Create a new chunk when the duck passes halfway through this chunk
                 GameObject newChunk = new GameObject();
-                newChunk.transform.position = new Vector2((width+1) * floor.GetComponent<SpriteRenderer>().bounds.size.x + transform.position.x, transform.position.y);
+                newChunk.transform.position = new Vector2((width) * floor.GetComponent<SpriteRenderer>().bounds.size.x + transform.position.x, transform.position.y);
                 Generator newGenerator = newChunk.AddComponent<Generator>();
 
                 // Transfer necessary variables to the new chunk

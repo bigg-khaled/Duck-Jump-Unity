@@ -722,8 +722,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275335915}
-  m_LocalRotation: {x: -0.07307088, y: 0.049532667, z: 0.0036336049, w: 0.99608934}
-  m_LocalPosition: {x: 5, y: 4, z: -10}
+  m_LocalRotation: {x: -0.07307959, y: 0.04708258, z: 0.0034538715, w: 0.9962082}
+  m_LocalPosition: {x: 5, y: 4.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2396,6 +2396,22 @@ PrefabInstance:
       propertyPath: challengeHandler
       value: 
       objectReference: {fileID: 223807222}
+    - target: {fileID: 7381553557077772008, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: landSFX.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381553557077772008, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: jumpSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 277e271143293eb49a8f033975c06bf0, type: 3}
+    - target: {fileID: 7381553557077772008, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: landSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fc46d20fa58d7a84c936514a5db67142, type: 3}
+    - target: {fileID: 7381553557077772012, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381553557077772013, guid: 1b845f039210417439559cbbad528842, type: 3}
       propertyPath: m_Name
       value: Duck
@@ -13170,8 +13186,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822580059}
-  m_LocalRotation: {x: -0.07307088, y: 0.049532667, z: 0.0036336049, w: 0.99608934}
-  m_LocalPosition: {x: 5, y: 4, z: -10}
+  m_LocalRotation: {x: -0.07307959, y: 0.04708258, z: 0.0034538715, w: 0.9962082}
+  m_LocalPosition: {x: 5, y: 4.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
