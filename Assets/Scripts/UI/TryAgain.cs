@@ -8,5 +8,8 @@ public class TryAgain : MonoBehaviour
     public void TryAgainLevel()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
+        
+        //dont destroy the music
+        DontDestroyOnLoad(GameObject.Find("Music"));
     }
 }

@@ -4,13 +4,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 
 public class ShareButton : MonoBehaviour
 {
     [SerializeField] GameObject Panel_share; //panel to share the score
-    [SerializeField] Text txtPanelScore; //score
-    [SerializeField] Text txtHomeScore; //score in home screen
-    [SerializeField] Text txtDate; //date of the score
+    [SerializeField] TextMeshProUGUI txtPanelScore; //score
+    [SerializeField] TextMeshProUGUI txtHomeScore; //score in home screen
+    [SerializeField] TextMeshProUGUI txtDate; //date of the score
 
 
 
