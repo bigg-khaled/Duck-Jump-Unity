@@ -19,7 +19,7 @@ public class DuckMovement : MonoBehaviour
     public Rigidbody2D rb;
     public int frontflipCount = 0;
     public bool isTargetHit = false;
-    public bool scriptEnabled = false;
+    //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
     public AudioClip[] jumpSFX;
     public AudioClip[] landSFX;
@@ -54,7 +54,7 @@ public class DuckMovement : MonoBehaviour
     void Jump()
     {
         //if the duck is on the ground, it jumps
-        if (!isGrounded || !scriptEnabled) return;
+        if (!isGrounded) return;
 
         //if the player jumps start the challenge
         if (!challengeHandler.isActiveAndEnabled)
