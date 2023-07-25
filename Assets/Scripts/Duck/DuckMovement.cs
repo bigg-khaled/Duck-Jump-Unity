@@ -20,7 +20,10 @@ public class DuckMovement : MonoBehaviour
     public int frontflipCount = 0;
     public bool isTargetHit = false;
     public bool scriptEnabled = false;
-    
+    public ChallengeHandler challengeHandler;
+    public AudioClip[] jumpSFX;
+    public AudioClip[] landSFX;
+
     private void Start()
     {
         momentum = startMomentum;
@@ -30,70 +33,78 @@ public class DuckMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         //place duck back if it falls off the screen
         if (transform.position.y < -10f)
         {
             transform.position = new Vector3(gameObject.transform.position.x + 10f, 10f, 0f);
             rb.velocity = new Vector2(0f, 0f);
             rb.rotation = 0f;
-            frontflipCount = 0; 
+            frontflipCount = 0;
         }
-        
+
         //when space is pressed or screen touched, the duck jumps
         if (Input.anyKeyDown || Input.touchCount > 0)
         {
             Jump();
         }
-        
+
         //check if the duck did a whole 360 spin
         CheckFrontFlip();
-
     }
-    
+
     void Jump()
     {
         //if the duck is on the ground, it jumps
-        if (isGrounded && scriptEnabled)
+        if (!isGrounded || !scriptEnabled) return;
+
+        //if the player jumps start the challenge
+        if (!challengeHandler.isActiveAndEnabled)
         {
-            //duck jumps with forward momentum speed and rotation speed
-            rb.velocity = new Vector2(momentum, jumpForce);
-            rb.rotation += rotationSpeed;
-            CameraShake.Instance.ShakeCamera(5f, 0.15f);
-            
-            //duck is no longer grounded
-            isGrounded = false;
+            challengeHandler.enabled = true;
+            challengeHandler.gameObject.SetActive(true);
         }
+        //duck jumps with forward momentum speed and rotation speed
+        rb.velocity = new Vector2(momentum, jumpForce);
+        rb.rotation += rotationSpeed;
+        CameraShake.Instance.ShakeCamera(5f, 0.15f);
+
+        //play jump sound
+        int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
+        AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
+
+        //duck is no longer grounded
+        isGrounded = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isGrounded) { return; }
-
         //if the duck collides with the ground, it is grounded
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Target") || collision.gameObject.CompareTag("Broken"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Target") ||
+            collision.gameObject.CompareTag("Broken"))
         {
             StopAllCoroutines();
             isGrounded = true;
-            
+
+
             //keep rotation
             //rb.rotation = 0f;
             //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
             //increase momentum
-            
+
             if (momentum <= maxMomentum)
             {
                 momentum *= 1f + momentumIncrease;
             }
-           
+
 
             if (jumpForce <= maxJumpForce)
             {
                 jumpForce *= 1f + jumpForceIncrease;
             }
+
             StartCoroutine(GraceTimer());
         }
-        
+
         //if the duck collides with the target, the challenge is completed
         if (collision.gameObject.CompareTag("Target"))
         {
@@ -108,8 +119,12 @@ public class DuckMovement : MonoBehaviour
             }
             // print("Target hit");
         }
+
+        //play land sound
+        int randomLandSound = UnityEngine.Random.Range(0, landSFX.Length);
+        AudioSource.PlayClipAtPoint(landSFX[randomLandSound], transform.position);
     }
-    
+
     IEnumerator GraceTimer()
     {
         yield return new WaitForSeconds(graceTimer);
@@ -129,7 +144,4 @@ public class DuckMovement : MonoBehaviour
             //print("Frontflip count: " + frontflipCount);
         }
     }
-
 }
-    
-
