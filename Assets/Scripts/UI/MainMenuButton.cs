@@ -9,5 +9,8 @@ public class MainMenuButton : MonoBehaviour
     {
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        
+        //dont destroy the music
+        DontDestroyOnLoad(GameObject.Find("Music"));
     }
 }

@@ -8,5 +8,8 @@ public class StartGame : MonoBehaviour
     {
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
+        
+        //dont destroy the music
+        DontDestroyOnLoad(GameObject.Find("Music"));
     }
 }
