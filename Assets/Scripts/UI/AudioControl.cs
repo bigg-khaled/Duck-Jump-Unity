@@ -12,17 +12,22 @@ public class AudioControl : MonoBehaviour
     public GameObject audioOff;
     private bool audioEnabled;
     public AudioSource audioSource;
-    
+
+
+    private void Start()
+    {
+        //TODO get enabled from player prefs and set the audio source mute accordingly... ya3ni if audio is enabled, set the audio source mute to false
+    }
+
     private void Awake()
     {
-        //TODO get enabled from player prefs
 
         //if audio source is not set, find it
         if (audioSource == null && GameObject.Find("Music") != null)
         {
             audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
         }
-        
+
         if (!audioEnabled)
         {
             //enable the audio
