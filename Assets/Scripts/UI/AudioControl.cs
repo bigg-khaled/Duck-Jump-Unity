@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,31 +6,29 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
-public class MusicAudioControl : MonoBehaviour
+public class AudioControl : MonoBehaviour
 {
-    [FormerlySerializedAs("musicOn")] public GameObject audioOn;
-    [FormerlySerializedAs("musicOff")] public GameObject audioOff;
+    public GameObject audioOn;
+    public GameObject audioOff;
     private bool audioEnabled;
-    public GameObject duck;
-    public ChallengeHandler challengeHandler;
-
+    public AudioSource audioSource;
     
-    private void Start()
+    private void Awake()
     {
-        //TODO make it enabled based on saved settings
-        audioEnabled = true;
-    }
+        //TODO get enabled from player prefs
 
-    
-    //enable the music
-    public void EnableMusic()
-    {
+        //if audio source is not set, find it
+        if (audioSource == null && GameObject.Find("Music") != null)
+        {
+            audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+        }
+        
         if (!audioEnabled)
         {
-            //enable the music
-            GameObject.FindWithTag("Music").GetComponent<AudioSource>().mute = false;
+            //enable the audio
+            audioSource.mute = false;
 
-            //change the music icon
+            //change the audio icon
             audioOn.GetComponent<Image>().enabled = true;
             audioOff.GetComponent<Image>().enabled = false;
 
@@ -37,10 +36,43 @@ public class MusicAudioControl : MonoBehaviour
         }
         else
         {
-            //disable the music
-            GameObject.FindWithTag("Music").GetComponent<AudioSource>().mute = true;
+            //disable the audio
+            audioSource.mute = true;
 
-            //change the music icon
+            //change the audio icon
+            audioOn.GetComponent<Image>().enabled = false;
+            audioOff.GetComponent<Image>().enabled = true;
+
+            audioEnabled = false;
+        }
+        
+        audioOff.GetComponent<Image>().enabled = false;
+        
+
+    }
+
+    //enable the audio
+    public void EnableAudio()
+    {
+        print("clicked");
+        
+        if (!audioEnabled)
+        {
+            //enable the audio
+            audioSource.mute = false;
+
+            //change the audio icon
+            audioOn.GetComponent<Image>().enabled = true;
+            audioOff.GetComponent<Image>().enabled = false;
+
+            audioEnabled = true;
+        }
+        else
+        {
+            //disable the audio
+            audioSource.mute = true;
+
+            //change the audio icon
             audioOn.GetComponent<Image>().enabled = false;
             audioOff.GetComponent<Image>().enabled = true;
 
