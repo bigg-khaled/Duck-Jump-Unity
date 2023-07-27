@@ -284,7 +284,6 @@ GameObject:
   - component: {fileID: 13131559}
   - component: {fileID: 13131558}
   - component: {fileID: 13131557}
-  - component: {fileID: 13131560}
   - component: {fileID: 13131561}
   - component: {fileID: 13131562}
   m_Layer: 5
@@ -372,7 +371,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 13131562}
-        m_TargetAssemblyTypeName: ButtonsUI, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
         m_MethodName: StartMainMenuLevel
         m_Mode: 1
         m_Arguments:
@@ -421,18 +420,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13131555}
   m_CullTransparentMesh: 1
---- !u!114 &13131560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13131555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb255d4e31071b4d8f0745db945af35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &13131561
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3037,7 +3024,6 @@ GameObject:
   - component: {fileID: 1213393842}
   - component: {fileID: 1213393841}
   - component: {fileID: 1213393845}
-  - component: {fileID: 1213393846}
   m_Layer: 5
   m_Name: TryAgainButton
   m_TagString: Untagged
@@ -3077,7 +3063,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1213393839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b476a6693c9c56488dc2d3dd3fcf71d, type: 3}
+  m_Script: {fileID: 11500000, guid: 615fd75481c8a134fbaeb6e7b97551f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1213393842
@@ -3136,8 +3122,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1213393846}
-        m_TargetAssemblyTypeName: ButtonsUI, Assembly-CSharp
+      - m_Target: {fileID: 1213393841}
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
         m_MethodName: StartGameLevel
         m_Mode: 1
         m_Arguments:
@@ -3282,18 +3268,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1213393846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213393839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615fd75481c8a134fbaeb6e7b97551f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1231412213
 GameObject:
   m_ObjectHideFlags: 0

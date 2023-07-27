@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
 
         //dont destroy the music
-        DontDestroyOnLoad(GameObject.FindWithTag("Music"));
+        //DontDestroyOnLoad(GameObject.Find("Music"));
 
         //start the game
         Time.timeScale = 1;
