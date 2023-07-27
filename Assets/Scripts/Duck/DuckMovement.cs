@@ -22,7 +22,6 @@ public class DuckMovement : MonoBehaviour
     //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
     public AudioClip[] jumpSFX;
-    public AudioClip[] landSFX;
 
     //public bool scriptEnabled = true;
     
@@ -41,8 +40,9 @@ public class DuckMovement : MonoBehaviour
             challengeHandler.currentChallenge.FailChallenge();
         }
 
-        //when space is pressed or screen touched, the duck jumps
-        if (Input.anyKeyDown || Input.touchCount > 0)
+        //when any key is pressed, or screen touched, the duck jumps
+        //make sure screen touch is below the pause button on the screen
+        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Screen.height - Input.GetTouch(0).position.y > 200f)
         {
             Jump();
         }
@@ -51,7 +51,7 @@ public class DuckMovement : MonoBehaviour
         CheckFrontFlip();
     }
 
-    void Jump()
+    public void Jump()
     {
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;
@@ -63,17 +63,21 @@ public class DuckMovement : MonoBehaviour
             challengeHandler.enabled = true;
             challengeHandler.gameObject.SetActive(true);
         }
-        //duck jumps with forward momentum speed and rotation speed
-        rb.velocity = new Vector2(momentum, jumpForce);
-        rb.rotation += rotationSpeed;
-        CameraShake.Instance.ShakeCamera(5f, 0.15f);
 
-        //play jump sound
-        int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
-        AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
+        if (isGrounded)
+        {
+            //duck jumps with forward momentum speed and rotation speed
+            rb.velocity = new Vector2(momentum, jumpForce);
+            rb.rotation += rotationSpeed;
+            CameraShake.Instance.ShakeCamera(5f, 0.15f);
 
-        //duck is no longer grounded
-        isGrounded = false;
+            //play jump sound
+            int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
+            AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
+
+            //duck is no longer grounded
+            isGrounded = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -119,10 +123,6 @@ public class DuckMovement : MonoBehaviour
             }
             // print("Target hit");
         }
-
-        //play land sound
-        int randomLandSound = UnityEngine.Random.Range(0, landSFX.Length);
-        AudioSource.PlayClipAtPoint(landSFX[randomLandSound], transform.position);
     }
 
     void OnCollisionStay2D(Collision2D collision)

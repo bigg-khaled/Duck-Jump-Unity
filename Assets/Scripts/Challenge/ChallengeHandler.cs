@@ -79,6 +79,11 @@ public class ChallengeHandler : MonoBehaviour
                 StartCoroutine(CreateChallenge());
             }
         }
+        
+        if(currentChallenge.GetChallengeStatus() == Challenge.ChallengeStatus.FAILED)
+        {
+            FailChallenge();
+        }
     }
 
     IEnumerator ChallengeTimer()
@@ -94,32 +99,10 @@ public class ChallengeHandler : MonoBehaviour
         {
             //Game Over
             currentChallenge.FailChallenge();
-            isChallengeActive = false;
-            isChallengeCompleted = false;
-            challengeText.text = "WHAT THE DUCK?!";
             
-            //reset challenge text position
-            challengeText.transform.position = new Vector3(challengeText.transform.position.x,
-                intialChallengeTextYPos, challengeText.transform.position.z);
-
-            //throw duck up for dramatic effect
-            duck.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10);
-            //stop duck from moving
-            duck.GetComponent<DuckMovement>().enabled = false;
-            //stop camera from moving
-            camera.GetComponent<CinemachineVirtualCamera>().Follow = null;
-
-            FinalScoreValue.text = $"{challengeScore}";
-
-            if(challengeScore > PlayerPrefs.GetInt("HighScore", 0))
-            {
-                PlayerPrefs.SetInt("HighScore", challengeScore);    
-            }
-            HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
-
-            gameOverScreen.gameObject.SetActive(true);
-            challengeText.gameObject.SetActive(false);
-
+            FailChallenge();
+            
+            
             if (!isPlayed)
             {
                 isPlayed = true;
@@ -150,5 +133,34 @@ public class ChallengeHandler : MonoBehaviour
         isChallengeActive = true;
         currentChallenge.CreateChallenge();
         timeLeft = currentChallenge.timeLimit;
+    }
+
+    public void FailChallenge()
+    {
+        isChallengeActive = false;
+        isChallengeCompleted = false;
+        challengeText.text = "WHAT THE DUCK?!";
+            
+        //reset challenge text position
+        challengeText.transform.position = new Vector3(challengeText.transform.position.x,
+            intialChallengeTextYPos, challengeText.transform.position.z);
+
+        //throw duck up for dramatic effect
+        duck.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 10);
+        //stop duck from moving
+        duck.GetComponent<DuckMovement>().enabled = false;
+        //stop camera from moving
+        camera.GetComponent<CinemachineVirtualCamera>().Follow = null;
+
+        FinalScoreValue.text = $"{challengeScore}";
+
+        if(challengeScore > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", challengeScore);    
+        }
+        HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
+        gameOverScreen.gameObject.SetActive(true);
+        challengeText.gameObject.SetActive(false);
     }
 }
