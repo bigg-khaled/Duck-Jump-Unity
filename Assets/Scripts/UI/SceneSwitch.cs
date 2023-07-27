@@ -44,4 +44,15 @@ public class SceneSwitch : MonoBehaviour
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
     }
+    
+    public void StartCreditsMenuLevel()
+    {
+        // Load the game scene
+        print("CREDITS MENU");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CreditsScene");
+        
+        //dont destroy the music
+        DontDestroyOnLoad(GameObject.Find("Music"));
+    }
+    
 }
