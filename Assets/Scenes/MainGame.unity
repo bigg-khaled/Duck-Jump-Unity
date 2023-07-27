@@ -1014,6 +1014,7 @@ MonoBehaviour:
   challengesCompleted: {fileID: 1717490885}
   FinalScoreValue: {fileID: 711534340}
   HiScore: {fileID: 997174802}
+  Bread: {fileID: 2087566606}
   duck: {fileID: 1402553287}
   camera: {fileID: 1582311653}
   gameOverScreen: {fileID: 1852144915}
@@ -9248,7 +9249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582311653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.041081, y: 5.7, z: -10}
+  m_LocalPosition: {x: 5.9887943, y: 5.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10675,7 +10676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928621199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.041081, y: 5.7, z: -10}
+  m_LocalPosition: {x: 5.9887943, y: 5.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

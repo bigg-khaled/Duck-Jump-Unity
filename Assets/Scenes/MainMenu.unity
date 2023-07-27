@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 168678000}
   - component: {fileID: 168678002}
   - component: {fileID: 168678001}
+  - component: {fileID: 168678003}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -237,6 +238,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168677999}
   m_CullTransparentMesh: 1
+--- !u!114 &168678003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168677999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19ec4e7918499744890c65dc7014280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hi_Score: {fileID: 1807083207}
+  Bread: {fileID: 1437640579}
 --- !u!1 &205901478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,7 +2042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123131313
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a90b7b0ca13a2046942d192dc0a94fd, type: 2}
   m_sharedMaterial: {fileID: -1461446261448525605, guid: 5a90b7b0ca13a2046942d192dc0a94fd, type: 2}
@@ -2662,7 +2677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123131313
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a90b7b0ca13a2046942d192dc0a94fd, type: 2}
   m_sharedMaterial: {fileID: -1461446261448525605, guid: 5a90b7b0ca13a2046942d192dc0a94fd, type: 2}

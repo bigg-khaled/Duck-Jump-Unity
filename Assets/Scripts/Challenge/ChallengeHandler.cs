@@ -16,6 +16,7 @@ public class ChallengeHandler : MonoBehaviour
     public TextMeshProUGUI challengesCompleted;
     public TextMeshProUGUI FinalScoreValue;
     public TextMeshProUGUI HiScore;
+    public TextMeshProUGUI Bread;
     private int challengeScore = 0;
     private float intialChallengeTextYPos;
     public GameObject duck;
@@ -26,6 +27,9 @@ public class ChallengeHandler : MonoBehaviour
     public AudioClip[] challengeCompletedSFX;
     public AudioClip[] challengeFailedSFX;
     private bool isPlayed = false;
+
+    //bred
+    bool addBred;
 
     private void Awake()
     {
@@ -52,6 +56,8 @@ public class ChallengeHandler : MonoBehaviour
         //get challenge type to display on screen and start challenge
         if (isChallengeActive)
         {
+            challengesCompleted.text = $"{challengeScore}";
+            addBred = true;
             currentChallenge.StartChallenge();
             // Debug.Log("Challenge Started: \n" + currentChallenge.challengeText);
             challengeText.text = currentChallenge.challengeText;
@@ -75,7 +81,7 @@ public class ChallengeHandler : MonoBehaviour
                 int randomText = UnityEngine.Random.Range(0, challengeCompletedText.Length);
                 challengeText.text = challengeCompletedText[randomText];
                 ++challengeScore;
-                challengesCompleted.text = $"{challengeScore}";
+                //challengesCompleted.text = $"{challengeScore}";
                 StartCoroutine(CreateChallenge());
             }
         }
@@ -159,6 +165,16 @@ public class ChallengeHandler : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", challengeScore);    
         }
         HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
+        Bread.text = challengeScore.ToString();
+        if (addBred)
+        { 
+            PlayerPrefs.SetInt("Bread", PlayerPrefs.GetInt("Bread", 0) + challengeScore);
+            addBred = false;
+        }
+
+        
+        print("Bread: " + PlayerPrefs.GetInt("Bread", 0));
 
         gameOverScreen.gameObject.SetActive(true);
         challengeText.gameObject.SetActive(false);
