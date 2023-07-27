@@ -21,6 +21,7 @@ public class DuckMovement : MonoBehaviour
     public bool isTargetHit = false;
     //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
+    public AudioSource audioSource;
     public AudioClip[] jumpSFX;
 
     //public bool scriptEnabled = true;
@@ -73,8 +74,8 @@ public class DuckMovement : MonoBehaviour
 
             //play jump sound
             int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
-            AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
-
+            audioSource.PlayOneShot(jumpSFX[randomJumpSound]);
+            
             //duck is no longer grounded
             isGrounded = false;
         }

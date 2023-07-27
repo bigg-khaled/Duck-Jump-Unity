@@ -23,6 +23,7 @@ public class ChallengeHandler : MonoBehaviour
     public Canvas gameOverScreen;
     private String[] challengeCompletedText;
     
+    public AudioSource audioSource;
     public AudioClip[] challengeCompletedSFX;
     public AudioClip[] challengeFailedSFX;
     private bool isPlayed = false;
@@ -66,8 +67,7 @@ public class ChallengeHandler : MonoBehaviour
                 
                 //play challenge completed SFX
                 int randomSFX = UnityEngine.Random.Range(0, challengeCompletedSFX.Length);
-                GetComponent<AudioSource>().PlayOneShot(challengeCompletedSFX[randomSFX]);
-                
+                audioSource.PlayOneShot(challengeCompletedSFX[randomSFX]);
                 //stop challenge timer coroutine
                 StopAllCoroutines();
                 //run a 2 second delay
@@ -108,7 +108,7 @@ public class ChallengeHandler : MonoBehaviour
                 isPlayed = true;
                 //play challenge failed SFX
                 int randomSFX = UnityEngine.Random.Range(0, challengeFailedSFX.Length);
-                GetComponent<AudioSource>().PlayOneShot(challengeFailedSFX[randomSFX]);
+                audioSource.PlayOneShot(challengeFailedSFX[randomSFX]);
             }
         }
         
