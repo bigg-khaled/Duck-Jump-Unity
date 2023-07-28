@@ -59,7 +59,7 @@ public class Challenge : MonoBehaviour
 
     private void Start()
     {
-        // player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
         prevchallenge = ChallengeType.REACH_HEIGHT;
     }
 

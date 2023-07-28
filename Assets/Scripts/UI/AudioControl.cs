@@ -17,6 +17,16 @@ public class AudioControl : MonoBehaviour
     private void Start()
     {
         //TODO get enabled from player prefs and set the audio source mute accordingly... ya3ni if audio is enabled, set the audio source mute to false
+
+        //Had to convert to bool since playerprefs dont do bool
+        //Basically the variable is AudioSetting, and the 0 means that if nothing is set, it is 0 by default (False)
+        audioSource.mute = Convert.ToBoolean(PlayerPrefs.GetInt("AudioSetting", 0));
+
+        //Go to the function ta7t to see how to change it b2a
+
+        //ur gonna have to make another one for audioenabled aw connect them cause I dont wanna mess with ur code
+        
+
     }
 
     private void Awake()
@@ -66,6 +76,9 @@ public class AudioControl : MonoBehaviour
             //enable the audio
             audioSource.mute = false;
 
+            //Using SetInt means that first prop is the variable, second is the number aw variable u wanna assign it
+            PlayerPrefs.SetInt("AudioSetting", 0);
+
             //change the audio icon
             audioOn.GetComponent<Image>().enabled = true;
             audioOff.GetComponent<Image>().enabled = false;
@@ -76,6 +89,9 @@ public class AudioControl : MonoBehaviour
         {
             //disable the audio
             audioSource.mute = true;
+
+            //same here but I set it to true
+            PlayerPrefs.SetInt("AudioSetting", 1);
 
             //change the audio icon
             audioOn.GetComponent<Image>().enabled = false;

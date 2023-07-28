@@ -92,6 +92,7 @@ public class DuckMovement : MonoBehaviour
             StopAllCoroutines();
             isGrounded = true;
 
+            print("Grounded");
 
             //keep rotation
             //rb.rotation = 0f;

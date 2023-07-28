@@ -9,6 +9,7 @@ public class EggBirth : MonoBehaviour
 
     private void Awake()
     {
+
         eggCrack = GetComponent<ParticleSystem>();
         eggCrack.Stop();
     }

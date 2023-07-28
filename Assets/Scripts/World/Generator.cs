@@ -26,7 +26,7 @@ public class Generator : MonoBehaviour
     }
     private void Start()
     {
-        // duck = GameObject.FindGameObjectWithTag("Player");
+        duck = GameObject.FindGameObjectWithTag("Player");
         currentPos = transform.position.x;
         usedChunk = false;
         Generation();
@@ -74,7 +74,7 @@ public class Generator : MonoBehaviour
             if ((ColumnChooser == columnNum) && (challengeDetect.GetComponent<Challenge>().challengeType == Challenge.ChallengeType.HIT_TARGET) && (chunknum != 0))
             {
                 // Spawn an Egg at this column
-                spawnObj(Egg, x, height * (floor.GetComponent<SpriteRenderer>().bounds.size.y + 1) + transform.position.y);
+                spawnObj(Egg, x, (height+1) * (floor.GetComponent<SpriteRenderer>().bounds.size.y) + transform.position.y);
             }
 
             columnNum++;
