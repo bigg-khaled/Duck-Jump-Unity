@@ -10,9 +10,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseButton;
     public TextMeshProUGUI challengeText;
     
-    private void Start()
+    private void Awake()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
     }
 
     public void ResumeGame()

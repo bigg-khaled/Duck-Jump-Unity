@@ -16,36 +16,33 @@ public class MusicControl : MonoBehaviour
     private void Awake()
     {
         //if audio source is sfx
-       
-            audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
-            
-            //get enabled from player prefs and set the audio source mute accordingly
-            if (PlayerPrefs.GetInt("MusicAudioEnabled", 1) == 1)
-            {
-                audioSource.mute = false;
-                MusicEnabled = true;
-                
-                //change the audio icon
-                MusicOn.GetComponent<Image>().enabled = true;
-                MusicOff.GetComponent<Image>().enabled = false;
-                
-            }
-            else
-            {
-                audioSource.mute = true;
-                MusicEnabled = false;
-                
-                //change the audio icon
-                MusicOn.GetComponent<Image>().enabled = false;
-                MusicOff.GetComponent<Image>().enabled = true;
-            }
-        
+
+        audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+
+        //get enabled from player prefs and set the audio source mute accordingly
+        if (PlayerPrefs.GetInt("MusicAudioEnabled", 1) == 1)
+        {
+            audioSource.mute = false;
+            MusicEnabled = true;
+
+            //change the audio icon
+            MusicOn.GetComponent<Image>().enabled = true;
+            MusicOff.GetComponent<Image>().enabled = false;
+        }
+        else
+        {
+            audioSource.mute = true;
+            MusicEnabled = false;
+
+            //change the audio icon
+            MusicOn.GetComponent<Image>().enabled = false;
+            MusicOff.GetComponent<Image>().enabled = true;
+        }
     }
 
     //enable the audio
     public void ToggleMusic()
     {
-        
         if (!MusicEnabled)
         {
             //enable the audio
@@ -54,13 +51,11 @@ public class MusicControl : MonoBehaviour
             //change the audio icon
             MusicOn.GetComponent<Image>().enabled = true;
             MusicOff.GetComponent<Image>().enabled = false;
-            
+
             MusicEnabled = true;
-            
+
             //save the audio enabled state
             PlayerPrefs.SetInt("MusicAudioEnabled", 1);
-
-
         }
         else
         {
@@ -72,8 +67,8 @@ public class MusicControl : MonoBehaviour
             MusicOff.GetComponent<Image>().enabled = true;
 
             MusicEnabled = false;
-            
-            
+
+
             //save the audio enabled state
             PlayerPrefs.SetInt("MusicAudioEnabled", 0);
         }

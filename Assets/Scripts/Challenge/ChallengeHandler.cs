@@ -51,11 +51,8 @@ public class ChallengeHandler : MonoBehaviour
         
         HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         
-        //if audio source is sfx
-        if (audioSource == null && GameObject.Find("SFX") != null)
-        {
-            audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
-        }
+        //get sfx audio source
+        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
