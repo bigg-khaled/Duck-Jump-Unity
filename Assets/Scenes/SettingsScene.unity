@@ -210,8 +210,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 68719105}
-        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
-        m_MethodName: EnableAudio
+        m_TargetAssemblyTypeName: MusicControl, Assembly-CSharp
+        m_MethodName: ToggleMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -268,11 +268,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 68719100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cd2b74278c35d4cb8aa4e20bdd4014, type: 3}
+  m_Script: {fileID: 11500000, guid: b8aa0c08ea36d4a40802983144a0c7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioOn: {fileID: 540474903}
-  audioOff: {fileID: 1635270615}
+  MusicOn: {fileID: 540474903}
+  MusicOff: {fileID: 1635270615}
   audioSource: {fileID: 0}
 --- !u!1 &103022270
 GameObject:
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 301104687}
   - component: {fileID: 301104686}
   - component: {fileID: 301104685}
-  - component: {fileID: 301104688}
+  - component: {fileID: 301104689}
   m_Layer: 5
   m_Name: MuteSFXButton
   m_TagString: Untagged
@@ -863,9 +863,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: EnableSFX
+      - m_Target: {fileID: 301104689}
+        m_TargetAssemblyTypeName: SFXControl, Assembly-CSharp
+        m_MethodName: ToggleSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -913,7 +913,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301104683}
   m_CullTransparentMesh: 1
---- !u!114 &301104688
+--- !u!114 &301104689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -922,11 +922,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 301104683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cd2b74278c35d4cb8aa4e20bdd4014, type: 3}
+  m_Script: {fileID: 11500000, guid: fce8704df9887254ca409ccf526d736d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioOn: {fileID: 103022270}
-  audioOff: {fileID: 637922094}
+  SFXOn: {fileID: 103022270}
+  SFXOff: {fileID: 637922094}
   audioSource: {fileID: 0}
 --- !u!1 &429356292
 GameObject:

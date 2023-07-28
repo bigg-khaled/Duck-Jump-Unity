@@ -24,7 +24,7 @@ public class ChallengeHandler : MonoBehaviour
     public Canvas gameOverScreen;
     private String[] challengeCompletedText;
     
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public AudioClip[] challengeCompletedSFX;
     public AudioClip[] challengeFailedSFX;
     private bool isPlayed = false;
@@ -50,6 +50,9 @@ public class ChallengeHandler : MonoBehaviour
         challengeCompletedText = System.IO.File.ReadAllLines(@"Assets\Scripts\Challenge\ChallengeCompletedText.txt");
         
         HiScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        
+        //get sfx audio source
+        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()

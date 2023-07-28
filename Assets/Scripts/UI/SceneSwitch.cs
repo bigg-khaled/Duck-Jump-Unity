@@ -11,6 +11,9 @@ public class SceneSwitch : MonoBehaviour
 
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.Find("SFX"));
 
     }
     
@@ -22,6 +25,10 @@ public class SceneSwitch : MonoBehaviour
         
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.Find("SFX"));
+        
     }
     
     public void StartShopMenuLevel()
@@ -32,6 +39,9 @@ public class SceneSwitch : MonoBehaviour
         
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.Find("SFX"));
     }
 
     public void StartSettingsMenuLevel()
@@ -43,6 +53,9 @@ public class SceneSwitch : MonoBehaviour
         
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.Find("SFX"));
     }
     
     public void StartCreditsMenuLevel()
@@ -53,6 +66,9 @@ public class SceneSwitch : MonoBehaviour
         
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.Find("SFX"));
     }
     
 }

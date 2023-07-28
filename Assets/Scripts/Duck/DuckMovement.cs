@@ -23,7 +23,7 @@ public class DuckMovement : MonoBehaviour
 
     //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public AudioClip[] jumpSFX;
 
     //public bool scriptEnabled = true;
@@ -32,6 +32,10 @@ public class DuckMovement : MonoBehaviour
     {
         momentum = startMomentum;
         jumpForce = startJumpForce;
+        
+        
+        //get sfx audio source
+        audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +52,7 @@ public class DuckMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) ||
             Input.touchCount > 0 && Screen.height - Input.GetTouch(0).position.y > 200f)
         {
+            Time.timeScale = 1f;
             Jump();
         }
 
