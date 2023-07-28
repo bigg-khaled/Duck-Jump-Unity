@@ -7,15 +7,11 @@ public class SceneSwitch : MonoBehaviour
     public void StartMainMenuLevel()
     {
         // Load the game scene
-        print("MAIN MENU");
-        // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
 
         //dont destroy the music
-        //DontDestroyOnLoad(GameObject.Find("Music"));
+        DontDestroyOnLoad(GameObject.Find("Music"));
 
-        //start the game
-        Time.timeScale = 1;
     }
     
     public void StartGameLevel()

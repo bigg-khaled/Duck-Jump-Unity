@@ -8,6 +8,7 @@ TagManager:
   - Target
   - Broken
   - Music
+  - SFX
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7381553557077772014}
   - component: {fileID: 7381553557077772008}
   - component: {fileID: 3195808253255875044}
-  - component: {fileID: 1402553293}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Player
@@ -78,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9980592d1bb65cd489c536a856596ff9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0ad878096ebef74aab097e4d5f5af7d, type: 3}
   m_Color: {r: 0.98039216, g: 0.95686275, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 16, y: 11.31}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137,6 +136,7 @@ MonoBehaviour:
   frontflipCount: 0
   isTargetHit: 0
   challengeHandler: {fileID: 0}
+  audioSource: {fileID: 0}
   jumpSFX:
   - {fileID: 8300000, guid: 277e271143293eb49a8f033975c06bf0, type: 3}
 --- !u!60 &3195808253255875044
@@ -156,118 +156,22 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.04, y: 2.04}
-    newSize: {x: 16, y: 11.31}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.125, y: 0.2604167}
-      - {x: -0.22916667, y: 0.114583336}
-      - {x: -0.22916667, y: -0.19791667}
-      - {x: -0.16666667, y: -0.2604167}
-      - {x: 0.125, y: -0.2604167}
-      - {x: 0.22916667, y: -0.15625}
-      - {x: 0.22916667, y: 0.17708334}
-      - {x: 0.14583334, y: 0.2604167}
---- !u!82 &1402553293
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7381553557077772013}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 0.33630323
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+    - - {x: 0.024069786, y: 0.22643775}
+      - {x: -0.23026292, y: 0.04333672}
+      - {x: -0.23026244, y: -0.07186477}
+      - {x: -0.16447513, y: -0.24616736}
+      - {x: 0.13157654, y: -0.24616688}
+      - {x: 0.23903148, y: 0.031183243}
+      - {x: 0.17874591, y: 0.15077671}
+      - {x: 0.14254555, y: 0.22205323}
 --- !u!1001 &1837339252
 PrefabInstance:
   m_ObjectHideFlags: 0

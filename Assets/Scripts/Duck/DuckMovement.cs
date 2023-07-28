@@ -18,13 +18,16 @@ public class DuckMovement : MonoBehaviour
     public float graceTimer = 0.5f;
     public Rigidbody2D rb;
     public int frontflipCount = 0;
+
     public bool isTargetHit = false;
+
     //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
+    public AudioSource audioSource;
     public AudioClip[] jumpSFX;
 
     //public bool scriptEnabled = true;
-    
+
     private void Start()
     {
         momentum = startMomentum;
@@ -42,7 +45,8 @@ public class DuckMovement : MonoBehaviour
 
         //when any key is pressed, or screen touched, the duck jumps
         //make sure screen touch is below the pause button on the screen
-        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Screen.height - Input.GetTouch(0).position.y > 200f)
+        if (Input.GetKeyDown(KeyCode.Space) ||
+            Input.touchCount > 0 && Screen.height - Input.GetTouch(0).position.y > 200f)
         {
             Jump();
         }
@@ -57,8 +61,7 @@ public class DuckMovement : MonoBehaviour
         if (!isGrounded) return;
 
         //if the player jumps start the challenge
-        if (!challengeHandler.isActiveAndEnabled)
-        if (isGrounded)
+        if (!challengeHandler.isActiveAndEnabled && isGrounded)
         {
             challengeHandler.enabled = true;
             challengeHandler.gameObject.SetActive(true);
@@ -73,7 +76,7 @@ public class DuckMovement : MonoBehaviour
 
             //play jump sound
             int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
-            AudioSource.PlayClipAtPoint(jumpSFX[randomJumpSound], transform.position);
+            audioSource.PlayOneShot(jumpSFX[randomJumpSound]);
 
             //duck is no longer grounded
             isGrounded = false;

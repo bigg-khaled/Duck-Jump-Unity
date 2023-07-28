@@ -7,14 +7,14 @@ public class PauseGame : MonoBehaviour
 {
     public GameObject pauseMenu;
     public TextMeshProUGUI challengeText;
-    private void Start()
-    {
-        Time.timeScale = 1;
-    }
+ 
     
     public void PauseGameLevel()
     {
 
+        //stop the game
+        Time.timeScale = 0;
+        
         //hide challenge text
         challengeText.gameObject.SetActive(false);
         
@@ -24,9 +24,6 @@ public class PauseGame : MonoBehaviour
         
         // show the pause menu
         pauseMenu.SetActive(true);
-        
-        //stop the game
-        Time.timeScale = 0;
         
     }
 }
