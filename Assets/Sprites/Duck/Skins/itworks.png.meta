@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ee580c3238fcda4c9f1630cdd975aab
+guid: d33fc5d734eed59428fba3f811e504fc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ducky_2_spritesheet_0
+      name: ducky_3_spritesheet_0
       rect:
         serializedVersion: 2
         x: 6
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e053b9b98c10e474693ce5e64d23c191
-      internalID: -1199743004
+      spriteID: 50beaf579ad7268429aad249a2a0fb16
+      internalID: -1771655624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_1
+      name: ducky_3_spritesheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09e236317f883cd4da916cc2b9d8185e
-      internalID: 62264005
+      spriteID: a70f77d8563696746ac235d0184bc884
+      internalID: 335049704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_2
+      name: ducky_3_spritesheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a53d1bea1cc7bbb4ebabd2dc8576be50
-      internalID: 987209389
+      spriteID: 0a2bf060851f1e74b8a6300e3f81745a
+      internalID: 2146974212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_3
+      name: ducky_3_spritesheet_3
       rect:
         serializedVersion: 2
         x: 32
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4c4e0922d7d1884f99ed36eea4614dd
-      internalID: 1475369953
+      spriteID: d853c03934a1d0643a010953d91c2826
+      internalID: -1349775792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_4
+      name: ducky_3_spritesheet_4
       rect:
         serializedVersion: 2
         x: 64
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df1da103b8f03ac4cb1ed18160f3fe00
-      internalID: -2073473256
+      spriteID: 47d76d0041080f6439c9192f513d7048
+      internalID: 831310802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_5
+      name: ducky_3_spritesheet_5
       rect:
         serializedVersion: 2
         x: 96
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22e24aa19caccee47be9d1dda0c3a6da
-      internalID: 756411242
+      spriteID: a9d814bc9b81a5546aeac4477bcd6d63
+      internalID: -544103550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_6
+      name: ducky_3_spritesheet_6
       rect:
         serializedVersion: 2
         x: 128
@@ -269,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d38e843dd5b16ad4b8eff1f50d4dce18
-      internalID: 1543656995
+      spriteID: 76068b71f5daadb4c91f5f662d9b04a7
+      internalID: -92403782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_7
+      name: ducky_3_spritesheet_7
       rect:
         serializedVersion: 2
         x: 160
@@ -290,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da6d0a63b756c643bd0b2605e540e2d
-      internalID: 715341697
+      spriteID: 007edf09b810374419f7577351ffe120
+      internalID: -878734445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_8
+      name: ducky_3_spritesheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -311,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c08431612525a74a91b803bc8134a92
-      internalID: 2011655343
+      spriteID: 436c360069687d2409c5f1192aede4b0
+      internalID: -1911606288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_9
+      name: ducky_3_spritesheet_9
       rect:
         serializedVersion: 2
         x: 32
@@ -332,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cf52fd5cf4ddbd4ab94b724cbd359b6
-      internalID: 1402039355
+      spriteID: 89ad41fdca7a0cb408fefc6689883c2d
+      internalID: 847452716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_10
+      name: ducky_3_spritesheet_10
       rect:
         serializedVersion: 2
         x: 64
@@ -353,14 +353,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 280b6c833a650f742b305d58d9877194
-      internalID: -262758922
+      spriteID: c9971aa611128244d9bbb53ecc84a0f9
+      internalID: -420495560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_11
+      name: ducky_3_spritesheet_11
       rect:
         serializedVersion: 2
         x: 96
@@ -374,14 +374,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3eac09886073ee44c899f4aa7a1d47d9
-      internalID: -1919991510
+      spriteID: 95f4ae021d0b05c47894e4ec820da7f5
+      internalID: -1196310577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_12
+      name: ducky_3_spritesheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -395,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4819fc5a7453e4b438eff8992c7063e4
-      internalID: -747154554
+      spriteID: 483f4a1b09726f54ca1775582521b76d
+      internalID: 1981849162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_13
+      name: ducky_3_spritesheet_13
       rect:
         serializedVersion: 2
         x: 32
@@ -416,14 +416,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60de19a85b0eec24e9cf85da528a73e2
-      internalID: 523057288
+      spriteID: e73d31339418f2146bb292f4c5ac4e5e
+      internalID: -15633011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_14
+      name: ducky_3_spritesheet_14
       rect:
         serializedVersion: 2
         x: 64
@@ -437,14 +437,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8713b114e023ac04b886a4215efa67fd
-      internalID: -1195877900
+      spriteID: d69b9c9bfc1ebb24594373e2517163f6
+      internalID: -320471734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_15
+      name: ducky_3_spritesheet_15
       rect:
         serializedVersion: 2
         x: 96
@@ -458,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92053225b5874dc43bb8ca788c3de356
-      internalID: 578121033
+      spriteID: 6238cd250671a944181aca04a5630ebe
+      internalID: 467397777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_16
+      name: ducky_3_spritesheet_16
       rect:
         serializedVersion: 2
         x: 128
@@ -479,14 +479,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65fde8d64fbc84448abcc40b512b535d
-      internalID: -1852312937
+      spriteID: 32641cfc9dc39494088be35505d8fe32
+      internalID: 1559858590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ducky_2_spritesheet_17
+      name: ducky_3_spritesheet_17
       rect:
         serializedVersion: 2
         x: 160
@@ -500,8 +500,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acbdc5928a7c1df4abe0139a0e5fd6b3
-      internalID: 868756120
+      spriteID: d167923eae1a99d49ac85e0493fcf6eb
+      internalID: 1500788607
       vertices: []
       indices: 
       edges: []
@@ -517,24 +517,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ducky_2_spritesheet_0: -1199743004
-      ducky_2_spritesheet_1: 62264005
-      ducky_2_spritesheet_10: -262758922
-      ducky_2_spritesheet_11: -1919991510
-      ducky_2_spritesheet_12: -747154554
-      ducky_2_spritesheet_13: 523057288
-      ducky_2_spritesheet_14: -1195877900
-      ducky_2_spritesheet_15: 578121033
-      ducky_2_spritesheet_16: -1852312937
-      ducky_2_spritesheet_17: 868756120
-      ducky_2_spritesheet_2: 987209389
-      ducky_2_spritesheet_3: 1475369953
-      ducky_2_spritesheet_4: -2073473256
-      ducky_2_spritesheet_5: 756411242
-      ducky_2_spritesheet_6: 1543656995
-      ducky_2_spritesheet_7: 715341697
-      ducky_2_spritesheet_8: 2011655343
-      ducky_2_spritesheet_9: 1402039355
+      ducky_3_spritesheet_0: -1771655624
+      ducky_3_spritesheet_1: 335049704
+      ducky_3_spritesheet_10: -420495560
+      ducky_3_spritesheet_11: -1196310577
+      ducky_3_spritesheet_12: 1981849162
+      ducky_3_spritesheet_13: -15633011
+      ducky_3_spritesheet_14: -320471734
+      ducky_3_spritesheet_15: 467397777
+      ducky_3_spritesheet_16: 1559858590
+      ducky_3_spritesheet_17: 1500788607
+      ducky_3_spritesheet_2: 2146974212
+      ducky_3_spritesheet_3: -1349775792
+      ducky_3_spritesheet_4: 831310802
+      ducky_3_spritesheet_5: -544103550
+      ducky_3_spritesheet_6: -92403782
+      ducky_3_spritesheet_7: -878734445
+      ducky_3_spritesheet_8: -1911606288
+      ducky_3_spritesheet_9: 847452716
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

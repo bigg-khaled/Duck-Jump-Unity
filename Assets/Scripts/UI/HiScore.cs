@@ -10,7 +10,9 @@ public class HiScore : MonoBehaviour
     
     void Start()
     {
-        Hi_Score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        GameObject hiScoreObj = GameObject.Find("Hi_Score");
+        if (hiScoreObj != null)  Hi_Score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
         Bread.text = PlayerPrefs.GetInt("Bread", 0).ToString();
 
     }
@@ -18,7 +20,8 @@ public class HiScore : MonoBehaviour
 
     void Update()
     {
-        Hi_Score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        GameObject hiScoreObj = GameObject.Find("Hi_Score");
+        if (hiScoreObj != null) Hi_Score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         Bread.text = PlayerPrefs.GetInt("Bread", 0).ToString();
     }
 }
