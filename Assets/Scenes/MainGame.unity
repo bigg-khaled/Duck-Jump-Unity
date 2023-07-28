@@ -3585,6 +3585,34 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 1532911554}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.data[0]
+      value: 
+      objectReference: {fileID: -1771655624, guid: b2a727ff3bb40004d9f274bc0f7d8ec3, type: 3}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.data[1]
+      value: 
+      objectReference: {fileID: -1199743004, guid: 8ee580c3238fcda4c9f1630cdd975aab, type: 3}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 471448670, guid: 76925e6aead66694bb1b07638416a2f4, type: 3}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: c0ad878096ebef74aab097e4d5f5af7d, type: 3}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: fb0f84e3483dff146a1a084dc76c6eb4, type: 3}
+    - target: {fileID: 2489547947120359606, guid: 1b845f039210417439559cbbad528842, type: 3}
+      propertyPath: skinArray.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6699f7f882bc3f34aaab5473120ce106, type: 3}
     - target: {fileID: 3195808253255875044, guid: 1b845f039210417439559cbbad528842, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
       value: 10

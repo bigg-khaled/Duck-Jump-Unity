@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7381553557077772014}
   - component: {fileID: 7381553557077772008}
   - component: {fileID: 3195808253255875044}
+  - component: {fileID: 2489547947120359606}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Player
@@ -136,7 +137,6 @@ MonoBehaviour:
   frontflipCount: 0
   isTargetHit: 0
   challengeHandler: {fileID: 0}
-  audioSource: {fileID: 0}
   jumpSFX:
   - {fileID: 8300000, guid: 277e271143293eb49a8f033975c06bf0, type: 3}
 --- !u!60 &3195808253255875044
@@ -172,6 +172,18 @@ PolygonCollider2D:
       - {x: 0.23903148, y: 0.031183243}
       - {x: 0.17874591, y: 0.15077671}
       - {x: 0.14254555, y: 0.22205323}
+--- !u!114 &2489547947120359606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7381553557077772013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02186f0a16018e948befcbe41a2e9ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1837339252
 PrefabInstance:
   m_ObjectHideFlags: 0
