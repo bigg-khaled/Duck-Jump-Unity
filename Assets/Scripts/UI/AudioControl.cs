@@ -28,7 +28,7 @@ public class AudioControl : MonoBehaviour
             audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
         }
 
-        if (!audioEnabled)
+        if (audioEnabled)
         {
             //enable the audio
             audioSource.mute = false;
@@ -50,16 +50,12 @@ public class AudioControl : MonoBehaviour
 
             audioEnabled = false;
         }
-        
-        audioOff.GetComponent<Image>().enabled = false;
-        
 
     }
 
     //enable the audio
     public void EnableAudio()
     {
-        print("clicked");
         
         if (!audioEnabled)
         {
