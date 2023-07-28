@@ -9,17 +9,17 @@ public class SkinSwitch : MonoBehaviour
 
     private void Awake()
     {
-        skinChoice = PlayerPrefs.GetInt("Skin", 1);
+        skinChoice = PlayerPrefs.GetInt("Skin", 0);
     }
     void Start()
     {
-        skinChoice = PlayerPrefs.GetInt("Skin", 1);
+        skinChoice = PlayerPrefs.GetInt("Skin", 0);
     }
 
 
     void Update()
     {
-        print(PlayerPrefs.GetInt("Skin", 1));
+        print(PlayerPrefs.GetInt("Skin", 0));
     }
 
     public void ChooseSkin()
