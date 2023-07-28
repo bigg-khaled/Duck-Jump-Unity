@@ -38,6 +38,9 @@ public class PauseMenu : MonoBehaviour
 
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.Find("SFX"));
 
         //start the game
         Time.timeScale = 1;
@@ -50,6 +53,9 @@ public class PauseMenu : MonoBehaviour
 
         //dont destroy the music
         DontDestroyOnLoad(GameObject.FindWithTag("Music"));
+        
+        //dont destroy the sfx
+        DontDestroyOnLoad(GameObject.FindWithTag("SFX"));
 
         //start the game
         Time.timeScale = 1;
