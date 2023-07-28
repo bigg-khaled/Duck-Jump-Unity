@@ -17,7 +17,7 @@ public class SceneSwitch : MonoBehaviour
     public void StartGameLevel()
     {
         // Load the game scene
-        print("GAME");
+        // print("GAME");
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGame");
         
         //dont destroy the music
@@ -26,7 +26,7 @@ public class SceneSwitch : MonoBehaviour
     
     public void StartShopMenuLevel()
     {
-        print("SHOP MENU");
+        // print("SHOP MENU");
         // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("ShopScene");
         
@@ -38,10 +38,21 @@ public class SceneSwitch : MonoBehaviour
     {
         
         // Load the game scene
-        print("SETTINGS MENU");
+        // print("SETTINGS MENU");
         UnityEngine.SceneManagement.SceneManager.LoadScene("SettingsScene");
         
         //dont destroy the music
         DontDestroyOnLoad(GameObject.Find("Music"));
     }
+    
+    public void StartCreditsMenuLevel()
+    {
+        // Load the game scene
+        // print("CREDITS MENU");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CreditsScene");
+        
+        //dont destroy the music
+        DontDestroyOnLoad(GameObject.Find("Music"));
+    }
+    
 }
