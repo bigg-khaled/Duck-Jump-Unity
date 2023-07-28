@@ -16,7 +16,7 @@ public class AudioControl : MonoBehaviour
 
     private void Start()
     {
-        //TODO get enabled from player prefs and set the audio source mute accordingly... ya3ni if audio is enabled, set the audio source mute to false
+        
     }
 
     private void Awake()
@@ -26,6 +26,36 @@ public class AudioControl : MonoBehaviour
         if (audioSource == null && GameObject.Find("Music") != null)
         {
             audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+            
+            //get enabled from player prefs and set the audio source mute accordingly
+            if (PlayerPrefs.GetInt("MusicAudioEnabled", 1) == 1)
+            {
+                audioSource.mute = false;
+                audioEnabled = true;
+            }
+            else
+            {
+                audioSource.mute = true;
+                audioEnabled = false;
+            }
+        }
+        
+        //if audio source is sfx
+        if (audioSource == null && GameObject.Find("SFX") != null)
+        {
+            audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
+            
+            //get enabled from player prefs and set the audio source mute accordingly
+            if (PlayerPrefs.GetInt("SFXAudioEnabled", 1) == 1)
+            {
+                audioSource.mute = false;
+                audioEnabled = true;
+            }
+            else
+            {
+                audioSource.mute = true;
+                audioEnabled = false;
+            }
         }
 
         if (audioEnabled)
@@ -65,8 +95,20 @@ public class AudioControl : MonoBehaviour
             //change the audio icon
             audioOn.GetComponent<Image>().enabled = true;
             audioOff.GetComponent<Image>().enabled = false;
-
+            
             audioEnabled = true;
+            
+            //save the audio enabled state
+            if (audioSource.gameObject.name == "Music")
+            {
+                PlayerPrefs.SetInt("MusicAudioEnabled", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("SFXAudioEnabled", 1);
+            }
+
+
         }
         else
         {
@@ -78,6 +120,17 @@ public class AudioControl : MonoBehaviour
             audioOff.GetComponent<Image>().enabled = true;
 
             audioEnabled = false;
+            
+            
+            //save the audio enabled state
+            if (audioSource.gameObject.name == "Music")
+            {
+                PlayerPrefs.SetInt("MusicAudioEnabled", 0);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("SFXAudioEnabled", 0);
+            }
         }
     }
 }
