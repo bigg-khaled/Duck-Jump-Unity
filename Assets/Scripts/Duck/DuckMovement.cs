@@ -18,17 +18,12 @@ public class DuckMovement : MonoBehaviour
     public float graceTimer = 0.5f;
     public Rigidbody2D rb;
     public int frontflipCount = 0;
-
     public bool isTargetHit = false;
-
-    //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
     private AudioSource audioSource;
     public AudioClip[] jumpSFX;
-
-    //public bool scriptEnabled = true;
-
     public GameObject Particles;
+    public int perfectJumpCount = 0;
     private float initialZRotation;
 
     private void Start()
@@ -37,8 +32,8 @@ public class DuckMovement : MonoBehaviour
 
         momentum = startMomentum;
         jumpForce = startJumpForce;
-        
-        
+
+
         //get sfx audio source
         audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
@@ -109,13 +104,7 @@ public class DuckMovement : MonoBehaviour
             StopAllCoroutines();
             isGrounded = true;
 
-            print("Grounded");
-
-            //keep rotation
-            //rb.rotation = 0f;
-            //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
-            //increase momentum
-
+            
             if (momentum <= maxMomentum)
             {
                 momentum *= 1f + momentumIncrease;
@@ -126,6 +115,11 @@ public class DuckMovement : MonoBehaviour
             {
                 jumpForce *= 1f + jumpForceIncrease;
             }
+
+            //start streak
+            JumpStreak();
+
+            print(perfectJumpCount);
 
             StartCoroutine(GraceTimer());
         }
@@ -172,7 +166,61 @@ public class DuckMovement : MonoBehaviour
         {
             momentum = startMomentum;
             jumpForce = startJumpForce;
+
+            //reset streak
+            ResetJumpStreak();
         }
+    }
+
+    void JumpStreak()
+    {
+        //particle effect with perfect jump
+        Vector3 newRotation = Particles.transform.rotation.eulerAngles;
+        newRotation.z = rb.rotation;
+        Particles.transform.rotation = Quaternion.Euler(newRotation);
+        Particles.GetComponent<ParticleSystem>().Play();
+        perfectJumpCount++;
+
+        //particle effect more than 3 perfect jumps
+        if (perfectJumpCount >= 3)
+        {
+            //more intense particle effect
+            if (perfectJumpCount < 20)
+            {
+                //more intense camera shake with slight increase in intensity
+                CameraShake.Instance.ShakeCamera(5f + (perfectJumpCount / 10f), 0.15f + (perfectJumpCount / 100f));
+
+                //darker color current color with slight decrease in intensity
+                Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
+                currentColor.r += 0.01f;
+                currentColor.g -= 0.01f;
+                currentColor.b -= 0.01f;
+                currentColor.a += 0.01f;
+                Particles.GetComponent<ParticleSystem>().startColor = currentColor;
+
+                //increase particle effect size
+                ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
+                main.startSize = 0.1f * (1f + (perfectJumpCount / 10f));
+                main.startSpeed = 0.1f * (1f + (perfectJumpCount / 10f));
+                main.startLifetime = 0.1f * (1f + (perfectJumpCount / 10f));
+            }
+        }
+    }
+
+    void ResetJumpStreak()
+    {
+        //disable particle effect
+        Particles.GetComponent<ParticleSystem>().Stop();
+        perfectJumpCount = 0;
+
+        //reset particle effect
+        ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
+        main.startSize = 0.1f;
+        main.startSpeed = 5f;
+        main.startLifetime = 1f;
+
+        //reset color
+        Particles.GetComponent<ParticleSystem>().startColor = Color.white;
     }
 
     private void CheckFrontFlip()
@@ -180,8 +228,7 @@ public class DuckMovement : MonoBehaviour
         if (rb.rotation <= -360f)
         {
             rb.rotation = 0f;
-            frontflipCount++;
-            //print("Frontflip count: " + frontflipCount);
+            frontflipCount++; 
         }
     }
 }
