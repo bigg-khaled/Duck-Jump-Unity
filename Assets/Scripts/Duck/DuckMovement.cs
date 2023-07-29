@@ -193,41 +193,46 @@ public class DuckMovement : MonoBehaviour
         perfectJumpCount++;
 
         //particle effect more than 3 perfect jumps
-        if (perfectJumpCount is >= 3 and < 30)
+        if (perfectJumpCount >= 3)
         {
             //show streak text
             streakText.enabled = true;
             streakText.text = "x" + perfectJumpCount.ToString();
-            
-            //make streak text bigger
-            streakText.fontSize = 1f + (perfectJumpCount / 10f);
-            
-            //make text color darker
-            Color streakColor = streakText.color;
-            streakColor.r += 0.01f;
-            streakColor.g -= 0.01f;
-            streakColor.b -= 0.01f;
-            streakColor.a += 0.01f;
-            streakText.color = streakColor;
-            
 
-            //more intense particle effect 
-            cameraShakeIntensity *= 1f + ((float)perfectJumpCount / 1000f);
-            cameraShakeDuration *= 1f + ((float)perfectJumpCount / 1000f);
 
-            //darker color current color with slight decrease in intensity
-            Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
-            currentColor.r += 0.01f;
-            currentColor.g -= 0.01f;
-            currentColor.b -= 0.01f;
-            currentColor.a += 0.01f;
-            Particles.GetComponent<ParticleSystem>().startColor = currentColor;
+            if (perfectJumpCount <= 30)
+            {
 
-            //increase particle effect size
-            ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
-            main.startSize = 0.1f * (1f + (perfectJumpCount / 10f));
-            main.startSpeed = 0.1f * (1f + (perfectJumpCount / 10f));
-            main.startLifetime = 0.1f * (1f + (perfectJumpCount / 10f));
+                //make streak text bigger
+                streakText.fontSize = 1f + (perfectJumpCount / 10f);
+
+                //make text color darker
+                Color streakColor = streakText.color;
+                streakColor.r += 0.01f;
+                streakColor.g -= 0.01f;
+                streakColor.b -= 0.01f;
+                streakColor.a += 0.01f;
+                streakText.color = streakColor;
+
+
+                //more intense particle effect 
+                cameraShakeIntensity *= 1f + ((float)perfectJumpCount / 1000f);
+                cameraShakeDuration *= 1f + ((float)perfectJumpCount / 1000f);
+
+                //darker color current color with slight decrease in intensity
+                Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
+                currentColor.r += 0.01f;
+                currentColor.g -= 0.01f;
+                currentColor.b -= 0.01f;
+                currentColor.a += 0.01f;
+                Particles.GetComponent<ParticleSystem>().startColor = currentColor;
+
+                //increase particle effect size
+                ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
+                main.startSize = 0.1f * (1f + (perfectJumpCount / 10f));
+                main.startSpeed = 0.1f * (1f + (perfectJumpCount / 10f));
+                main.startLifetime = 0.1f * (1f + (perfectJumpCount / 10f));
+            }
         }
     }
 
