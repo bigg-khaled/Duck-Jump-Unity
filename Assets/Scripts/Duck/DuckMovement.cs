@@ -26,6 +26,8 @@ public class DuckMovement : MonoBehaviour
     public int perfectJumpCount = 0;
     private float initialZRotation;
     public Canvas tapToStart;
+    private float cameraShakeIntensity = 5f;
+    private float cameraShakeDuration = 0.15f;
 
     private void Start()
     {
@@ -70,9 +72,9 @@ public class DuckMovement : MonoBehaviour
 
     private void Jump()
     {
-        if(tapToStart.isActiveAndEnabled)
+        if (tapToStart.isActiveAndEnabled)
             tapToStart.enabled = false;
-        
+
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;
 
@@ -88,7 +90,7 @@ public class DuckMovement : MonoBehaviour
             //duck jumps with forward momentum speed and rotation speed
             rb.velocity = new Vector2(momentum, jumpForce);
             rb.rotation += rotationSpeed;
-            CameraShake.Instance.ShakeCamera(5f, 0.15f);
+            CameraShake.Instance.ShakeCamera(cameraShakeIntensity, cameraShakeDuration);
 
             //play jump sound
             int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
@@ -108,7 +110,7 @@ public class DuckMovement : MonoBehaviour
             StopAllCoroutines();
             isGrounded = true;
 
-            
+
             if (momentum <= maxMomentum)
             {
                 momentum *= 1f + momentumIncrease;
@@ -186,28 +188,25 @@ public class DuckMovement : MonoBehaviour
         perfectJumpCount++;
 
         //particle effect more than 3 perfect jumps
-        if (perfectJumpCount >= 3)
+        if (perfectJumpCount is >= 3 and < 30)
         {
-            //more intense particle effect
-            if (perfectJumpCount < 30)
-            {
-                //more intense camera shake with slight increase in intensity
-                CameraShake.Instance.ShakeCamera(5f + (1f + (perfectJumpCount / 10f)), 0.15f + (1f + (perfectJumpCount / 10f)));
+            //more intense particle effect 
+            cameraShakeIntensity *= 1f + ((float)perfectJumpCount / 1000f);
+            cameraShakeDuration *= 1f + ((float)perfectJumpCount / 1000f);
 
-                //darker color current color with slight decrease in intensity
-                Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
-                currentColor.r += 0.01f;
-                currentColor.g -= 0.01f;
-                currentColor.b -= 0.01f;
-                currentColor.a += 0.01f;
-                Particles.GetComponent<ParticleSystem>().startColor = currentColor;
+            //darker color current color with slight decrease in intensity
+            Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
+            currentColor.r += 0.01f;
+            currentColor.g -= 0.01f;
+            currentColor.b -= 0.01f;
+            currentColor.a += 0.01f;
+            Particles.GetComponent<ParticleSystem>().startColor = currentColor;
 
-                //increase particle effect size
-                ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
-                main.startSize = 0.1f * (1f + (perfectJumpCount / 10f));
-                main.startSpeed = 0.1f * (1f + (perfectJumpCount / 10f));
-                main.startLifetime = 0.1f * (1f + (perfectJumpCount / 10f));
-            }
+            //increase particle effect size
+            ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
+            main.startSize = 0.1f * (1f + (perfectJumpCount / 10f));
+            main.startSpeed = 0.1f * (1f + (perfectJumpCount / 10f));
+            main.startLifetime = 0.1f * (1f + (perfectJumpCount / 10f));
         }
     }
 
@@ -225,9 +224,6 @@ public class DuckMovement : MonoBehaviour
 
         //reset color
         Particles.GetComponent<ParticleSystem>().startColor = Color.white;
-        
-        //reset camera shake
-        CameraShake.Instance.ShakeCamera(5f, 0.15f);
     }
 
     private void CheckFrontFlip()
@@ -235,7 +231,7 @@ public class DuckMovement : MonoBehaviour
         if (rb.rotation <= -360f)
         {
             rb.rotation = 0f;
-            frontflipCount++; 
+            frontflipCount++;
         }
     }
 }

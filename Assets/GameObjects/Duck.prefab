@@ -9768,6 +9768,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 277e271143293eb49a8f033975c06bf0, type: 3}
   Particles: {fileID: 1754772143}
   perfectJumpCount: 0
+  tapToStart: {fileID: 0}
 --- !u!60 &3195808253255875044
 PolygonCollider2D:
   m_ObjectHideFlags: 0
