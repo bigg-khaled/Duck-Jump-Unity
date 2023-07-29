@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DuckMovement : MonoBehaviour
@@ -28,9 +29,12 @@ public class DuckMovement : MonoBehaviour
     public Canvas tapToStart;
     private float cameraShakeIntensity = 5f;
     private float cameraShakeDuration = 0.15f;
+    public TextMeshProUGUI streakText;
 
     private void Start()
     {
+        streakText.enabled = false;
+        
         initialZRotation = Particles.transform.rotation.eulerAngles.z;
 
         momentum = startMomentum;
@@ -65,7 +69,7 @@ public class DuckMovement : MonoBehaviour
             Time.timeScale = 1f;
             Jump();
         }
-
+  
         //check if the duck did a whole 360 spin
         CheckFrontFlip();
     }
@@ -77,6 +81,7 @@ public class DuckMovement : MonoBehaviour
 
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;
+        
 
         //if the player jumps start the challenge
         if (!challengeHandler.isActiveAndEnabled && isGrounded)
@@ -190,6 +195,22 @@ public class DuckMovement : MonoBehaviour
         //particle effect more than 3 perfect jumps
         if (perfectJumpCount is >= 3 and < 30)
         {
+            //show streak text
+            streakText.enabled = true;
+            streakText.text = "x" + perfectJumpCount.ToString();
+            
+            //make streak text bigger
+            streakText.fontSize = 1f + (perfectJumpCount / 10f);
+            
+            //make text color darker
+            Color streakColor = streakText.color;
+            streakColor.r += 0.01f;
+            streakColor.g -= 0.01f;
+            streakColor.b -= 0.01f;
+            streakColor.a += 0.01f;
+            streakText.color = streakColor;
+            
+
             //more intense particle effect 
             cameraShakeIntensity *= 1f + ((float)perfectJumpCount / 1000f);
             cameraShakeDuration *= 1f + ((float)perfectJumpCount / 1000f);
@@ -224,6 +245,13 @@ public class DuckMovement : MonoBehaviour
 
         //reset color
         Particles.GetComponent<ParticleSystem>().startColor = Color.white;
+        
+        //hide streak text
+        streakText.enabled = false;
+        
+        //reset streak color
+        streakText.color = Color.white;
+        
     }
 
     private void CheckFrontFlip()
