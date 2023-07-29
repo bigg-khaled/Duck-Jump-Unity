@@ -58,7 +58,12 @@ public class LevelPlayAds : MonoBehaviour
     }
 
     //Banner Methods
-    public void LoadBanner()
+    public void LoadTopBanner()
+    {
+        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.TOP);
+    }
+    
+    public void LoadBottomBanner()
     {
         IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
     }
