@@ -28,14 +28,26 @@ public class DuckMovement : MonoBehaviour
 
     //public bool scriptEnabled = true;
 
+    public GameObject Particles;
+    private float initialZRotation;
+
     private void Start()
     {
+        initialZRotation = Particles.transform.rotation.eulerAngles.z;
+
         momentum = startMomentum;
         jumpForce = startJumpForce;
         
         
         //get sfx audio source
         audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        Vector3 newRotation = Particles.transform.rotation.eulerAngles;
+        newRotation.z = initialZRotation;
+        Particles.transform.rotation = Quaternion.Euler(newRotation);
     }
 
     // Update is called once per frame

@@ -139,7 +139,7 @@ public class Challenge : MonoBehaviour
         } while (challengeType == prevchallenge);
 
         prevchallenge = challengeType;
-        //challengeType = ChallengeType.TRAVEL;
+        challengeType = ChallengeType.TRAVEL;
         //TODO: make sure the first challenge isn't a height challenge cause the duck falls from above and it counts that
         //TODO make challenge counter that represents the number of challenges completed
         //if challenge completed == 0, don't make it a height challenge
@@ -211,8 +211,8 @@ public class Challenge : MonoBehaviour
                 challengeText = "Hit the seagull in " + timeLimit + " seconds";
                 break;
             case ChallengeType.TRAVEL:
-                amount = UnityEngine.Random.Range(500, 1000);
-                timeLimit = 20;
+                amount = UnityEngine.Random.Range(50000, 100000);
+                timeLimit = 200000;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Travel " + amount + " pixels" + " in " + timeLimit + " seconds";
