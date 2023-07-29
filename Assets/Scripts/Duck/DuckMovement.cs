@@ -188,7 +188,7 @@ public class DuckMovement : MonoBehaviour
             if (perfectJumpCount < 20)
             {
                 //more intense camera shake with slight increase in intensity
-                CameraShake.Instance.ShakeCamera(5f + (perfectJumpCount / 10f), 0.15f + (perfectJumpCount / 100f));
+                CameraShake.Instance.ShakeCamera(5f + (1f + (perfectJumpCount / 10f)), 0.15f + (1f + (perfectJumpCount / 10f)));
 
                 //darker color current color with slight decrease in intensity
                 Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
