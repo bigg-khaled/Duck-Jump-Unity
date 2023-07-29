@@ -221,6 +221,9 @@ public class DuckMovement : MonoBehaviour
 
         //reset color
         Particles.GetComponent<ParticleSystem>().startColor = Color.white;
+        
+        //reset camera shake
+        CameraShake.Instance.ShakeCamera(5f, 0.15f);
     }
 
     private void CheckFrontFlip()
