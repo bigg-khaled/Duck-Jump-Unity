@@ -102,9 +102,6 @@ public class LevelPlayAds : MonoBehaviour
         }
     }
     
-    
-    
-    
 
     //Banner Callbacks
     /************* Banner AdInfo Delegates *************/
@@ -199,7 +196,12 @@ public class LevelPlayAds : MonoBehaviour
 // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo){
         
-        //TODO Revive the player
+        //revive player
+        if (placement.getRewardAmount() > 0)
+        {
+            //TODO: revive player
+        }
+
     }
 // The rewarded video ad was failed to show.
     void RewardedVideoOnAdShowFailedEvent(IronSourceError error, IronSourceAdInfo adInfo){

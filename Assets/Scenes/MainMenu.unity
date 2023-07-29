@@ -831,6 +831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 751602725}
   - component: {fileID: 751602724}
+  - component: {fileID: 751602726}
   m_Layer: 0
   m_Name: BannerAd
   m_TagString: Untagged
@@ -850,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc403cb0fb251845b8b80b0fe8e480f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelPlayAds: {fileID: 751602726}
 --- !u!4 &751602725
 Transform:
   m_ObjectHideFlags: 0
@@ -865,6 +867,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &751602726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751602723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75d6b3d0ad0e014d8e6c6c7d6dcda21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &804316677
 GameObject:
   m_ObjectHideFlags: 0
