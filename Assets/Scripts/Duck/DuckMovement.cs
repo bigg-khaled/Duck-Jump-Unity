@@ -25,6 +25,7 @@ public class DuckMovement : MonoBehaviour
     public GameObject Particles;
     public int perfectJumpCount = 0;
     private float initialZRotation;
+    public Canvas tapToStart;
 
     private void Start()
     {
@@ -67,8 +68,11 @@ public class DuckMovement : MonoBehaviour
         CheckFrontFlip();
     }
 
-    public void Jump()
+    private void Jump()
     {
+        if(tapToStart.isActiveAndEnabled)
+            tapToStart.enabled = false;
+        
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;
 
@@ -185,7 +189,7 @@ public class DuckMovement : MonoBehaviour
         if (perfectJumpCount >= 3)
         {
             //more intense particle effect
-            if (perfectJumpCount < 20)
+            if (perfectJumpCount < 30)
             {
                 //more intense camera shake with slight increase in intensity
                 CameraShake.Instance.ShakeCamera(5f + (1f + (perfectJumpCount / 10f)), 0.15f + (1f + (perfectJumpCount / 10f)));
