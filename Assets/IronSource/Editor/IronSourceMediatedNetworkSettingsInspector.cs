@@ -5,7 +5,6 @@ using UnityEditor;
 public class IronSourceMediatedNetworkSettingsInspector : UnityEditor.Editor
 {
     private static IronSourceMediatedNetworkSettings ironSourceMediatedNetworkSettings;
-
     public static IronSourceMediatedNetworkSettings IronSourceMediatedNetworkSettings
     {
         get
@@ -21,6 +20,7 @@ public class IronSourceMediatedNetworkSettingsInspector : UnityEditor.Editor
                     ironSourceMediatedNetworkSettings = asset;
                 }
             }
+
             return ironSourceMediatedNetworkSettings;
         }
     }

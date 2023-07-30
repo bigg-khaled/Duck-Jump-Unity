@@ -4,14 +4,9 @@ public interface IronSourceIAgent
 {
 	//******************* Base API *******************//
 
-	/// <summary>
-	/// Allows publishers to set configurations for a waterfall of a given ad type.
-	/// </summary>
-	/// <param name="waterfallConfiguration">The configuration for the given ad types waterfall. </param>
-	/// <param name="adFormat">The AdFormat for which to configure the waterfall.</param>
-	void SetWaterfallConfiguration(WaterfallConfiguration waterfallConfiguration, AdFormat adFormat);
-	
 	void onApplicationPause(bool pause);
+
+	void setMediationSegment(string segment);
 
 	string getAdvertiserId();
 
@@ -128,10 +123,6 @@ public interface IronSourceIAgent
 	//******************* ILRD API *******************//
 
 	void setAdRevenueData(string dataSource, Dictionary<string, string> impressionData);
-
-	//******************* TestSuite API *******************//
-
-	void launchTestSuite();
 }
 
 public static class dataSource

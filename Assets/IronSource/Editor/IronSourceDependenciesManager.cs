@@ -220,7 +220,7 @@ public class IronSourceDependenciesManager : EditorWindow
                             ProviderInfo info = new ProviderInfo();
 
                             object providerXML;
-                            var lowerCaseItem = item.Key.ToLower(new System.Globalization.CultureInfo("en"));
+                            var lowerCaseItem = item.Key.ToLower();
 
                             linksDictionary.TryGetValue(lowerCaseItem, out providerXML);
 

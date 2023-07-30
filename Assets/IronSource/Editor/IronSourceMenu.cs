@@ -5,13 +5,13 @@ using UnityEngine;
 public class IronSourceMenu : UnityEditor.Editor
 {
 
-   [MenuItem("Ads Mediation/Documentation", false, 0)]
+    [MenuItem("Ads Mediation/Documentation", false, 0)]
     public static void Documentation()
     {
         Application.OpenURL("https://developers.is.com/ironsource-mobile/unity/unity-plugin/");
     }
 
-   
+
     [MenuItem("Ads Mediation/SDK Change Log", false, 1)]
     public static void ChangeLog()
     {
@@ -19,7 +19,7 @@ public class IronSourceMenu : UnityEditor.Editor
     }
 
 
-    [MenuItem("Ads Mediation/Integration Manager", false , 2)]
+    [MenuItem("Ads Mediation/Integration Manager", false, 2)]
     public static void SdkManagerProd()
     {
         IronSourceDependenciesManager.ShowISDependenciesManager();

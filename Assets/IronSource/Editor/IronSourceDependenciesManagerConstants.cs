@@ -10,8 +10,8 @@
     internal const string NONE = "none";
 
     //path const
-    internal const string IRONSOURCE_SDK_INFO = "https://s3.amazonaws.com/ssa.public/Integration-Manager/IronSourceSDKInfo.json";
-    internal const string IRONSOURCE_SDK_XML_LINKS = "https://s3.amazonaws.com/ssa.public/Integration-Manager/IronSourceSDKLinks.json";
+    internal const string IRONSOURCE_SDK_INFO = "https://s3.amazonaws.com/ssa.public/Integration-Manager/7.2.5.2/IronSourceSDKInfo.json";
+    internal const string IRONSOURCE_SDK_XML_LINKS = "https://s3.amazonaws.com/ssa.public/Integration-Manager/7.2.5.2/IronSourceSDKLinks.json";
     internal const string IRONSOURCE_DOWNLOAD_DIR = "Assets/IronSource/Editor/";
     internal const string IRONSOURCE_XML = "IronSourceSDKDependencies.xml";
     internal const string UNITYADS_XML = "ISUnityAdsAdapterDependencies.xml";
