@@ -58,7 +58,12 @@ public class LevelPlayAds : MonoBehaviour
     }
 
     //Banner Methods
-    public void LoadBanner()
+    public void LoadTopBanner()
+    {
+        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.TOP);
+    }
+    
+    public void LoadBottomBanner()
     {
         IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
     }
@@ -96,9 +101,6 @@ public class LevelPlayAds : MonoBehaviour
             IronSource.Agent.showRewardedVideo();
         }
     }
-    
-    
-    
     
 
     //Banner Callbacks
@@ -194,7 +196,12 @@ public class LevelPlayAds : MonoBehaviour
 // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo){
         
-        //TODO Revive the player
+        //revive player
+        if (placement.getRewardAmount() > 0)
+        {
+            //TODO: revive player
+        }
+
     }
 // The rewarded video ad was failed to show.
     void RewardedVideoOnAdShowFailedEvent(IronSourceError error, IronSourceAdInfo adInfo){

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DuckMovement : MonoBehaviour
@@ -18,27 +19,28 @@ public class DuckMovement : MonoBehaviour
     public float graceTimer = 0.5f;
     public Rigidbody2D rb;
     public int frontflipCount = 0;
-
     public bool isTargetHit = false;
-
-    //public bool scriptEnabled = false;
     public ChallengeHandler challengeHandler;
     private AudioSource audioSource;
     public AudioClip[] jumpSFX;
-
-    //public bool scriptEnabled = true;
-
     public GameObject Particles;
+    public int perfectJumpCount = 0;
     private float initialZRotation;
+    public Canvas tapToStart;
+    private float cameraShakeIntensity = 5f;
+    private float cameraShakeDuration = 0.15f;
+    public TextMeshProUGUI streakText;
 
     private void Start()
     {
+        streakText.enabled = false;
+        
         initialZRotation = Particles.transform.rotation.eulerAngles.z;
 
         momentum = startMomentum;
         jumpForce = startJumpForce;
-        
-        
+
+
         //get sfx audio source
         audioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
@@ -67,15 +69,19 @@ public class DuckMovement : MonoBehaviour
             Time.timeScale = 1f;
             Jump();
         }
-
+  
         //check if the duck did a whole 360 spin
         CheckFrontFlip();
     }
 
-    public void Jump()
+    private void Jump()
     {
+        if (tapToStart.isActiveAndEnabled)
+            tapToStart.enabled = false;
+
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;
+        
 
         //if the player jumps start the challenge
         if (!challengeHandler.isActiveAndEnabled && isGrounded)
@@ -89,7 +95,7 @@ public class DuckMovement : MonoBehaviour
             //duck jumps with forward momentum speed and rotation speed
             rb.velocity = new Vector2(momentum, jumpForce);
             rb.rotation += rotationSpeed;
-            CameraShake.Instance.ShakeCamera(5f, 0.15f);
+            CameraShake.Instance.ShakeCamera(cameraShakeIntensity, cameraShakeDuration);
 
             //play jump sound
             int randomJumpSound = UnityEngine.Random.Range(0, jumpSFX.Length);
@@ -109,12 +115,6 @@ public class DuckMovement : MonoBehaviour
             StopAllCoroutines();
             isGrounded = true;
 
-            print("Grounded");
-
-            //keep rotation
-            //rb.rotation = 0f;
-            //start grace timer, if duck jumps within grace timer duration, duck gains momentum, else momentum is reset
-            //increase momentum
 
             if (momentum <= maxMomentum)
             {
@@ -126,6 +126,11 @@ public class DuckMovement : MonoBehaviour
             {
                 jumpForce *= 1f + jumpForceIncrease;
             }
+
+            //start streak
+            JumpStreak();
+
+            print(perfectJumpCount);
 
             StartCoroutine(GraceTimer());
         }
@@ -172,7 +177,86 @@ public class DuckMovement : MonoBehaviour
         {
             momentum = startMomentum;
             jumpForce = startJumpForce;
+
+            //reset streak
+            ResetJumpStreak();
         }
+    }
+
+    void JumpStreak()
+    {
+        //particle effect with perfect jump
+        Vector3 newRotation = Particles.transform.rotation.eulerAngles;
+        newRotation.z = rb.rotation;
+        Particles.transform.rotation = Quaternion.Euler(newRotation);
+        Particles.GetComponent<ParticleSystem>().Play();
+        perfectJumpCount++;
+
+        //particle effect more than 3 perfect jumps
+        if (perfectJumpCount >= 3)
+        {
+            //show streak text
+            streakText.enabled = true;
+            streakText.text = "x" + perfectJumpCount.ToString();
+
+
+            if (perfectJumpCount <= 30)
+            {
+
+                //make streak text bigger
+                streakText.fontSize = 1f + (perfectJumpCount / 10f);
+
+                //make text color darker
+                Color streakColor = streakText.color;
+                streakColor.r += 0.01f;
+                streakColor.g -= 0.01f;
+                streakColor.b -= 0.01f;
+                streakColor.a += 0.01f;
+                streakText.color = streakColor;
+
+
+                //more intense particle effect 
+                cameraShakeIntensity *= 1f + ((float)perfectJumpCount / 1000f);
+                cameraShakeDuration *= 1f + ((float)perfectJumpCount / 1000f);
+
+                //darker color current color with slight decrease in intensity
+                Color currentColor = Particles.GetComponent<ParticleSystem>().startColor;
+                currentColor.r += 0.01f;
+                currentColor.g -= 0.01f;
+                currentColor.b -= 0.01f;
+                currentColor.a += 0.01f;
+                Particles.GetComponent<ParticleSystem>().startColor = currentColor;
+
+                //increase particle effect size
+                ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
+                main.startSize = 0.1f * (1f + (perfectJumpCount / 10f));
+                main.startSpeed = 0.1f * (1f + (perfectJumpCount / 10f));
+                main.startLifetime = 0.1f * (1f + (perfectJumpCount / 10f));
+            }
+        }
+    }
+
+    void ResetJumpStreak()
+    {
+        //disable particle effect
+        Particles.GetComponent<ParticleSystem>().Stop();
+        perfectJumpCount = 0;
+
+        //reset particle effect
+        ParticleSystem.MainModule main = Particles.GetComponent<ParticleSystem>().main;
+        main.startSize = 0.1f;
+        main.startSpeed = 5f;
+        main.startLifetime = 1f;
+
+        //reset color
+        Particles.GetComponent<ParticleSystem>().startColor = Color.white;
+        
+        //hide streak text
+        streakText.enabled = false;
+        
+        //reset streak color
+        streakText.color = Color.white;
+        
     }
 
     private void CheckFrontFlip()
@@ -181,7 +265,6 @@ public class DuckMovement : MonoBehaviour
         {
             rb.rotation = 0f;
             frontflipCount++;
-            //print("Frontflip count: " + frontflipCount);
         }
     }
 }
