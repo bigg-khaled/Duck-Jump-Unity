@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InterstitialGameAd : MonoBehaviour
 {
-// These ad units are configured to always serve test ads.
+    //TODO change to real ad unit id
 #if UNITY_ANDROID
     private string _adUnitId = "ca-app-pub-1056016147843179/5354598254";
 #elif UNITY_IPHONE
