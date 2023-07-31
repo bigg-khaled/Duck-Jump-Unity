@@ -7,13 +7,13 @@ using UnityEngine;
 public class InterstitialGameAd : MonoBehaviour
 {
     //TODO change to real ad unit id
-#if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-1056016147843179/5354598254";
-#elif UNITY_IPHONE
-  private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
-#else
-  private string _adUnitId = "unused";
-#endif
+    #if UNITY_ANDROID
+        private string _adUnitId = "ca-app-pub-1056016147843179/5354598254";
+    #elif UNITY_IPHONE
+      private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
+    #else
+      private string _adUnitId = "unused";
+    #endif
 
     private InterstitialAd interstitialAd;
 

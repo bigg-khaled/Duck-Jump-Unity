@@ -6,13 +6,13 @@ using UnityEngine;
 public class RewardedGameAd : MonoBehaviour
 {
     //TODO change to real ad unit id
-#if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-1056016147843179/9102271573";
-#elif UNITY_IPHONE
-  private string _adUnitId = "ca-app-pub-3940256099942544/1712485313";
-#else
-  private string _adUnitId = "unused";
-#endif
+    #if UNITY_ANDROID
+        private string _adUnitId = "ca-app-pub-1056016147843179/9102271573";
+    #elif UNITY_IPHONE
+      private string _adUnitId = "ca-app-pub-3940256099942544/1712485313";
+    #else
+      private string _adUnitId = "unused";
+    #endif
 
     private RewardedAd rewardedAd;
     
