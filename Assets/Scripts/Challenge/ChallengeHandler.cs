@@ -24,6 +24,8 @@ public class ChallengeHandler : MonoBehaviour
     public Canvas gameOverScreen;
     private String[] challengeCompletedText;
     
+    public GameObject interstitialAd;
+    
     private AudioSource audioSource;
     public AudioClip[] challengeCompletedSFX;
     public AudioClip[] challengeFailedSFX;
@@ -178,6 +180,17 @@ public class ChallengeHandler : MonoBehaviour
 
         
         print("Bread: " + PlayerPrefs.GetInt("Bread", 0));
+        
+        //if lost 3 times show interstitial ad
+        if (PlayerPrefs.GetInt("InterstitialAd", 0) >= 3)
+        {
+            PlayerPrefs.SetInt("InterstitialAd", 0);
+            interstitialAd.SetActive(true);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InterstitialAd", PlayerPrefs.GetInt("InterstitialAd", 0) + 1);
+        }
 
         gameOverScreen.gameObject.SetActive(true);
         challengeText.gameObject.SetActive(false);

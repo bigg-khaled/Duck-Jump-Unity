@@ -26,7 +26,7 @@ public class DuckMovement : MonoBehaviour
     public GameObject Particles;
     public int perfectJumpCount = 0;
     private float initialZRotation;
-    public Canvas tapToStart;
+    public TextMeshProUGUI tapToStart;
     private float cameraShakeIntensity = 5f;
     private float cameraShakeDuration = 0.15f;
     public TextMeshProUGUI streakText;
@@ -77,7 +77,7 @@ public class DuckMovement : MonoBehaviour
     private void Jump()
     {
         if (tapToStart.isActiveAndEnabled)
-            tapToStart.enabled = false;
+            tapToStart.text = "";
 
         //if the duck is on the ground, it jumps
         if (!isGrounded) return;
