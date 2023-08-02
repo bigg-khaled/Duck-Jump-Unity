@@ -98,6 +98,7 @@ public class RewardedGameAd : MonoBehaviour
             rewardedAd.Show((Reward reward) =>
             {
                 // TODO: Reward the user.
+                //Revive player
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
             });
         }
