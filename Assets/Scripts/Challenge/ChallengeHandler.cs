@@ -180,6 +180,7 @@ public class ChallengeHandler : MonoBehaviour
         print("Bread: " + PlayerPrefs.GetInt("Bread", 0));
 
         //if lost 3 times show interstitial ad
+        //TODO Bug! every loss shows an ad
         PlayerPrefs.SetInt("InterstitialAd", PlayerPrefs.GetInt("InterstitialAd", 0) + 1);
         if (PlayerPrefs.GetInt("InterstitialAd", 0) >= 3)
         {
@@ -216,5 +217,6 @@ public class ChallengeHandler : MonoBehaviour
         camera.GetComponent<CinemachineVirtualCamera>().Follow = duck.transform;
         duck.GetComponent<DuckMovement>().ResetDuck();
         isPlayed = false;
+        gameObject.SetActive(false);
     }
 }
