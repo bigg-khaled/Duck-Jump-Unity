@@ -1134,6 +1134,7 @@ GameObject:
   - component: {fileID: 246050149}
   - component: {fileID: 246050148}
   - component: {fileID: 246050147}
+  - component: {fileID: 246050150}
   m_Layer: 5
   m_Name: WatchVideo
   m_TagString: Untagged
@@ -1205,7 +1206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 246050148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 246050150}
+        m_TargetAssemblyTypeName: Revive, Assembly-CSharp
+        m_MethodName: WatchAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &246050148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1257,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246050145}
   m_CullTransparentMesh: 1
+--- !u!114 &246050150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246050145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1672e804c7a7494baa493488954e47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 100
+  priceText: {fileID: 1310090906}
+  duck: {fileID: 1402553287}
+  challengeHandler: {fileID: 223807222}
+  reviveMenu: {fileID: 1794015110}
+  gameOverScreen: {fileID: 1852144915}
+  rewardedGameAd: {fileID: 468253770}
 --- !u!1 &267623477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1692,7 @@ GameObject:
   - component: {fileID: 405021019}
   - component: {fileID: 405021018}
   - component: {fileID: 405021017}
+  - component: {fileID: 405021020}
   m_Layer: 5
   m_Name: PayWithBread
   m_TagString: Untagged
@@ -1732,7 +1765,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 405021018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 405021020}
+        m_TargetAssemblyTypeName: Revive, Assembly-CSharp
+        m_MethodName: PayWithBread
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &405021018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,6 +1816,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405021015}
   m_CullTransparentMesh: 1
+--- !u!114 &405021020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405021015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1672e804c7a7494baa493488954e47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 100
+  priceText: {fileID: 1310090906}
+  duck: {fileID: 1402553287}
+  challengeHandler: {fileID: 223807222}
+  reviveMenu: {fileID: 1794015110}
+  gameOverScreen: {fileID: 1852144915}
+  rewardedGameAd: {fileID: 468253770}
 --- !u!1 &417601725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,7 +2004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &468253770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,11 +2012,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468253769}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9860accda0b640349a87d2d4443e9a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeHandler: {fileID: 223807222}
 --- !u!114 &468253771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3704,6 +3769,7 @@ GameObject:
   - component: {fileID: 1094662220}
   - component: {fileID: 1094662219}
   - component: {fileID: 1094662218}
+  - component: {fileID: 1094662221}
   m_Layer: 5
   m_Name: ReviveButton
   m_TagString: Untagged
@@ -3779,13 +3845,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1094662221}
+        m_TargetAssemblyTypeName: Revive, Assembly-CSharp
+        m_MethodName: ShowReviveMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3829,6 +3895,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094662216}
   m_CullTransparentMesh: 1
+--- !u!114 &1094662221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094662216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1672e804c7a7494baa493488954e47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 100
+  priceText: {fileID: 1310090906}
+  duck: {fileID: 1402553287}
+  challengeHandler: {fileID: 223807222}
+  reviveMenu: {fileID: 1794015110}
+  gameOverScreen: {fileID: 1852144915}
+  rewardedGameAd: {fileID: 468253770}
 --- !u!1 &1149168932
 GameObject:
   m_ObjectHideFlags: 0

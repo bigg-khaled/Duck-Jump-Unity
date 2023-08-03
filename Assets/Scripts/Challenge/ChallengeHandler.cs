@@ -195,4 +195,22 @@ public class ChallengeHandler : MonoBehaviour
         gameOverScreen.gameObject.SetActive(true);
         challengeText.gameObject.SetActive(false);
     }
+    
+    public void ResetChallenge()
+    {
+        //reset challenge text position
+        challengeText.transform.position = new Vector3(challengeText.transform.position.x,
+            intialChallengeTextYPos, challengeText.transform.position.z);
+        
+        isChallengeCompleted = false;
+        isChallengeActive = true;
+        currentChallenge.CreateChallenge();
+        timeLeft = currentChallenge.timeLimit;
+        challengeText.gameObject.SetActive(true);
+        gameOverScreen.gameObject.SetActive(false);
+        duck.GetComponent<DuckMovement>().enabled = true;
+        camera.GetComponent<CinemachineVirtualCamera>().Follow = duck.transform;
+        duck.GetComponent<DuckMovement>().ResetDuck();
+        isPlayed = false;
+    }
 }

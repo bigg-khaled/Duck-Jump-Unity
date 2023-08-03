@@ -16,6 +16,8 @@ public class RewardedGameAd : MonoBehaviour
 
     private RewardedAd rewardedAd;
     
+    public ChallengeHandler challengeHandler;
+    
     private void Start()
     {
         MobileAds.Initialize(initStatus => { });
@@ -97,8 +99,7 @@ public class RewardedGameAd : MonoBehaviour
         {
             rewardedAd.Show((Reward reward) =>
             {
-                // TODO: Reward the user.
-                //Revive player
+                challengeHandler.ResetChallenge();
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
             });
         }

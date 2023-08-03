@@ -74,6 +74,22 @@ public class DuckMovement : MonoBehaviour
         CheckFrontFlip();
     }
 
+    public void ResetDuck()
+    {
+        //reset duck position and rotation
+        transform.position = new Vector3(5, 5, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        rb.velocity = new Vector2(0, 0);
+        rb.angularVelocity = 0f;
+        momentum = startMomentum;
+        jumpForce = startJumpForce;
+        isGrounded = true;
+        frontflipCount = 0;
+        isTargetHit = false;
+        perfectJumpCount = 0;
+        streakText.enabled = false;
+    }
+
     private void Jump()
     {
         if (tapToStart.isActiveAndEnabled)
@@ -105,7 +121,7 @@ public class DuckMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-
+    
     void OnCollisionEnter2D(Collision2D collision)
     {
         //if the duck collides with the ground, it is grounded
