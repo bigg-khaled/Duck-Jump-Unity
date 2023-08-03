@@ -88,6 +88,8 @@ public class DuckMovement : MonoBehaviour
         isTargetHit = false;
         perfectJumpCount = 0;
         streakText.enabled = false;
+        Time.timeScale = 0f;
+        tapToStart.text = "Tap to Start";
     }
 
     private void Jump()

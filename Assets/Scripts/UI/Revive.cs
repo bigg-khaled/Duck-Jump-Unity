@@ -55,12 +55,14 @@ public class Revive : MonoBehaviour
 
 
     }
-    
+
     public void WatchAd()
     {
         print("watch ad clicked");
+
+        //hide revive menu
+        reviveMenu.SetActive(false);
         //show ad
         rewardedGameAd.enabled = true;
     }
-
 }

@@ -212,7 +212,7 @@ public class Challenge : MonoBehaviour
                 break;
             case ChallengeType.TRAVEL:
                 amount = UnityEngine.Random.Range(50000, 100000);
-                timeLimit = 200000;
+                timeLimit = 2;
                 score = 100;
                 scoreMultiplier = 1;
                 challengeText = "Travel " + amount + " pixels" + " in " + timeLimit + " seconds";
