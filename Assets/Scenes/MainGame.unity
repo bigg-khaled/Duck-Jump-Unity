@@ -1107,6 +1107,7 @@ MonoBehaviour:
   challengeFailedSFX:
   - {fileID: 8300000, guid: f8d7451a534850e4f9b033fe1d13c8da, type: 3}
   - {fileID: 8300000, guid: aa6ee1f4420459a42beb04a4f92e90c1, type: 3}
+  reviveMenu: {fileID: 1794015110}
 --- !u!4 &223807223
 Transform:
   m_ObjectHideFlags: 0
@@ -2157,7 +2158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534493878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.605, y: 5.702, z: -10}
+  m_LocalPosition: {x: 5.9891143, y: 5.702, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10489,7 +10490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582311653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.605, y: 5.702, z: -10}
+  m_LocalPosition: {x: 5.9891143, y: 5.702, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

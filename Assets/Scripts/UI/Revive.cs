@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,14 +13,19 @@ public class Revive : MonoBehaviour
     public GameObject reviveMenu;
     public Canvas gameOverScreen;
     public RewardedGameAd rewardedGameAd;
-    
+
+    private void Start()
+    {
+        rewardedGameAd.enabled = false;
+    }
+
     public void ShowReviveMenu()
     {
         //show revive menu
         reviveMenu.SetActive(true);
         
         //hide game over screen
-        gameOverScreen.enabled = false;
+        gameOverScreen.gameObject.SetActive(false);
         
         //show price
         priceText.text = price.ToString();
@@ -59,6 +65,8 @@ public class Revive : MonoBehaviour
     public void WatchAd()
     {
         print("watch ad clicked");
+        
+        duck.SetActive(true);
 
         //hide revive menu
         reviveMenu.SetActive(false);
