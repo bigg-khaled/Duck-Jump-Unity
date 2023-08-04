@@ -18,7 +18,7 @@ public class RewardedGameAd : MonoBehaviour
     
     public ChallengeHandler challengeHandler;
     
-    private void Start()
+    private void Awake()
     {
         MobileAds.Initialize(initStatus => { });
         

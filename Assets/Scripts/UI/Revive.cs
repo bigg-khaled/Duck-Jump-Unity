@@ -12,13 +12,8 @@ public class Revive : MonoBehaviour
     public ChallengeHandler challengeHandler;
     public GameObject reviveMenu;
     public Canvas gameOverScreen;
-    public RewardedGameAd rewardedGameAd;
-
-    private void Start()
-    {
-        rewardedGameAd.enabled = false;
-    }
-
+    public GameObject rewardedGameAdPrefab;
+    
     public void ShowReviveMenu()
     {
         //show revive menu
@@ -33,7 +28,7 @@ public class Revive : MonoBehaviour
 
     public void PayWithBread()
     {
-        
+        rewardedGameAdPrefab.SetActive(false);
         print("pay with bread clicked");
 
         //get bread from player prefs, if not enough bread, show ad
@@ -42,7 +37,7 @@ public class Revive : MonoBehaviour
         if(bread < price)
         {
             //show ad
-            rewardedGameAd.enabled = true;
+            rewardedGameAdPrefab.SetActive(true);
         }
         else
         {
@@ -65,12 +60,15 @@ public class Revive : MonoBehaviour
     public void WatchAd()
     {
         print("watch ad clicked");
+        rewardedGameAdPrefab.SetActive(false);
+
         
         duck.SetActive(true);
 
         //hide revive menu
         reviveMenu.SetActive(false);
         //show ad
-        rewardedGameAd.enabled = true;
+        rewardedGameAdPrefab.SetActive(true);
+        
     }
 }
