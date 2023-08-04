@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 23487208}
   - component: {fileID: 23487207}
   - component: {fileID: 23487206}
+  - component: {fileID: 23487210}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: 
+  productId: 3
   buttonType: 0
   consumePurchase: 1
   onTransactionsRestored:
@@ -183,7 +184,19 @@ MonoBehaviour:
       m_Calls: []
   onPurchaseComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23487210}
+        m_TargetAssemblyTypeName: GiveBread, Assembly-CSharp
+        m_MethodName: GivePlayerBread
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
@@ -272,6 +285,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23487204}
   m_CullTransparentMesh: 1
+--- !u!114 &23487210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23487204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6e162c2a65f70459be9b956f245bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breadAmount: 1000
 --- !u!1 &26504207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2089,7 @@ GameObject:
   - component: {fileID: 405710899}
   - component: {fileID: 405710898}
   - component: {fileID: 405710897}
+  - component: {fileID: 405710901}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2110,7 +2137,19 @@ MonoBehaviour:
       m_Calls: []
   onPurchaseComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 405710901}
+        m_TargetAssemblyTypeName: GiveBread, Assembly-CSharp
+        m_MethodName: GivePlayerBread
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
@@ -2199,6 +2238,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405710895}
   m_CullTransparentMesh: 1
+--- !u!114 &405710901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405710895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6e162c2a65f70459be9b956f245bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breadAmount: 200
 --- !u!1 &408479347
 GameObject:
   m_ObjectHideFlags: 0
@@ -9590,6 +9642,7 @@ GameObject:
   - component: {fileID: 1679920540}
   - component: {fileID: 1679920539}
   - component: {fileID: 1679920538}
+  - component: {fileID: 1679920542}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -9629,7 +9682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: 
+  productId: 2
   buttonType: 0
   consumePurchase: 1
   onTransactionsRestored:
@@ -9637,7 +9690,19 @@ MonoBehaviour:
       m_Calls: []
   onPurchaseComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1679920542}
+        m_TargetAssemblyTypeName: GiveBread, Assembly-CSharp
+        m_MethodName: GivePlayerBread
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls: []
@@ -9726,6 +9791,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679920536}
   m_CullTransparentMesh: 1
+--- !u!114 &1679920542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679920536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6e162c2a65f70459be9b956f245bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breadAmount: 500
 --- !u!1 &1681642225
 GameObject:
   m_ObjectHideFlags: 0
