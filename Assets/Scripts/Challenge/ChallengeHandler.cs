@@ -98,30 +98,41 @@ public class ChallengeHandler : MonoBehaviour
 
     IEnumerator ChallengeTimer()
     {
-        //move challenge text to player y position with ratio to time left
-        challengeText.transform.position = new Vector3(challengeText.transform.position.x,
-            challengeText.transform.position.y - (timeLeft / currentChallenge.timeLimit),
-            challengeText.transform.position.z);
+        float initialYPos = challengeText.transform.position.y;
+        float targetYPos = duck.transform.position.y; // Adjust this to the actual position you want to approach
 
-        yield return new WaitForSeconds(timeLeft);
+        float startTime = Time.time;
+        float elapsedTime = 0f;
+        float moveDuration = timeLeft;
+
+        while (elapsedTime < moveDuration)
+        {
+            float ratio = Mathf.Clamp01(elapsedTime / moveDuration); // Calculate the ratio
+            float newYPos = Mathf.Lerp(initialYPos, targetYPos, ratio);
+
+            Vector3 newPos = new Vector3(challengeText.transform.position.x, newYPos, challengeText.transform.position.z);
+            challengeText.transform.position = newPos;
+
+            elapsedTime = Time.time - startTime;
+            yield return null;
+        }
 
         if (!isChallengeCompleted)
         {
-            //Game Over
+            // Game Over
             currentChallenge.FailChallenge();
-
             FailChallenge();
-
 
             if (!isPlayed)
             {
                 isPlayed = true;
-                //play challenge failed SFX
+                // Play challenge failed SFX
                 int randomSFX = UnityEngine.Random.Range(0, challengeFailedSFX.Length);
                 audioSource.PlayOneShot(challengeFailedSFX[randomSFX]);
             }
         }
     }
+
 
     IEnumerator WaitForPlayerToLand()
     {
