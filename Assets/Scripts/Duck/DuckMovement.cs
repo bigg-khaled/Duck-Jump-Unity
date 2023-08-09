@@ -61,9 +61,9 @@ public class DuckMovement : MonoBehaviour
             challengeHandler.currentChallenge.FailChallenge();
         }
 
-        //when any key is pressed, or screen touched, the duck jumps
-        //make sure screen touch is below the pause button on the screen
-        if (Input.GetKeyDown(KeyCode.Space) ||
+        //when any key is pressed, or screen tapped, the duck jumps
+        //make sure screen tapped is below the pause button on the screen
+        if (Input.anyKeyDown ||
             Input.touchCount > 0 && Screen.height - Input.GetTouch(0).position.y > 200f)
         {
             Time.timeScale = 1f;
