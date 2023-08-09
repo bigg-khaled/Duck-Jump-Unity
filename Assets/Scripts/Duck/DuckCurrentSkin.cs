@@ -12,7 +12,7 @@ public class DuckCurrentSkin : MonoBehaviour
     private void Awake()
     {
         //get the skin from player pref
-        currentSkinIndex = PlayerPrefs.GetInt("Skin", 1);
+        currentSkinIndex = PlayerPrefs.GetInt("Skin", 0);
         
         //set the skin
         currentSkin = skinArray[currentSkinIndex];
